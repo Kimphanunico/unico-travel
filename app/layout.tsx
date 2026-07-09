@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { LanguageProvider } from "@/components/LanguageProvider";
 
 export const metadata: Metadata = {
   title: "Unico Travel | Journeys Worth Remembering",
@@ -25,9 +26,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full antialiased">
       <body className="min-h-full flex flex-col bg-cream text-ink font-sans">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <LanguageProvider>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

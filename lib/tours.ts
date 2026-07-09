@@ -1,280 +1,435 @@
+import { loc, type Localized } from "./i18n";
+
 export interface ItineraryDay {
-  day: string;
-  title: string;
-  description: string;
+  day: Localized;
+  title: Localized;
+  description: Localized;
 }
 
 export interface Tour {
   slug: string;
-  title: string;
-  location: string;
-  category: string;
+  title: Localized;
+  location: Localized;
+  category: Localized;
   country: string;
   serviceType: string;
-  duration: string;
+  duration: Localized;
   price: string;
-  groupSize: string;
+  groupSize: Localized;
   gradient: string;
-  summary: string;
-  description: string[];
-  highlights: string[];
+  summary: Localized;
+  description: Localized[];
+  highlights: Localized[];
   itinerary: ItineraryDay[];
-  includes: string[];
-  excludes: string[];
+  includes: Localized[];
+  excludes: Localized[];
 }
 
 export const tours: Tour[] = [
   {
     slug: "vietnam-coastal-explorer",
-    title: "Vietnam Coastal Explorer",
-    location: "Da Nang, Hoi An & Ha Long Bay, Vietnam",
-    category: "Coastal",
+    title: loc("Vietnam Coastal Explorer", "Khám Phá Duyên Hải Việt Nam"),
+    location: loc(
+      "Da Nang, Hoi An & Ha Long Bay, Vietnam",
+      "Đà Nẵng, Hội An & Vịnh Hạ Long, Việt Nam"
+    ),
+    category: loc("Coastal", "Ven biển"),
     country: "vietnam",
     serviceType: "group",
-    duration: "9 days / 8 nights",
+    duration: loc("9 days / 8 nights", "9 ngày / 8 đêm"),
     price: "$1,890",
-    groupSize: "6 - 12 travelers",
+    groupSize: loc("6 - 12 travelers", "6 - 12 khách"),
     gradient: "gradient-ocean",
-    summary:
+    summary: loc(
       "Lantern-lit old towns, limestone karsts, and some of the best coastal cuisine in Southeast Asia.",
+      "Phố cổ rực ánh đèn lồng, núi đá vôi kỳ vĩ và ẩm thực ven biển hàng đầu Đông Nam Á."
+    ),
     description: [
-      "Trace Vietnam's coastline from the ancient trading port of Hoi An to the dramatic karsts of Ha Long Bay. This trip balances culture, cuisine, and quiet coastal downtime.",
-      "You'll cook with local families, cruise past limestone islands at sunset, and wander streets strung with silk lanterns.",
+      loc(
+        "Trace Vietnam's coastline from the ancient trading port of Hoi An to the dramatic karsts of Ha Long Bay. This trip balances culture, cuisine, and quiet coastal downtime.",
+        "Hành trình dọc theo bờ biển Việt Nam, từ thương cảng cổ Hội An đến dãy núi đá vôi kỳ vĩ của Vịnh Hạ Long, cân bằng giữa văn hóa, ẩm thực và những khoảng lặng ven biển."
+      ),
+      loc(
+        "You'll cook with local families, cruise past limestone islands at sunset, and wander streets strung with silk lanterns.",
+        "Bạn sẽ cùng nấu ăn với các gia đình địa phương, du thuyền ngắm hoàng hôn qua những hòn đảo đá vôi, và dạo bước trên những con phố treo đầy đèn lồng lụa."
+      ),
     ],
     highlights: [
-      "Overnight cruise through Ha Long Bay",
-      "Private cooking class in Hoi An",
-      "Sunrise cycling tour through rice paddies",
-      "Free day to explore Da Nang's beaches",
+      loc("Overnight cruise through Ha Long Bay", "Du thuyền qua đêm trên Vịnh Hạ Long"),
+      loc("Private cooking class in Hoi An", "Lớp học nấu ăn riêng tại Hội An"),
+      loc("Sunrise cycling tour through rice paddies", "Đạp xe ngắm bình minh qua cánh đồng lúa"),
+      loc("Free day to explore Da Nang's beaches", "Một ngày tự do khám phá biển Đà Nẵng"),
     ],
     itinerary: [
-      { day: "Day 1-2", title: "Arrive in Da Nang", description: "Settle in beachside, welcome dinner with the group." },
-      { day: "Day 3-5", title: "Hoi An Ancient Town", description: "Lantern markets, tailor visits, cooking class, cycling tour." },
-      { day: "Day 6-7", title: "Ha Long Bay Cruise", description: "Overnight boat, kayaking, cave exploration." },
-      { day: "Day 8-9", title: "Hanoi & Departure", description: "Old Quarter walking tour, farewell dinner, departure." },
+      { day: loc("Day 1-2", "Ngày 1-2"), title: loc("Arrive in Da Nang", "Đến Đà Nẵng"), description: loc("Settle in beachside, welcome dinner with the group.", "Nhận phòng ven biển, dùng bữa tối chào mừng cùng đoàn.") },
+      { day: loc("Day 3-5", "Ngày 3-5"), title: loc("Hoi An Ancient Town", "Phố cổ Hội An"), description: loc("Lantern markets, tailor visits, cooking class, cycling tour.", "Chợ đèn lồng, may đo, lớp nấu ăn, đạp xe tham quan.") },
+      { day: loc("Day 6-7", "Ngày 6-7"), title: loc("Ha Long Bay Cruise", "Du thuyền Vịnh Hạ Long"), description: loc("Overnight boat, kayaking, cave exploration.", "Ngủ đêm trên thuyền, chèo kayak, khám phá hang động.") },
+      { day: loc("Day 8-9", "Ngày 8-9"), title: loc("Hanoi & Departure", "Hà Nội & Khởi hành"), description: loc("Old Quarter walking tour, farewell dinner, departure.", "Dạo bộ Phố Cổ, tiệc chia tay, khởi hành.") },
     ],
-    includes: ["Accommodation", "Daily breakfast", "Airport transfers", "Local guide", "Ha Long Bay cruise"],
-    excludes: ["International flights", "Travel insurance", "Personal expenses"],
+    includes: [
+      loc("Accommodation", "Chỗ nghỉ"),
+      loc("Daily breakfast", "Ăn sáng hàng ngày"),
+      loc("Airport transfers", "Đưa đón sân bay"),
+      loc("Local guide", "Hướng dẫn viên địa phương"),
+      loc("Ha Long Bay cruise", "Du thuyền Vịnh Hạ Long"),
+    ],
+    excludes: [
+      loc("International flights", "Vé máy bay quốc tế"),
+      loc("Travel insurance", "Bảo hiểm du lịch"),
+      loc("Personal expenses", "Chi tiêu cá nhân"),
+    ],
   },
   {
     slug: "japan-cherry-blossom-journey",
-    title: "Japan Cherry Blossom Journey",
-    location: "Tokyo, Kyoto & Hakone, Japan",
-    category: "Cultural",
+    title: loc("Japan Cherry Blossom Journey", "Hành Trình Hoa Anh Đào Nhật Bản"),
+    location: loc("Tokyo, Kyoto & Hakone, Japan", "Tokyo, Kyoto & Hakone, Nhật Bản"),
+    category: loc("Cultural", "Văn hóa"),
     country: "japan",
     serviceType: "luxury",
-    duration: "10 days / 9 nights",
+    duration: loc("10 days / 9 nights", "10 ngày / 9 đêm"),
     price: "$3,250",
-    groupSize: "6 - 10 travelers",
+    groupSize: loc("6 - 10 travelers", "6 - 10 khách"),
     gradient: "gradient-sunset",
-    summary:
+    summary: loc(
       "Temples, tea ceremonies, and blossom-lined streets timed to Japan's most photogenic season.",
+      "Đền chùa, trà đạo và những con phố hoa anh đào nở rộ đúng mùa đẹp nhất của Nhật Bản."
+    ),
     description: [
-      "This spring itinerary follows the bloom from Tokyo's parks to Kyoto's temple gardens, with a soak in Hakone's hot springs along the way.",
-      "Small-group access to a traditional tea ceremony and a private ryokan stay make this a trip of quiet, considered moments.",
+      loc(
+        "This spring itinerary follows the bloom from Tokyo's parks to Kyoto's temple gardens, with a soak in Hakone's hot springs along the way.",
+        "Hành trình mùa xuân này theo dấu hoa nở từ các công viên Tokyo đến những khu vườn đền chùa Kyoto, dừng chân ngâm mình tại suối nước nóng Hakone."
+      ),
+      loc(
+        "Small-group access to a traditional tea ceremony and a private ryokan stay make this a trip of quiet, considered moments.",
+        "Nhóm nhỏ được tham gia một buổi trà đạo truyền thống và nghỉ đêm riêng tư tại ryokan, mang đến một hành trình đầy những khoảnh khắc lắng đọng, tinh tế."
+      ),
     ],
     highlights: [
-      "Private tea ceremony in Kyoto",
-      "Ryokan stay with onsen access",
-      "Shinkansen bullet train experience",
-      "Blossom viewing at Maruyama Park",
+      loc("Private tea ceremony in Kyoto", "Trà đạo riêng tại Kyoto"),
+      loc("Ryokan stay with onsen access", "Nghỉ tại ryokan có suối nước nóng onsen"),
+      loc("Shinkansen bullet train experience", "Trải nghiệm tàu cao tốc Shinkansen"),
+      loc("Blossom viewing at Maruyama Park", "Ngắm hoa anh đào tại công viên Maruyama"),
     ],
     itinerary: [
-      { day: "Day 1-3", title: "Tokyo", description: "Shibuya, Asakusa, Meiji Shrine, sushi-making class." },
-      { day: "Day 4-5", title: "Hakone", description: "Mt. Fuji views, ryokan stay, hot spring bathing." },
-      { day: "Day 6-9", title: "Kyoto", description: "Fushimi Inari, Arashiyama bamboo grove, tea ceremony." },
-      { day: "Day 10", title: "Departure", description: "Transfer to Osaka for international flights." },
+      { day: loc("Day 1-3", "Ngày 1-3"), title: loc("Tokyo", "Tokyo"), description: loc("Shibuya, Asakusa, Meiji Shrine, sushi-making class.", "Shibuya, Asakusa, đền Meiji, lớp học làm sushi.") },
+      { day: loc("Day 4-5", "Ngày 4-5"), title: loc("Hakone", "Hakone"), description: loc("Mt. Fuji views, ryokan stay, hot spring bathing.", "Ngắm núi Phú Sĩ, nghỉ tại ryokan, tắm suối nước nóng.") },
+      { day: loc("Day 6-9", "Ngày 6-9"), title: loc("Kyoto", "Kyoto"), description: loc("Fushimi Inari, Arashiyama bamboo grove, tea ceremony.", "Đền Fushimi Inari, rừng tre Arashiyama, trà đạo.") },
+      { day: loc("Day 10", "Ngày 10"), title: loc("Departure", "Khởi hành"), description: loc("Transfer to Osaka for international flights.", "Di chuyển đến Osaka để bay quốc tế.") },
     ],
-    includes: ["Accommodation", "Daily breakfast", "Rail passes", "Local guide", "Tea ceremony"],
-    excludes: ["International flights", "Travel insurance", "Some dinners"],
+    includes: [
+      loc("Accommodation", "Chỗ nghỉ"),
+      loc("Daily breakfast", "Ăn sáng hàng ngày"),
+      loc("Rail passes", "Vé tàu"),
+      loc("Local guide", "Hướng dẫn viên địa phương"),
+      loc("Tea ceremony", "Trà đạo"),
+    ],
+    excludes: [
+      loc("International flights", "Vé máy bay quốc tế"),
+      loc("Travel insurance", "Bảo hiểm du lịch"),
+      loc("Some dinners", "Một số bữa tối"),
+    ],
   },
   {
     slug: "swiss-alps-adventure",
-    title: "Swiss Alps Adventure",
-    location: "Interlaken, Zermatt & Lucerne, Switzerland",
-    category: "Mountain",
+    title: loc("Swiss Alps Adventure", "Phiêu Lưu Dãy Alps Thụy Sĩ"),
+    location: loc(
+      "Interlaken, Zermatt & Lucerne, Switzerland",
+      "Interlaken, Zermatt & Lucerne, Thụy Sĩ"
+    ),
+    category: loc("Mountain", "Núi non"),
     country: "switzerland",
     serviceType: "tailor-made",
-    duration: "8 days / 7 nights",
+    duration: loc("8 days / 7 nights", "8 ngày / 7 đêm"),
     price: "$4,100",
-    groupSize: "4 - 10 travelers",
+    groupSize: loc("4 - 10 travelers", "4 - 10 khách"),
     gradient: "gradient-snow",
-    summary:
+    summary: loc(
       "Alpine trains, glacier hikes, and lakeside towns beneath the Matterhorn.",
+      "Tàu hỏa xuyên núi Alps, leo núi băng và những thị trấn ven hồ dưới chân đỉnh Matterhorn."
+    ),
     description: [
-      "A trip built for those who want their mountain views earned, with cable cars, scenic rail, and moderate hiking through some of Europe's most dramatic terrain.",
-      "Evenings unwind in wood-paneled chalets and lakeside towns with fondue and clear mountain air.",
+      loc(
+        "A trip built for those who want their mountain views earned, with cable cars, scenic rail, and moderate hiking through some of Europe's most dramatic terrain.",
+        "Hành trình dành cho ai muốn tự mình chinh phục cảnh núi non, với cáp treo, tuyến đường sắt ngắm cảnh và những cung leo núi vừa sức qua địa hình ấn tượng bậc nhất châu Âu."
+      ),
+      loc(
+        "Evenings unwind in wood-paneled chalets and lakeside towns with fondue and clear mountain air.",
+        "Buổi tối thư giãn trong những chalet gỗ ấm cúng và thị trấn ven hồ, thưởng thức fondue giữa không khí núi trong lành."
+      ),
     ],
     highlights: [
-      "Cable car up the Schilthorn",
-      "Glacier Express scenic rail",
-      "Guided hike beneath the Matterhorn",
-      "Lake cruise on Lake Lucerne",
+      loc("Cable car up the Schilthorn", "Cáp treo lên đỉnh Schilthorn"),
+      loc("Glacier Express scenic rail", "Tàu ngắm cảnh Glacier Express"),
+      loc("Guided hike beneath the Matterhorn", "Leo núi có hướng dẫn dưới chân Matterhorn"),
+      loc("Lake cruise on Lake Lucerne", "Du thuyền trên hồ Lucerne"),
     ],
     itinerary: [
-      { day: "Day 1-2", title: "Lucerne", description: "Old town walk, lake cruise, chapel bridge." },
-      { day: "Day 3-4", title: "Interlaken", description: "Schilthorn cable car, adventure sports options." },
-      { day: "Day 5-7", title: "Zermatt", description: "Matterhorn hikes, Gornergrat railway, glacier views." },
-      { day: "Day 8", title: "Departure", description: "Return to Zurich for international flights." },
+      { day: loc("Day 1-2", "Ngày 1-2"), title: loc("Lucerne", "Lucerne"), description: loc("Old town walk, lake cruise, chapel bridge.", "Dạo phố cổ, du thuyền trên hồ, cầu nhà nguyện.") },
+      { day: loc("Day 3-4", "Ngày 3-4"), title: loc("Interlaken", "Interlaken"), description: loc("Schilthorn cable car, adventure sports options.", "Cáp treo Schilthorn, lựa chọn thể thao mạo hiểm.") },
+      { day: loc("Day 5-7", "Ngày 5-7"), title: loc("Zermatt", "Zermatt"), description: loc("Matterhorn hikes, Gornergrat railway, glacier views.", "Leo núi Matterhorn, tàu Gornergrat, ngắm sông băng.") },
+      { day: loc("Day 8", "Ngày 8"), title: loc("Departure", "Khởi hành"), description: loc("Return to Zurich for international flights.", "Trở về Zurich để bay quốc tế.") },
     ],
-    includes: ["Accommodation", "Daily breakfast", "Rail passes", "Local guide", "Cable car tickets"],
-    excludes: ["International flights", "Travel insurance", "Lunches & dinners"],
+    includes: [
+      loc("Accommodation", "Chỗ nghỉ"),
+      loc("Daily breakfast", "Ăn sáng hàng ngày"),
+      loc("Rail passes", "Vé tàu"),
+      loc("Local guide", "Hướng dẫn viên địa phương"),
+      loc("Cable car tickets", "Vé cáp treo"),
+    ],
+    excludes: [
+      loc("International flights", "Vé máy bay quốc tế"),
+      loc("Travel insurance", "Bảo hiểm du lịch"),
+      loc("Lunches & dinners", "Bữa trưa & bữa tối"),
+    ],
   },
   {
     slug: "tanzania-safari-escape",
-    title: "Tanzania Safari Escape",
-    location: "Serengeti & Ngorongoro Crater, Tanzania",
-    category: "Safari",
+    title: loc("Tanzania Safari Escape", "Safari Trốn Tìm Tanzania"),
+    location: loc(
+      "Serengeti & Ngorongoro Crater, Tanzania",
+      "Serengeti & Miệng Núi Lửa Ngorongoro, Tanzania"
+    ),
+    category: loc("Safari", "Safari"),
     country: "tanzania",
     serviceType: "luxury",
-    duration: "7 days / 6 nights",
+    duration: loc("7 days / 6 nights", "7 ngày / 6 đêm"),
     price: "$3,780",
-    groupSize: "4 - 8 travelers",
+    groupSize: loc("4 - 8 travelers", "4 - 8 khách"),
     gradient: "gradient-sand",
-    summary:
+    summary: loc(
       "Big-five game drives across the Serengeti plains and the Ngorongoro Crater floor.",
+      "Săn ảnh ngũ đại thú trên thảo nguyên Serengeti và đáy miệng núi lửa Ngorongoro."
+    ),
     description: [
-      "Small open-vehicle game drives led by expert local guides, staying in tented camps positioned for the best wildlife access.",
-      "Timed for strong wildlife viewing, with flexibility built in for the migration when it's in range.",
+      loc(
+        "Small open-vehicle game drives led by expert local guides, staying in tented camps positioned for the best wildlife access.",
+        "Bạn sẽ di chuyển bằng xe mui trần nhỏ do hướng dẫn viên địa phương giàu kinh nghiệm dẫn dắt, nghỉ tại các trại lều được đặt ở những vị trí ngắm thú tốt nhất."
+      ),
+      loc(
+        "Timed for strong wildlife viewing, with flexibility built in for the migration when it's in range.",
+        "Lịch trình được sắp xếp đúng thời điểm để quan sát động vật tốt nhất, và có thể linh hoạt điều chỉnh nếu trùng mùa di cư."
+      ),
     ],
     highlights: [
-      "Big-five game drives",
-      "Ngorongoro Crater descent",
-      "Maasai village cultural visit",
-      "Sundowner drinks on the savanna",
+      loc("Big-five game drives", "Xe safari ngắm ngũ đại thú"),
+      loc("Ngorongoro Crater descent", "Xuống đáy miệng núi lửa Ngorongoro"),
+      loc("Maasai village cultural visit", "Thăm bản làng văn hóa Maasai"),
+      loc("Sundowner drinks on the savanna", "Nhâm nhi đồ uống hoàng hôn trên thảo nguyên"),
     ],
     itinerary: [
-      { day: "Day 1-2", title: "Arusha & Tarangire", description: "Arrival, first game drive, tented camp." },
-      { day: "Day 3-4", title: "Serengeti", description: "Full-day game drives, sunrise safari." },
-      { day: "Day 5-6", title: "Ngorongoro Crater", description: "Crater floor game drive, Maasai village visit." },
-      { day: "Day 7", title: "Departure", description: "Transfer to Kilimanjaro International Airport." },
+      { day: loc("Day 1-2", "Ngày 1-2"), title: loc("Arusha & Tarangire", "Arusha & Tarangire"), description: loc("Arrival, first game drive, tented camp.", "Đến nơi, chuyến safari đầu tiên, nghỉ trại lều.") },
+      { day: loc("Day 3-4", "Ngày 3-4"), title: loc("Serengeti", "Serengeti"), description: loc("Full-day game drives, sunrise safari.", "Safari trọn ngày, safari lúc bình minh.") },
+      { day: loc("Day 5-6", "Ngày 5-6"), title: loc("Ngorongoro Crater", "Miệng núi lửa Ngorongoro"), description: loc("Crater floor game drive, Maasai village visit.", "Safari đáy miệng núi lửa, thăm bản Maasai.") },
+      { day: loc("Day 7", "Ngày 7"), title: loc("Departure", "Khởi hành"), description: loc("Transfer to Kilimanjaro International Airport.", "Di chuyển đến sân bay quốc tế Kilimanjaro.") },
     ],
-    includes: ["Tented camp accommodation", "All meals on safari", "4x4 game drives", "Park fees", "Local guide"],
-    excludes: ["International flights", "Travel insurance", "Visa fees"],
+    includes: [
+      loc("Tented camp accommodation", "Chỗ nghỉ trại lều"),
+      loc("All meals on safari", "Toàn bộ bữa ăn trong chuyến safari"),
+      loc("4x4 game drives", "Xe safari 4x4"),
+      loc("Park fees", "Phí vào công viên"),
+      loc("Local guide", "Hướng dẫn viên địa phương"),
+    ],
+    excludes: [
+      loc("International flights", "Vé máy bay quốc tế"),
+      loc("Travel insurance", "Bảo hiểm du lịch"),
+      loc("Visa fees", "Phí visa"),
+    ],
   },
   {
     slug: "bali-wellness-retreat",
-    title: "Bali Wellness Retreat",
-    location: "Ubud & Uluwatu, Bali, Indonesia",
-    category: "Wellness",
+    title: loc("Bali Wellness Retreat", "Nghỉ Dưỡng Chăm Sóc Sức Khỏe Bali"),
+    location: loc("Ubud & Uluwatu, Bali, Indonesia", "Ubud & Uluwatu, Bali, Indonesia"),
+    category: loc("Wellness", "Chăm sóc sức khỏe"),
     country: "indonesia",
     serviceType: "group",
-    duration: "6 days / 5 nights",
+    duration: loc("6 days / 5 nights", "6 ngày / 5 đêm"),
     price: "$1,450",
-    groupSize: "8 - 14 travelers",
+    groupSize: loc("8 - 14 travelers", "8 - 14 khách"),
     gradient: "gradient-forest",
-    summary:
+    summary: loc(
       "Rice-terrace yoga, cliffside temples, and slow mornings by the pool.",
+      "Yoga giữa ruộng bậc thang, đền thờ trên vách đá và những buổi sáng thư thái bên hồ bơi."
+    ),
     description: [
-      "A softer pace built around daily yoga, plant-based meals, and time in Bali's jungle interior before a few days unwinding on the Uluwatu coast.",
-      "Optional add-ons include a traditional healer visit and a sunrise volcano trek for those who want it.",
+      loc(
+        "A softer pace built around daily yoga, plant-based meals, and time in Bali's jungle interior before a few days unwinding on the Uluwatu coast.",
+        "Hành trình có nhịp độ nhẹ nhàng, xoay quanh yoga mỗi ngày, những bữa ăn thuần chay và thời gian hòa mình vào vùng rừng núi Bali, trước khi dành vài ngày thư giãn trên bờ biển Uluwatu."
+      ),
+      loc(
+        "Optional add-ons include a traditional healer visit and a sunrise volcano trek for those who want it.",
+        "Có thể thêm các hoạt động tùy chọn như thăm thầy chữa lành truyền thống hay leo núi lửa ngắm bình minh."
+      ),
     ],
     highlights: [
-      "Daily sunrise yoga overlooking rice terraces",
-      "Traditional Balinese healing session",
-      "Cliffside sunset at Uluwatu Temple",
-      "Plant-based cooking class",
+      loc("Daily sunrise yoga overlooking rice terraces", "Yoga bình minh mỗi ngày ngắm ruộng bậc thang"),
+      loc("Traditional Balinese healing session", "Buổi chữa lành truyền thống Bali"),
+      loc("Cliffside sunset at Uluwatu Temple", "Ngắm hoàng hôn trên vách đá tại đền Uluwatu"),
+      loc("Plant-based cooking class", "Lớp học nấu ăn thuần chay"),
     ],
     itinerary: [
-      { day: "Day 1-3", title: "Ubud", description: "Rice terrace yoga, waterfall visit, healer session." },
-      { day: "Day 4-5", title: "Uluwatu", description: "Cliffside resort, surf lessons optional, temple sunset." },
-      { day: "Day 6", title: "Departure", description: "Transfer to Denpasar for international flights." },
+      { day: loc("Day 1-3", "Ngày 1-3"), title: loc("Ubud", "Ubud"), description: loc("Rice terrace yoga, waterfall visit, healer session.", "Yoga ruộng bậc thang, thăm thác nước, buổi chữa lành.") },
+      { day: loc("Day 4-5", "Ngày 4-5"), title: loc("Uluwatu", "Uluwatu"), description: loc("Cliffside resort, surf lessons optional, temple sunset.", "Resort trên vách đá, học lướt sóng tùy chọn, hoàng hôn tại đền.") },
+      { day: loc("Day 6", "Ngày 6"), title: loc("Departure", "Khởi hành"), description: loc("Transfer to Denpasar for international flights.", "Di chuyển đến Denpasar để bay quốc tế.") },
     ],
-    includes: ["Accommodation", "Daily yoga", "Most meals", "Local guide", "Airport transfers"],
-    excludes: ["International flights", "Travel insurance", "Spa treatments"],
+    includes: [
+      loc("Accommodation", "Chỗ nghỉ"),
+      loc("Daily yoga", "Yoga hàng ngày"),
+      loc("Most meals", "Hầu hết các bữa ăn"),
+      loc("Local guide", "Hướng dẫn viên địa phương"),
+      loc("Airport transfers", "Đưa đón sân bay"),
+    ],
+    excludes: [
+      loc("International flights", "Vé máy bay quốc tế"),
+      loc("Travel insurance", "Bảo hiểm du lịch"),
+      loc("Spa treatments", "Liệu trình spa"),
+    ],
   },
   {
     slug: "iceland-northern-lights-expedition",
-    title: "Iceland Northern Lights Expedition",
-    location: "Reykjavik & South Coast, Iceland",
-    category: "Adventure",
+    title: loc("Iceland Northern Lights Expedition", "Săn Cực Quang Iceland"),
+    location: loc("Reykjavik & South Coast, Iceland", "Reykjavik & Bờ Biển Phía Nam, Iceland"),
+    category: loc("Adventure", "Mạo hiểm"),
     country: "iceland",
     serviceType: "tailor-made",
-    duration: "6 days / 5 nights",
+    duration: loc("6 days / 5 nights", "6 ngày / 5 đêm"),
     price: "$2,690",
-    groupSize: "6 - 12 travelers",
+    groupSize: loc("6 - 12 travelers", "6 - 12 khách"),
     gradient: "gradient-dusk",
-    summary:
+    summary: loc(
       "Glacier lagoons, black sand beaches, and nightly aurora chasing.",
+      "Đầm băng, bãi biển cát đen và những đêm săn cực quang."
+    ),
     description: [
-      "A compact, high-impact loop of Iceland's south coast, taking in waterfalls, glacier lagoons, and geothermal spas by day, then aurora hunting by night with a photography guide.",
-      "Small-group 4x4 transport keeps the itinerary flexible around weather and light conditions.",
+      loc(
+        "A compact, high-impact loop of Iceland's south coast, taking in waterfalls, glacier lagoons, and geothermal spas by day, then aurora hunting by night with a photography guide.",
+        "Hành trình gọn nhưng đầy ấn tượng dọc bờ biển phía nam Iceland, ban ngày ghé thác nước, đầm băng và suối nước nóng địa nhiệt, ban đêm săn cực quang cùng hướng dẫn viên nhiếp ảnh."
+      ),
+      loc(
+        "Small-group 4x4 transport keeps the itinerary flexible around weather and light conditions.",
+        "Di chuyển bằng xe 4x4 nhóm nhỏ giúp lịch trình linh hoạt theo thời tiết và điều kiện ánh sáng."
+      ),
     ],
     highlights: [
-      "Nightly aurora chasing with a photography guide",
-      "Jokulsarlon glacier lagoon boat trip",
-      "Black sand beaches of Vik",
-      "Blue Lagoon geothermal spa",
+      loc("Nightly aurora chasing with a photography guide", "Săn cực quang mỗi đêm cùng hướng dẫn viên nhiếp ảnh"),
+      loc("Jokulsarlon glacier lagoon boat trip", "Du thuyền trên đầm băng Jokulsarlon"),
+      loc("Black sand beaches of Vik", "Bãi biển cát đen tại Vik"),
+      loc("Blue Lagoon geothermal spa", "Suối nước nóng địa nhiệt Blue Lagoon"),
     ],
     itinerary: [
-      { day: "Day 1-2", title: "Reykjavik", description: "City walk, Golden Circle day trip." },
-      { day: "Day 3-4", title: "South Coast", description: "Waterfalls, black sand beaches, glacier lagoon." },
-      { day: "Day 5", title: "Blue Lagoon", description: "Geothermal spa, farewell dinner." },
-      { day: "Day 6", title: "Departure", description: "Transfer to Keflavik International Airport." },
+      { day: loc("Day 1-2", "Ngày 1-2"), title: loc("Reykjavik", "Reykjavik"), description: loc("City walk, Golden Circle day trip.", "Dạo phố, tham quan Vòng Tròn Vàng.") },
+      { day: loc("Day 3-4", "Ngày 3-4"), title: loc("South Coast", "Bờ biển phía Nam"), description: loc("Waterfalls, black sand beaches, glacier lagoon.", "Thác nước, bãi biển cát đen, đầm băng.") },
+      { day: loc("Day 5", "Ngày 5"), title: loc("Blue Lagoon", "Blue Lagoon"), description: loc("Geothermal spa, farewell dinner.", "Suối nước nóng địa nhiệt, tiệc chia tay.") },
+      { day: loc("Day 6", "Ngày 6"), title: loc("Departure", "Khởi hành"), description: loc("Transfer to Keflavik International Airport.", "Di chuyển đến sân bay quốc tế Keflavik.") },
     ],
-    includes: ["Accommodation", "Daily breakfast", "4x4 transport", "Local guide", "Blue Lagoon entry"],
-    excludes: ["International flights", "Travel insurance", "Some dinners"],
+    includes: [
+      loc("Accommodation", "Chỗ nghỉ"),
+      loc("Daily breakfast", "Ăn sáng hàng ngày"),
+      loc("4x4 transport", "Xe 4x4"),
+      loc("Local guide", "Hướng dẫn viên địa phương"),
+      loc("Blue Lagoon entry", "Vé vào Blue Lagoon"),
+    ],
+    excludes: [
+      loc("International flights", "Vé máy bay quốc tế"),
+      loc("Travel insurance", "Bảo hiểm du lịch"),
+      loc("Some dinners", "Một số bữa tối"),
+    ],
   },
   {
     slug: "cambodia-temples-heritage-trail",
-    title: "Cambodia Temples & Heritage Trail",
-    location: "Siem Reap & Phnom Penh, Cambodia",
-    category: "Cultural",
+    title: loc("Cambodia Temples & Heritage Trail", "Hành Trình Đền Đài & Di Sản Campuchia"),
+    location: loc("Siem Reap & Phnom Penh, Cambodia", "Siem Reap & Phnom Penh, Campuchia"),
+    category: loc("Cultural", "Văn hóa"),
     country: "cambodia",
     serviceType: "tailor-made",
-    duration: "6 days / 5 nights",
+    duration: loc("6 days / 5 nights", "6 ngày / 5 đêm"),
     price: "$1,280",
-    groupSize: "Private, any size",
+    groupSize: loc("Private, any size", "Riêng tư, mọi quy mô"),
     gradient: "gradient-sand",
-    summary:
+    summary: loc(
       "Sunrise at Angkor Wat, jungle-swallowed temples, and the living history of Phnom Penh.",
+      "Bình minh tại Angkor Wat, những ngôi đền chìm trong rừng và lịch sử sống động của Phnom Penh."
+    ),
     description: [
-      "A private itinerary through Cambodia's temple complexes and capital, built around your pace rather than a fixed group schedule.",
-      "Time is split between the temples of Angkor and the markets, riverside, and museums of Phnom Penh.",
+      loc(
+        "A private itinerary through Cambodia's temple complexes and capital, built around your pace rather than a fixed group schedule.",
+        "Hành trình riêng tư qua các quần thể đền đài và thủ đô Campuchia, được sắp xếp theo nhịp độ của riêng bạn thay vì lịch trình đoàn cố định."
+      ),
+      loc(
+        "Time is split between the temples of Angkor and the markets, riverside, and museums of Phnom Penh.",
+        "Thời gian được chia đều giữa các đền đài Angkor và chợ, bờ sông, bảo tàng của Phnom Penh."
+      ),
     ],
     highlights: [
-      "Sunrise at Angkor Wat with a private guide",
-      "Ta Prohm and the jungle-reclaimed temples",
-      "Tuk-tuk tour of Phnom Penh's riverside",
-      "Local market and street food walk",
+      loc("Sunrise at Angkor Wat with a private guide", "Ngắm bình minh tại Angkor Wat cùng hướng dẫn viên riêng"),
+      loc("Ta Prohm and the jungle-reclaimed temples", "Ta Prohm và những ngôi đền bị rừng bao phủ"),
+      loc("Tuk-tuk tour of Phnom Penh's riverside", "Dạo bờ sông Phnom Penh bằng tuk-tuk"),
+      loc("Local market and street food walk", "Dạo chợ địa phương và ẩm thực đường phố"),
     ],
     itinerary: [
-      { day: "Day 1-3", title: "Siem Reap", description: "Angkor Wat sunrise, Bayon, Ta Prohm, floating villages." },
-      { day: "Day 4-6", title: "Phnom Penh", description: "Royal Palace, Central Market, riverside, departure." },
+      { day: loc("Day 1-3", "Ngày 1-3"), title: loc("Siem Reap", "Siem Reap"), description: loc("Angkor Wat sunrise, Bayon, Ta Prohm, floating villages.", "Bình minh Angkor Wat, đền Bayon, Ta Prohm, làng nổi.") },
+      { day: loc("Day 4-6", "Ngày 4-6"), title: loc("Phnom Penh", "Phnom Penh"), description: loc("Royal Palace, Central Market, riverside, departure.", "Hoàng cung, chợ Trung tâm, bờ sông, khởi hành.") },
     ],
-    includes: ["Accommodation", "Daily breakfast", "Private driver & guide", "Temple pass", "Airport transfers"],
-    excludes: ["International flights", "Travel insurance", "Personal expenses"],
+    includes: [
+      loc("Accommodation", "Chỗ nghỉ"),
+      loc("Daily breakfast", "Ăn sáng hàng ngày"),
+      loc("Private driver & guide", "Tài xế & hướng dẫn viên riêng"),
+      loc("Temple pass", "Vé vào khu đền"),
+      loc("Airport transfers", "Đưa đón sân bay"),
+    ],
+    excludes: [
+      loc("International flights", "Vé máy bay quốc tế"),
+      loc("Travel insurance", "Bảo hiểm du lịch"),
+      loc("Personal expenses", "Chi tiêu cá nhân"),
+    ],
   },
   {
     slug: "laos-mekong-heritage-journey",
-    title: "Laos Mekong Heritage Journey",
-    location: "Luang Prabang & the Mekong River, Laos",
-    category: "Cultural",
+    title: loc("Laos Mekong Heritage Journey", "Hành Trình Di Sản Mekong Lào"),
+    location: loc("Luang Prabang & the Mekong River, Laos", "Luang Prabang & Sông Mekong, Lào"),
+    category: loc("Cultural", "Văn hóa"),
     country: "laos",
     serviceType: "tailor-made",
-    duration: "5 days / 4 nights",
+    duration: loc("5 days / 4 nights", "5 ngày / 4 đêm"),
     price: "$1,150",
-    groupSize: "Private, any size",
+    groupSize: loc("Private, any size", "Riêng tư, mọi quy mô"),
     gradient: "gradient-forest",
-    summary:
+    summary: loc(
       "Slow mornings on the Mekong, saffron-robed monks, and Luang Prabang's quiet French-colonial streets.",
+      "Những buổi sáng chậm rãi trên sông Mekong, các nhà sư áo vàng nghệ, và những con phố Pháp cổ yên bình của Luang Prabang."
+    ),
     description: [
-      "A gentle, unhurried trip through Laos's spiritual capital, built for travelers who want space between stops rather than another checklist.",
-      "Includes a private Mekong river cruise and time in the surrounding waterfalls and villages.",
+      loc(
+        "A gentle, unhurried trip through Laos's spiritual capital, built for travelers who want space between stops rather than another checklist.",
+        "Hành trình nhẹ nhàng, thong thả qua thủ phủ tâm linh của Lào, dành cho những du khách muốn có khoảng lặng giữa các điểm dừng chứ không phải một danh sách dày đặc."
+      ),
+      loc(
+        "Includes a private Mekong river cruise and time in the surrounding waterfalls and villages.",
+        "Bao gồm du thuyền riêng trên sông Mekong và thời gian ghé thăm các thác nước, bản làng xung quanh."
+      ),
     ],
     highlights: [
-      "Alms-giving ceremony at sunrise",
-      "Private Mekong River cruise",
-      "Kuang Si Falls and rescued bear sanctuary",
-      "Luang Prabang night market",
+      loc("Alms-giving ceremony at sunrise", "Lễ dâng cơm cho sư lúc bình minh"),
+      loc("Private Mekong River cruise", "Du thuyền riêng trên sông Mekong"),
+      loc("Kuang Si Falls and rescued bear sanctuary", "Thác Kuang Si và khu bảo tồn gấu"),
+      loc("Luang Prabang night market", "Chợ đêm Luang Prabang"),
     ],
     itinerary: [
-      { day: "Day 1-2", title: "Luang Prabang", description: "Old town, alms ceremony, night market." },
-      { day: "Day 3", title: "Mekong River", description: "Private cruise, riverside villages." },
-      { day: "Day 4-5", title: "Kuang Si Falls & Departure", description: "Waterfall visit, bear sanctuary, departure." },
+      { day: loc("Day 1-2", "Ngày 1-2"), title: loc("Luang Prabang", "Luang Prabang"), description: loc("Old town, alms ceremony, night market.", "Phố cổ, lễ dâng cơm, chợ đêm.") },
+      { day: loc("Day 3", "Ngày 3"), title: loc("Mekong River", "Sông Mekong"), description: loc("Private cruise, riverside villages.", "Du thuyền riêng, bản làng ven sông.") },
+      { day: loc("Day 4-5", "Ngày 4-5"), title: loc("Kuang Si Falls & Departure", "Thác Kuang Si & Khởi hành"), description: loc("Waterfall visit, bear sanctuary, departure.", "Thăm thác nước, khu bảo tồn gấu, khởi hành.") },
     ],
-    includes: ["Accommodation", "Daily breakfast", "Private driver & guide", "River cruise", "Airport transfers"],
-    excludes: ["International flights", "Travel insurance", "Personal expenses"],
+    includes: [
+      loc("Accommodation", "Chỗ nghỉ"),
+      loc("Daily breakfast", "Ăn sáng hàng ngày"),
+      loc("Private driver & guide", "Tài xế & hướng dẫn viên riêng"),
+      loc("River cruise", "Du thuyền"),
+      loc("Airport transfers", "Đưa đón sân bay"),
+    ],
+    excludes: [
+      loc("International flights", "Vé máy bay quốc tế"),
+      loc("Travel insurance", "Bảo hiểm du lịch"),
+      loc("Personal expenses", "Chi tiêu cá nhân"),
+    ],
   },
 ];
 

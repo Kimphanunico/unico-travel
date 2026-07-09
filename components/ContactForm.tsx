@@ -2,12 +2,14 @@
 
 import { useSearchParams } from "next/navigation";
 import { useState, type FormEvent } from "react";
+import { useLanguage } from "@/components/LanguageProvider";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
 export default function ContactForm() {
   const searchParams = useSearchParams();
   const prefillTour = searchParams.get("tour") ?? "";
+  const { t } = useLanguage();
 
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState("");
@@ -39,7 +41,7 @@ export default function ContactForm() {
 
       if (!res.ok) {
         setStatus("error");
-        setErrorMessage(data.error ?? "Something went wrong. Please try again.");
+        setErrorMessage(data.error ?? t("contact.errorGeneric"));
         return;
       }
 
@@ -47,17 +49,16 @@ export default function ContactForm() {
       form.reset();
     } catch {
       setStatus("error");
-      setErrorMessage("Network error. Please check your connection and try again.");
+      setErrorMessage(t("contact.errorNetwork"));
     }
   }
 
   if (status === "success") {
     return (
       <div className="rounded-2xl border border-forest/20 bg-forest/5 p-8 text-center">
-        <h3 className="font-serif text-xl text-ink">Request received</h3>
+        <h3 className="font-serif text-xl text-ink">{t("contact.successTitle")}</h3>
         <p className="mt-3 text-sm leading-relaxed text-ink/65">
-          Thanks for reaching out. A trip designer will get back to you
-          within 1-2 business days.
+          {t("contact.successBody")}
         </p>
       </div>
     );
@@ -68,7 +69,7 @@ export default function ContactForm() {
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="text-xs uppercase tracking-widest text-ink/60">
-            Full name *
+            {t("contact.formName")} *
           </label>
           <input
             id="name"
@@ -80,7 +81,7 @@ export default function ContactForm() {
         </div>
         <div>
           <label htmlFor="email" className="text-xs uppercase tracking-widest text-ink/60">
-            Email *
+            {t("contact.formEmail")} *
           </label>
           <input
             id="email"
@@ -95,7 +96,7 @@ export default function ContactForm() {
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="phone" className="text-xs uppercase tracking-widest text-ink/60">
-            Phone
+            {t("contact.formPhone")}
           </label>
           <input
             id="phone"
@@ -106,7 +107,7 @@ export default function ContactForm() {
         </div>
         <div>
           <label htmlFor="destination" className="text-xs uppercase tracking-widest text-ink/60">
-            Destination / Tour
+            {t("contact.formDestination")}
           </label>
           <input
             id="destination"
@@ -121,19 +122,19 @@ export default function ContactForm() {
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="travelDates" className="text-xs uppercase tracking-widest text-ink/60">
-            Preferred dates
+            {t("contact.formDates")}
           </label>
           <input
             id="travelDates"
             name="travelDates"
             type="text"
-            placeholder="e.g. March 2027"
+            placeholder={t("contact.formDatesPlaceholder")}
             className="mt-2 w-full rounded-lg border border-ink/15 bg-white px-4 py-3 text-sm text-ink outline-none focus:border-terracotta"
           />
         </div>
         <div>
           <label htmlFor="travelers" className="text-xs uppercase tracking-widest text-ink/60">
-            Number of travelers
+            {t("contact.formTravelers")}
           </label>
           <input
             id="travelers"
@@ -146,7 +147,7 @@ export default function ContactForm() {
 
       <div>
         <label htmlFor="message" className="text-xs uppercase tracking-widest text-ink/60">
-          Tell us about your trip *
+          {t("contact.formMessage")} *
         </label>
         <textarea
           id="message"
@@ -166,7 +167,7 @@ export default function ContactForm() {
         disabled={status === "submitting"}
         className="w-full rounded-full bg-terracotta px-6 py-3 text-sm uppercase tracking-widest text-white transition-colors hover:bg-terracotta-dark disabled:opacity-60 sm:w-auto"
       >
-        {status === "submitting" ? "Sending..." : "Send Request"}
+        {status === "submitting" ? t("contact.sending") : t("contact.submit")}
       </button>
     </form>
   );

@@ -4,29 +4,26 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useLanguage } from "@/components/LanguageProvider";
+import { pick, type Locale, type Localized } from "@/lib/i18n";
 
-const DESTINATIONS = [
-  { href: "/destinations/vietnam", label: "Vietnam" },
-  { href: "/destinations/cambodia", label: "Cambodia" },
-  { href: "/destinations/laos", label: "Laos" },
-  { href: "/destinations/japan", label: "Japan" },
+const DESTINATIONS: { href: string; label: Localized }[] = [
+  { href: "/destinations/vietnam", label: { en: "Vietnam", vi: "Việt Nam" } },
+  { href: "/destinations/cambodia", label: { en: "Cambodia", vi: "Campuchia" } },
+  { href: "/destinations/laos", label: { en: "Laos", vi: "Lào" } },
+  { href: "/destinations/japan", label: { en: "Japan", vi: "Nhật Bản" } },
 ];
 
-const SERVICE_TYPES = [
-  { href: "/services?type=tailor-made", label: "Tailor-Made" },
-  { href: "/services?type=luxury", label: "Luxury" },
-  { href: "/services?type=events", label: "Events" },
-  { href: "/services?type=group", label: "Group" },
+const SERVICE_TYPES: { href: string; label: Localized }[] = [
+  { href: "/services?type=tailor-made", label: { en: "Tailor-Made", vi: "Trọn Gói Riêng" } },
+  { href: "/services?type=luxury", label: { en: "Luxury", vi: "Cao Cấp" } },
+  { href: "/services?type=events", label: { en: "Events", vi: "Sự Kiện" } },
+  { href: "/services?type=group", label: { en: "Group", vi: "Đoàn" } },
 ];
 
-const SIMPLE_LINKS = [
-  { href: "/blog", label: "News" },
-  { href: "/about", label: "About" },
-];
-
-const CONTACT_ITEMS = [
-  { href: "/contact", label: "Enquiry" },
-  { href: "/partners", label: "Partner with us" },
+const LANGUAGES: { code: Locale; label: string }[] = [
+  { code: "en", label: "English" },
+  { code: "vi", label: "Tiếng Việt" },
 ];
 
 export default function Header() {
@@ -34,6 +31,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === "/";
+  const { locale, setLocale, t } = useLanguage();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -44,6 +42,18 @@ export default function Header() {
 
   const solid = scrolled || !isHome || menuOpen;
   const linkColor = solid ? "text-ink/80" : "text-white/90";
+
+  const contactItems = [
+    { href: "/contact", label: t("nav.enquiry") },
+    { href: "/partners", label: t("nav.partnerWithUs") },
+  ];
+
+  const simpleLinks = [
+    { href: "/blog", label: t("nav.news") },
+    { href: "/about", label: t("nav.about") },
+  ];
+
+  const currentLanguage = LANGUAGES.find((l) => l.code === locale) ?? LANGUAGES[0];
 
   return (
     <header
@@ -63,14 +73,14 @@ export default function Header() {
           />
         </Link>
 
-        <nav className="hidden items-center gap-9 md:flex">
+        <nav className="hidden items-center gap-8 md:flex">
           <Link
             href="/"
             className={`text-sm uppercase tracking-widest transition-colors hover:text-terracotta ${
               pathname === "/" ? "text-terracotta" : linkColor
             }`}
           >
-            Home
+            {t("nav.home")}
           </Link>
 
           <div className="group relative">
@@ -78,7 +88,7 @@ export default function Header() {
               href="/destinations"
               className={`flex items-center gap-1 text-sm uppercase tracking-widest transition-colors hover:text-terracotta ${linkColor}`}
             >
-              Destinations
+              {t("nav.destinations")}
               <svg width="10" height="6" viewBox="0 0 10 6" fill="none" className="mt-0.5">
                 <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
@@ -91,7 +101,7 @@ export default function Header() {
                     href={item.href}
                     className="block px-5 py-2.5 text-sm text-ink/75 hover:bg-cream hover:text-terracotta"
                   >
-                    {item.label}
+                    {pick(item.label, locale)}
                   </Link>
                 ))}
               </div>
@@ -103,7 +113,7 @@ export default function Header() {
               href="/services"
               className={`flex items-center gap-1 text-sm uppercase tracking-widest transition-colors hover:text-terracotta ${linkColor}`}
             >
-              Services
+              {t("nav.services")}
               <svg width="10" height="6" viewBox="0 0 10 6" fill="none" className="mt-0.5">
                 <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
@@ -116,14 +126,14 @@ export default function Header() {
                     href={item.href}
                     className="block px-5 py-2.5 text-sm text-ink/75 hover:bg-cream hover:text-terracotta"
                   >
-                    {item.label}
+                    {pick(item.label, locale)}
                   </Link>
                 ))}
               </div>
             </div>
           </div>
 
-          {SIMPLE_LINKS.map((link) => (
+          {simpleLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -142,14 +152,14 @@ export default function Header() {
                 pathname === "/contact" ? "text-terracotta" : linkColor
               }`}
             >
-              Contact
+              {t("nav.contact")}
               <svg width="10" height="6" viewBox="0 0 10 6" fill="none" className="mt-0.5">
                 <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </Link>
             <div className="invisible absolute right-0 top-full w-52 pt-3 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100">
               <div className="rounded-xl border border-ink/10 bg-white py-2 shadow-lg">
-                {CONTACT_ITEMS.map((item) => (
+                {contactItems.map((item) => (
                   <Link
                     key={item.label}
                     href={item.href}
@@ -163,16 +173,46 @@ export default function Header() {
           </div>
         </nav>
 
-        <Link
-          href="/contact"
-          className={`hidden rounded-full border px-5 py-2 text-sm uppercase tracking-widest transition-colors md:inline-block ${
-            solid
-              ? "border-ink text-ink hover:bg-ink hover:text-cream"
-              : "border-white text-white hover:bg-white hover:text-ink"
-          }`}
-        >
-          Plan a Trip
-        </Link>
+        <div className="hidden items-center gap-4 md:flex">
+          <div className="group relative">
+            <button
+              className={`flex items-center gap-1 rounded-full border px-3 py-1.5 text-[11px] uppercase tracking-wide transition-colors ${
+                solid ? "border-ink/20 hover:border-terracotta hover:text-terracotta" : "border-white/40 hover:border-white"
+              } ${linkColor}`}
+            >
+              {currentLanguage.label}
+              <svg width="8" height="5" viewBox="0 0 10 6" fill="none" className="mt-0.5">
+                <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+            <div className="invisible absolute right-0 top-full w-28 pt-2 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100">
+              <div className="overflow-hidden rounded-lg border border-ink/10 bg-white shadow-lg">
+                {LANGUAGES.map((lang) => (
+                  <button
+                    key={lang.code}
+                    onClick={() => setLocale(lang.code)}
+                    className={`block w-full px-3 py-2 text-left text-xs hover:bg-cream hover:text-terracotta ${
+                      lang.code === locale ? "text-terracotta" : "text-ink/75"
+                    }`}
+                  >
+                    {lang.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <Link
+            href="/contact"
+            className={`rounded-full border px-5 py-2 text-sm uppercase tracking-widest transition-colors ${
+              solid
+                ? "border-ink text-ink hover:bg-ink hover:text-cream"
+                : "border-white text-white hover:bg-white hover:text-ink"
+            }`}
+          >
+            {t("nav.planATrip")}
+          </Link>
+        </div>
 
         <button
           aria-label="Toggle menu"
@@ -193,12 +233,12 @@ export default function Header() {
               onClick={() => setMenuOpen(false)}
               className="text-sm uppercase tracking-widest text-ink/80 hover:text-terracotta"
             >
-              Home
+              {t("nav.home")}
             </Link>
 
             <div>
               <p className="text-xs uppercase tracking-widest text-ink/40">
-                Destinations
+                {t("nav.destinations")}
               </p>
               <div className="mt-3 flex flex-col gap-3 pl-1">
                 {DESTINATIONS.map((item) => (
@@ -208,7 +248,7 @@ export default function Header() {
                     onClick={() => setMenuOpen(false)}
                     className="text-sm text-ink/80 hover:text-terracotta"
                   >
-                    {item.label}
+                    {pick(item.label, locale)}
                   </Link>
                 ))}
               </div>
@@ -216,7 +256,7 @@ export default function Header() {
 
             <div>
               <p className="text-xs uppercase tracking-widest text-ink/40">
-                Services
+                {t("nav.services")}
               </p>
               <div className="mt-3 flex flex-col gap-3 pl-1">
                 {SERVICE_TYPES.map((item) => (
@@ -226,13 +266,13 @@ export default function Header() {
                     onClick={() => setMenuOpen(false)}
                     className="text-sm text-ink/80 hover:text-terracotta"
                   >
-                    {item.label}
+                    {pick(item.label, locale)}
                   </Link>
                 ))}
               </div>
             </div>
 
-            {SIMPLE_LINKS.map((link) => (
+            {simpleLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -245,10 +285,10 @@ export default function Header() {
 
             <div>
               <p className="text-xs uppercase tracking-widest text-ink/40">
-                Contact
+                {t("nav.contact")}
               </p>
               <div className="mt-3 flex flex-col gap-3 pl-1">
-                {CONTACT_ITEMS.map((item) => (
+                {contactItems.map((item) => (
                   <Link
                     key={item.label}
                     href={item.href}
@@ -261,12 +301,31 @@ export default function Header() {
               </div>
             </div>
 
+            <div>
+              <p className="text-xs uppercase tracking-widest text-ink/40">
+                {t("nav.language")}
+              </p>
+              <div className="mt-3 flex flex-col gap-3 pl-1">
+                {LANGUAGES.map((lang) => (
+                  <button
+                    key={lang.code}
+                    onClick={() => setLocale(lang.code)}
+                    className={`text-left text-sm hover:text-terracotta ${
+                      lang.code === locale ? "text-terracotta" : "text-ink/80"
+                    }`}
+                  >
+                    {lang.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
             <Link
               href="/contact"
               onClick={() => setMenuOpen(false)}
               className="mt-2 inline-block w-fit rounded-full border border-ink px-5 py-2 text-sm uppercase tracking-widest text-ink"
             >
-              Plan a Trip
+              {t("nav.planATrip")}
             </Link>
           </nav>
         </div>

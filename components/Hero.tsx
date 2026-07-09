@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 import { useEffect, useRef } from "react";
+import { useLanguage } from "@/components/LanguageProvider";
 
 export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const video = videoRef.current;
@@ -55,34 +57,32 @@ export default function Hero() {
 
       <div className="relative z-30 mx-auto w-full max-w-7xl px-6 pb-20 pt-40 lg:px-10">
         <p className="text-xs uppercase tracking-[0.3em] text-white/80">
-          Travel, designed with intention
+          {t("home.heroTag")}
         </p>
         <h1 className="font-serif mt-6 max-w-3xl text-balance text-5xl leading-tight text-white sm:text-6xl md:text-7xl">
-          Journeys worth remembering
+          {t("home.heroTitle")}
         </h1>
         <p className="mt-6 max-w-xl text-balance text-lg text-white/85">
-          Unico Travel plans small-group and private trips across the world's
-          most striking landscapes, built around real people, real places,
-          and time well spent.
+          {t("home.heroBody")}
         </p>
         <div className="mt-10 flex flex-wrap gap-4">
           <Link
             href="/services"
             className="rounded-full bg-terracotta px-7 py-3 text-sm uppercase tracking-widest text-white transition-colors hover:bg-terracotta-dark"
           >
-            Explore Tours
+            {t("home.exploreTours")}
           </Link>
           <Link
             href="/contact"
             className="rounded-full border border-white px-7 py-3 text-sm uppercase tracking-widest text-white transition-colors hover:bg-white hover:text-ink"
           >
-            Plan a Trip
+            {t("home.planATrip")}
           </Link>
         </div>
       </div>
 
       <div className="absolute bottom-8 left-1/2 z-30 hidden -translate-x-1/2 flex-col items-center gap-2 text-white/70 sm:flex">
-        <span className="text-[10px] uppercase tracking-[0.3em]">Scroll</span>
+        <span className="text-[10px] uppercase tracking-[0.3em]">{t("home.scroll")}</span>
         <span className="h-10 w-px animate-pulse bg-white/60" />
       </div>
     </section>
