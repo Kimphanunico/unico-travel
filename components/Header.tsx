@@ -22,7 +22,11 @@ const SERVICE_TYPES = [
 const SIMPLE_LINKS = [
   { href: "/blog", label: "News" },
   { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+];
+
+const CONTACT_ITEMS = [
+  { href: "/contact", label: "Enquiry" },
+  { href: "/partners", label: "Partner with us" },
 ];
 
 export default function Header() {
@@ -130,6 +134,33 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
+
+          <div className="group relative">
+            <Link
+              href="/contact"
+              className={`flex items-center gap-1 text-sm uppercase tracking-widest transition-colors hover:text-terracotta ${
+                pathname === "/contact" ? "text-terracotta" : linkColor
+              }`}
+            >
+              Contact
+              <svg width="10" height="6" viewBox="0 0 10 6" fill="none" className="mt-0.5">
+                <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Link>
+            <div className="invisible absolute right-0 top-full w-52 pt-3 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100">
+              <div className="rounded-xl border border-ink/10 bg-white py-2 shadow-lg">
+                {CONTACT_ITEMS.map((item) => (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className="block px-5 py-2.5 text-sm text-ink/75 hover:bg-cream hover:text-terracotta"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
         </nav>
 
         <Link
@@ -211,6 +242,24 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
+
+            <div>
+              <p className="text-xs uppercase tracking-widest text-ink/40">
+                Contact
+              </p>
+              <div className="mt-3 flex flex-col gap-3 pl-1">
+                {CONTACT_ITEMS.map((item) => (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    onClick={() => setMenuOpen(false)}
+                    className="text-sm text-ink/80 hover:text-terracotta"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
 
             <Link
               href="/contact"

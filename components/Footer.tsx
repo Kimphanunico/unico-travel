@@ -26,7 +26,7 @@ export default function Footer() {
               <li><Link href="/services" className="text-cream/80 hover:text-terracotta">All Tours</Link></li>
               <li><Link href="/about" className="text-cream/80 hover:text-terracotta">About Us</Link></li>
               <li><Link href="/gallery" className="text-cream/80 hover:text-terracotta">Gallery</Link></li>
-              <li><Link href="/blog" className="text-cream/80 hover:text-terracotta">Journal</Link></li>
+              <li><Link href="/blog" className="text-cream/80 hover:text-terracotta">News</Link></li>
             </ul>
           </div>
 
