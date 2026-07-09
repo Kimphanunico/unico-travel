@@ -105,6 +105,8 @@ export const destinations: Destination[] = [
       "Đền chùa và trà thất trong cùng một tuần với tàu cao tốc và những giao lộ rực ánh đèn neon"
     ),
     gradient: "gradient-sunset",
+    video: "/videos/japan-hero.mp4",
+    videoPoster: "/videos/japan-hero-poster.jpg",
     intro: [
       loc(
         "Japan holds tradition and modern life closer together than almost anywhere else, with a tea ceremony in the morning and a shinkansen in the afternoon. Every region has its own character, from Kyoto's temple gardens to Hakone's hot springs.",
