@@ -51,6 +51,8 @@ export const destinations: Destination[] = [
       "Quần thể đền đài lúc bình minh và một thủ đô luôn giữ nhịp sống thong thả của riêng mình"
     ),
     gradient: "gradient-sand",
+    video: "/videos/cambodia-hero.mp4",
+    videoPoster: "/videos/cambodia-hero-poster.jpg",
     intro: [
       loc(
         "Cambodia is anchored by Angkor, the largest religious complex on earth, but there's far more to the country than its temples, from riverside Phnom Penh to quiet floating villages and a hospitality that's hard to overstate.",
