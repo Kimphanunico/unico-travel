@@ -18,17 +18,25 @@ export default function PartnersPage() {
           Partner With Us
         </h1>
         <p className="mt-6 leading-relaxed text-ink/65">
-          With years of experience crafting unique journeys, Unico Travel
-          keeps reinventing what travel across Vietnam, Cambodia, Laos and
-          Japan can look like. Every itinerary we design is exclusive to our
-          partners, priced to stay competitive, and backed by an operations
-          team that keeps things running smoothly long after the contract is
-          signed.
+          With years of experience in designing tailor made journeys, Unico
+          Travel continues to create fresh travel experiences across
+          Vietnam, Cambodia, Laos and Japan. Every itinerary is carefully
+          crafted for our partners with competitive pricing, flexible
+          solutions and a strong operations team that ensures every detail
+          is handled with care.
         </p>
         <p className="mt-4 leading-relaxed text-ink/65">
-          We work with travel agencies, wholesalers and independent planners
-          who want a partner they can rely on, not just a supplier. If that
-          sounds like a good fit, we would love to hear from you.
+          We understand that every market is different and every client has
+          unique expectations. That is why we take the time to listen,
+          adapt and build travel experiences that truly fit your business.
+          Our goal is not simply to arrange a trip, but to become a trusted
+          local partner you can rely on whenever your clients travel with
+          us.
+        </p>
+        <p className="mt-4 leading-relaxed text-ink/65">
+          If you are looking for a partner who values long term
+          relationships, consistent service and open communication, we
+          would be delighted to hear from you.
         </p>
       </section>
 
