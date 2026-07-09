@@ -214,6 +214,20 @@ export default function Header() {
             </div>
           </div>
 
+          <a
+            href="https://unicovisa.com.vn"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`flex items-center gap-1 rounded-full border px-3 py-1.5 text-[11px] uppercase tracking-wide transition-colors ${
+              solid ? "border-ink/20 hover:border-terracotta hover:text-terracotta" : "border-white/40 hover:border-white"
+            } ${linkColor}`}
+          >
+            {t("nav.visaServices")}
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className="mt-px">
+              <path d="M2.5 7.5L7.5 2.5M7.5 2.5H3.5M7.5 2.5V6.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </a>
+
           <Link
             href="/contact"
             className={`rounded-full border px-5 py-2 text-sm uppercase tracking-widest transition-colors ${
@@ -331,6 +345,18 @@ export default function Header() {
                 ))}
               </div>
             </div>
+
+            <a
+              href="https://unicovisa.com.vn"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex w-fit items-center gap-1.5 text-sm uppercase tracking-widest text-ink/80 hover:text-terracotta"
+            >
+              {t("nav.visaServices")}
+              <svg width="11" height="11" viewBox="0 0 10 10" fill="none">
+                <path d="M2.5 7.5L7.5 2.5M7.5 2.5H3.5M7.5 2.5V6.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </a>
 
             <Link
               href="/contact"

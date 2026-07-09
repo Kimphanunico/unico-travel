@@ -27,6 +27,7 @@ export const ui = {
       partnerWithUs: "Partner with us",
       language: "Language",
       viewAllTours: "View all tours",
+      visaServices: "Visa Services",
     },
     footer: {
       tagline:
@@ -263,6 +264,7 @@ export const ui = {
       partnerWithUs: "Hợp tác cùng chúng tôi",
       language: "Ngôn ngữ",
       viewAllTours: "Xem tất cả tour",
+      visaServices: "Dịch Vụ Visa",
     },
     footer: {
       tagline:
