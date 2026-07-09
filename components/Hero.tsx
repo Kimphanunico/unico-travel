@@ -1,6 +1,33 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 
 export default function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Some in-app browsers (Zalo, Messenger, etc.) don't reliably respect
+    // the muted/playsInline JSX attributes on mount, which can cause the
+    // video to either not autoplay or pop into the native fullscreen
+    // player instead of playing inline. Setting these explicitly via the
+    // DOM before calling play() fixes it across those browsers.
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Autoplay blocked by the browser — the gradient/poster stays
+        // visible instead, which is an acceptable fallback.
+      });
+    }
+  }, []);
+
   return (
     <section className="relative flex h-screen min-h-[640px] w-full items-end overflow-hidden">
       {/* Placeholder gradient — shows if no video file is present */}
@@ -8,12 +35,17 @@ export default function Hero() {
 
       {/* Background video — replace /public/videos/hero.mp4 with real footage */}
       <video
+        ref={videoRef}
         className="absolute inset-0 z-10 h-full w-full object-cover"
         autoPlay
         muted
         loop
         playsInline
+        preload="auto"
+        controls={false}
+        disablePictureInPicture
         poster="/videos/hero-poster.jpg"
+        webkit-playsinline="true"
       >
         <source src="/videos/hero.mp4" type="video/mp4" />
       </video>
