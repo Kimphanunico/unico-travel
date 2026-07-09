@@ -39,19 +39,19 @@ export default function ContactPage() {
             <dl className="mt-6 space-y-4 text-sm text-cream/85">
               <div>
                 <dt className="text-xs uppercase tracking-widest text-cream/50">Email</dt>
-                <dd className="mt-1">hello@unicotravel.com</dd>
+                <dd className="mt-1">admin@unicovisa.com.vn</dd>
               </div>
               <div>
                 <dt className="text-xs uppercase tracking-widest text-cream/50">Phone</dt>
-                <dd className="mt-1">+1 (555) 200 3948</dd>
+                <dd className="mt-1">+84 376 792 974</dd>
               </div>
               <div>
                 <dt className="text-xs uppercase tracking-widest text-cream/50">Office</dt>
-                <dd className="mt-1">142 Harbor Street, Suite 5<br />San Diego, CA 92101</dd>
+                <dd className="mt-1">29A Nguyen Dinh Chieu, Saigon<br />Ho Chi Minh City</dd>
               </div>
               <div>
                 <dt className="text-xs uppercase tracking-widest text-cream/50">Hours</dt>
-                <dd className="mt-1">Mon-Fri, 9am-6pm PT</dd>
+                <dd className="mt-1">Mon-Sat, 8:30am-6pm (GMT+7)</dd>
               </div>
             </dl>
           </div>

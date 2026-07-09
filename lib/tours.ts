@@ -9,6 +9,8 @@ export interface Tour {
   title: string;
   location: string;
   category: string;
+  country: string;
+  serviceType: string;
   duration: string;
   price: string;
   groupSize: string;
@@ -27,6 +29,8 @@ export const tours: Tour[] = [
     title: "Vietnam Coastal Explorer",
     location: "Da Nang, Hoi An & Ha Long Bay, Vietnam",
     category: "Coastal",
+    country: "vietnam",
+    serviceType: "group",
     duration: "9 days / 8 nights",
     price: "$1,890",
     groupSize: "6 - 12 travelers",
@@ -57,6 +61,8 @@ export const tours: Tour[] = [
     title: "Japan Cherry Blossom Journey",
     location: "Tokyo, Kyoto & Hakone, Japan",
     category: "Cultural",
+    country: "japan",
+    serviceType: "luxury",
     duration: "10 days / 9 nights",
     price: "$3,250",
     groupSize: "6 - 10 travelers",
@@ -87,6 +93,8 @@ export const tours: Tour[] = [
     title: "Swiss Alps Adventure",
     location: "Interlaken, Zermatt & Lucerne, Switzerland",
     category: "Mountain",
+    country: "switzerland",
+    serviceType: "tailor-made",
     duration: "8 days / 7 nights",
     price: "$4,100",
     groupSize: "4 - 10 travelers",
@@ -117,6 +125,8 @@ export const tours: Tour[] = [
     title: "Tanzania Safari Escape",
     location: "Serengeti & Ngorongoro Crater, Tanzania",
     category: "Safari",
+    country: "tanzania",
+    serviceType: "luxury",
     duration: "7 days / 6 nights",
     price: "$3,780",
     groupSize: "4 - 8 travelers",
@@ -147,6 +157,8 @@ export const tours: Tour[] = [
     title: "Bali Wellness Retreat",
     location: "Ubud & Uluwatu, Bali, Indonesia",
     category: "Wellness",
+    country: "indonesia",
+    serviceType: "group",
     duration: "6 days / 5 nights",
     price: "$1,450",
     groupSize: "8 - 14 travelers",
@@ -176,6 +188,8 @@ export const tours: Tour[] = [
     title: "Iceland Northern Lights Expedition",
     location: "Reykjavik & South Coast, Iceland",
     category: "Adventure",
+    country: "iceland",
+    serviceType: "tailor-made",
     duration: "6 days / 5 nights",
     price: "$2,690",
     groupSize: "6 - 12 travelers",
@@ -200,6 +214,67 @@ export const tours: Tour[] = [
     ],
     includes: ["Accommodation", "Daily breakfast", "4x4 transport", "Local guide", "Blue Lagoon entry"],
     excludes: ["International flights", "Travel insurance", "Some dinners"],
+  },
+  {
+    slug: "cambodia-temples-heritage-trail",
+    title: "Cambodia Temples & Heritage Trail",
+    location: "Siem Reap & Phnom Penh, Cambodia",
+    category: "Cultural",
+    country: "cambodia",
+    serviceType: "tailor-made",
+    duration: "6 days / 5 nights",
+    price: "$1,280",
+    groupSize: "Private, any size",
+    gradient: "gradient-sand",
+    summary:
+      "Sunrise at Angkor Wat, jungle-swallowed temples, and the living history of Phnom Penh.",
+    description: [
+      "A private itinerary through Cambodia's temple complexes and capital, built around your pace rather than a fixed group schedule.",
+      "Time is split between the temples of Angkor and the markets, riverside, and museums of Phnom Penh.",
+    ],
+    highlights: [
+      "Sunrise at Angkor Wat with a private guide",
+      "Ta Prohm and the jungle-reclaimed temples",
+      "Tuk-tuk tour of Phnom Penh's riverside",
+      "Local market and street food walk",
+    ],
+    itinerary: [
+      { day: "Day 1-3", title: "Siem Reap", description: "Angkor Wat sunrise, Bayon, Ta Prohm, floating villages." },
+      { day: "Day 4-6", title: "Phnom Penh", description: "Royal Palace, Central Market, riverside, departure." },
+    ],
+    includes: ["Accommodation", "Daily breakfast", "Private driver & guide", "Temple pass", "Airport transfers"],
+    excludes: ["International flights", "Travel insurance", "Personal expenses"],
+  },
+  {
+    slug: "laos-mekong-heritage-journey",
+    title: "Laos Mekong Heritage Journey",
+    location: "Luang Prabang & the Mekong River, Laos",
+    category: "Cultural",
+    country: "laos",
+    serviceType: "tailor-made",
+    duration: "5 days / 4 nights",
+    price: "$1,150",
+    groupSize: "Private, any size",
+    gradient: "gradient-forest",
+    summary:
+      "Slow mornings on the Mekong, saffron-robed monks, and Luang Prabang's quiet French-colonial streets.",
+    description: [
+      "A gentle, unhurried trip through Laos's spiritual capital — built for travelers who want space between stops, not another checklist.",
+      "Includes a private Mekong river cruise and time in the surrounding waterfalls and villages.",
+    ],
+    highlights: [
+      "Alms-giving ceremony at sunrise",
+      "Private Mekong River cruise",
+      "Kuang Si Falls and rescued bear sanctuary",
+      "Luang Prabang night market",
+    ],
+    itinerary: [
+      { day: "Day 1-2", title: "Luang Prabang", description: "Old town, alms ceremony, night market." },
+      { day: "Day 3", title: "Mekong River", description: "Private cruise, riverside villages." },
+      { day: "Day 4-5", title: "Kuang Si Falls & Departure", description: "Waterfall visit, bear sanctuary, departure." },
+    ],
+    includes: ["Accommodation", "Daily breakfast", "Private driver & guide", "River cruise", "Airport transfers"],
+    excludes: ["International flights", "Travel insurance", "Personal expenses"],
   },
 ];
 

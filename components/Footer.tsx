@@ -33,9 +33,9 @@ export default function Footer() {
           <div>
             <h4 className="text-xs uppercase tracking-widest text-cream/50">Contact</h4>
             <ul className="mt-4 space-y-3 text-sm text-cream/80">
-              <li>hello@unicotravel.com</li>
-              <li>+1 (555) 200 3948</li>
-              <li>142 Harbor Street, Suite 5<br />San Diego, CA 92101</li>
+              <li>admin@unicovisa.com.vn</li>
+              <li>+84 376 792 974</li>
+              <li>29A Nguyen Dinh Chieu, Saigon<br />Ho Chi Minh City</li>
             </ul>
           </div>
         </div>
