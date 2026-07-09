@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 import type { Destination } from "@/lib/destinations";
 import type { Tour } from "@/lib/tours";
 import TourCard from "@/components/TourCard";
@@ -16,11 +17,49 @@ export default function DestinationDetail({
 }) {
   const { locale, t } = useLanguage();
   const name = pick(destination.name, locale);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Same fix as the homepage hero: some in-app browsers don't respect
+    // the muted/playsInline JSX attributes on mount, which can block
+    // autoplay or force the native fullscreen player. Setting these
+    // explicitly via the DOM before calling play() avoids that.
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Autoplay blocked — the poster/gradient stays visible instead.
+      });
+    }
+  }, []);
 
   return (
     <div>
       {/* Hero */}
-      <section className={`relative flex h-[62vh] min-h-[440px] items-end ${destination.gradient}`}>
+      <section className={`relative flex h-[62vh] min-h-[440px] items-end overflow-hidden ${destination.gradient}`}>
+        {destination.video && (
+          <video
+            ref={videoRef}
+            className="absolute inset-0 z-0 h-full w-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            controls={false}
+            disablePictureInPicture
+            poster={destination.videoPoster}
+            webkit-playsinline="true"
+          >
+            <source src={destination.video} type="video/mp4" />
+          </video>
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
         <div className="relative mx-auto w-full max-w-5xl px-6 pb-16 pt-32 text-center lg:px-10">
           <p className="text-xs uppercase tracking-[0.3em] text-white/75">

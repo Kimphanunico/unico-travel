@@ -5,6 +5,8 @@ export interface Destination {
   name: Localized;
   tagline: Localized;
   gradient: string;
+  video?: string;
+  videoPoster?: string;
   intro: Localized[];
   facts: { label: Localized; value: Localized }[];
   neighborsLabel: Localized;
@@ -20,6 +22,8 @@ export const destinations: Destination[] = [
       "Nơi bờ biển, núi non và phố cổ đều chỉ cách nhau một ngày đường"
     ),
     gradient: "gradient-ocean",
+    video: "/videos/vietnam-hero.mp4",
+    videoPoster: "/videos/vietnam-hero-poster.jpg",
     intro: [
       loc(
         "Vietnam runs the full length of a coastline, from limestone bays in the north to river deltas in the south, with terraced highlands and centuries-old trading towns in between.",
