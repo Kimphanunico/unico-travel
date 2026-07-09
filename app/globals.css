@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+:root {
+  --background: #faf7f1;
+  --foreground: #1b1b18;
+  --color-cream: #faf7f1;
+  --color-sand: #e9dfc9;
+  --color-ink: #1b1b18;
+  --color-terracotta: #c1622d;
+  --color-terracotta-dark: #9c4d21;
+  --color-forest: #2f3b2a;
+  --color-forest-light: #445340;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-cream: var(--color-cream);
+  --color-sand: var(--color-sand);
+  --color-ink: var(--color-ink);
+  --color-terracotta: var(--color-terracotta);
+  --color-terracotta-dark: var(--color-terracotta-dark);
+  --color-forest: var(--color-forest);
+  --color-forest-light: var(--color-forest-light);
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  --font-serif: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.gradient-sunset {
+  background: linear-gradient(135deg, #f3b768 0%, #e08a4f 45%, #c1622d 100%);
+}
+.gradient-ocean {
+  background: linear-gradient(135deg, #7fb9b0 0%, #3f7c82 55%, #2a5559 100%);
+}
+.gradient-forest {
+  background: linear-gradient(135deg, #7c9270 0%, #445340 55%, #2f3b2a 100%);
+}
+.gradient-sand {
+  background: linear-gradient(135deg, #f2e7cc 0%, #e0cd9f 55%, #c9ab72 100%);
+}
+.gradient-dusk {
+  background: linear-gradient(135deg, #9a7ab0 0%, #5f4d78 55%, #362a49 100%);
+}
+.gradient-snow {
+  background: linear-gradient(135deg, #dfe9ec 0%, #a9bfc7 55%, #6f8a94 100%);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
