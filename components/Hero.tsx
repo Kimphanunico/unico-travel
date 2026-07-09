@@ -62,7 +62,7 @@ export default function Hero() {
         </h1>
         <p className="mt-6 max-w-xl text-balance text-lg text-white/85">
           Unico Travel plans small-group and private trips across the world's
-          most striking landscapes — built around real people, real places,
+          most striking landscapes, built around real people, real places,
           and time well spent.
         </p>
         <div className="mt-10 flex flex-wrap gap-4">

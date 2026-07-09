@@ -6,10 +6,10 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const DESTINATIONS = [
-  { href: "/services?country=vietnam", label: "Vietnam" },
-  { href: "/services?country=cambodia", label: "Cambodia" },
-  { href: "/services?country=laos", label: "Laos" },
-  { href: "/services?country=japan", label: "Japan" },
+  { href: "/destinations/vietnam", label: "Vietnam" },
+  { href: "/destinations/cambodia", label: "Cambodia" },
+  { href: "/destinations/laos", label: "Laos" },
+  { href: "/destinations/japan", label: "Japan" },
 ];
 
 const SERVICE_TYPES = [
@@ -75,7 +75,7 @@ export default function Header() {
 
           <div className="group relative">
             <Link
-              href="/services"
+              href="/destinations"
               className={`flex items-center gap-1 text-sm uppercase tracking-widest transition-colors hover:text-terracotta ${linkColor}`}
             >
               Destinations

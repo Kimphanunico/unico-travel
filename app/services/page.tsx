@@ -6,7 +6,7 @@ import { tours } from "@/lib/tours";
 export const metadata: Metadata = {
   title: "Tours | Unico Travel",
   description:
-    "Browse Unico Travel's small-group and private trips — from coastal escapes to mountain expeditions and safaris.",
+    "Browse Unico Travel's small-group and private trips, from coastal escapes to mountain expeditions and safaris.",
 };
 
 const COUNTRY_LABELS: Record<string, string> = {
@@ -48,13 +48,13 @@ export default async function ServicesPage({
     <div className="pt-32">
       <section className="mx-auto max-w-4xl px-6 text-center lg:px-10">
         <p className="text-xs uppercase tracking-[0.3em] text-terracotta">
-          {activeLabel ? `Tours — ${activeLabel}` : "Our Tours"}
+          {activeLabel ? `${activeLabel} Tours` : "Our Tours"}
         </p>
         <h1 className="font-serif mt-5 text-4xl text-ink sm:text-5xl">
           {activeLabel ? `Trips in ${activeLabel}` : "Find your next journey"}
         </h1>
         <p className="mt-6 leading-relaxed text-ink/65">
-          Every trip is designed and led in-house — small groups, local
+          Every trip is designed and led in-house, with small groups, local
           guides, and itineraries built for travelers who want more than a
           checklist.
         </p>
@@ -82,7 +82,7 @@ export default async function ServicesPage({
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-ink/65">
               {activeLabel
-                ? `We don't have a published package for ${activeLabel} yet — every Unico trip can be built from scratch to match what you're after.`
+                ? `We don't have a published package for ${activeLabel} yet, but every Unico trip can be built from scratch to match what you're after.`
                 : "No tours match this filter yet."}
             </p>
             <Link

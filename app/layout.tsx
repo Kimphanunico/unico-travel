@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Unico Travel | Journeys Worth Remembering",
   description:
-    "Unico Travel designs thoughtfully crafted trips across the globe — from coastal escapes to mountain expeditions. Let's plan your next journey.",
+    "Unico Travel designs thoughtfully crafted trips across the globe, from coastal escapes to mountain expeditions. Let's plan your next journey.",
   metadataBase: new URL("https://unicotravel.example.com"),
   openGraph: {
     title: "Unico Travel | Journeys Worth Remembering",

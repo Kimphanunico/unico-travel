@@ -11,7 +11,7 @@ export default function Footer() {
             </div>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-cream/70">
               Thoughtfully crafted journeys for travelers who want more than a
-              checklist — real places, real people, real stories.
+              checklist, just real places, real people, and real stories.
             </p>
             <div className="mt-6 flex gap-4 text-sm text-cream/70">
               <a href="#" className="hover:text-terracotta">Instagram</a>
@@ -23,6 +23,7 @@ export default function Footer() {
           <div>
             <h4 className="text-xs uppercase tracking-widest text-cream/50">Explore</h4>
             <ul className="mt-4 space-y-3 text-sm">
+              <li><Link href="/destinations" className="text-cream/80 hover:text-terracotta">Destinations</Link></li>
               <li><Link href="/services" className="text-cream/80 hover:text-terracotta">All Tours</Link></li>
               <li><Link href="/about" className="text-cream/80 hover:text-terracotta">About Us</Link></li>
               <li><Link href="/gallery" className="text-cream/80 hover:text-terracotta">Gallery</Link></li>

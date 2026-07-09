@@ -9,7 +9,7 @@ const POSTS = [
   {
     title: "How We Plan a Trip: Inside the Unico Process",
     excerpt:
-      "From first call to final itinerary — a look at how our trip designers build every journey by hand.",
+      "From first call to final itinerary, a look at how our trip designers build every journey by hand.",
     category: "Behind the Scenes",
     gradient: "gradient-forest",
     date: "June 2026",
@@ -25,7 +25,7 @@ const POSTS = [
   {
     title: "Packing for the Swiss Alps in Any Season",
     excerpt:
-      "What our guides actually pack for alpine trips — from shoulder-season layers to summer hiking gear.",
+      "What our guides actually pack for alpine trips, from shoulder-season layers to summer hiking gear.",
     category: "Travel Tips",
     gradient: "gradient-snow",
     date: "April 2026",
@@ -44,8 +44,8 @@ export default function BlogPage() {
         </h1>
         <p className="mt-6 leading-relaxed text-ink/65">
           Destination guides, planning tips, and stories from our trip
-          designers. Sample posts below — connect a CMS or add static routes
-          to publish your own.
+          designers. Sample posts below use placeholder content, so connect
+          a CMS or add static routes to publish your own.
         </p>
       </section>
 

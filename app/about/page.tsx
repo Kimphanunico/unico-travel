@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "About | Unico Travel",
   description:
-    "Meet Unico Travel — a small team of trip designers building thoughtful journeys across the world.",
+    "Meet Unico Travel, a small team of trip designers building thoughtful journeys across the world.",
 };
 
 const VALUES = [
@@ -16,7 +16,7 @@ const VALUES = [
   {
     title: "Real Local Partners",
     description:
-      "We work directly with family-run guesthouses, independent guides, and small operators — not resellers.",
+      "We work directly with family-run guesthouses, independent guides, and small operators rather than resellers.",
   },
   {
     title: "Honest Planning",
@@ -53,8 +53,8 @@ export default function AboutPage() {
         <p className="mt-6 text-balance leading-relaxed text-ink/65">
           Founded by a small group of former guides and tour operators, Unico
           Travel exists to plan trips the way we'd want to take them
-          ourselves — unhurried, well-connected to place, and built around
-          the traveler in front of us, not a template.
+          ourselves, unhurried, well connected to place, and built around
+          the traveler in front of us rather than a template.
         </p>
       </section>
 

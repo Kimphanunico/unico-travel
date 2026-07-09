@@ -102,7 +102,7 @@ export const tours: Tour[] = [
     summary:
       "Alpine trains, glacier hikes, and lakeside towns beneath the Matterhorn.",
     description: [
-      "A trip built for those who want their mountain views earned — with cable cars, scenic rail, and moderate hiking through some of Europe's most dramatic terrain.",
+      "A trip built for those who want their mountain views earned, with cable cars, scenic rail, and moderate hiking through some of Europe's most dramatic terrain.",
       "Evenings unwind in wood-paneled chalets and lakeside towns with fondue and clear mountain air.",
     ],
     highlights: [
@@ -197,7 +197,7 @@ export const tours: Tour[] = [
     summary:
       "Glacier lagoons, black sand beaches, and nightly aurora chasing.",
     description: [
-      "A compact, high-impact loop of Iceland's south coast — waterfalls, glacier lagoons, and geothermal spas by day, aurora hunting by night with a photography guide.",
+      "A compact, high-impact loop of Iceland's south coast, taking in waterfalls, glacier lagoons, and geothermal spas by day, then aurora hunting by night with a photography guide.",
       "Small-group 4x4 transport keeps the itinerary flexible around weather and light conditions.",
     ],
     highlights: [
@@ -259,7 +259,7 @@ export const tours: Tour[] = [
     summary:
       "Slow mornings on the Mekong, saffron-robed monks, and Luang Prabang's quiet French-colonial streets.",
     description: [
-      "A gentle, unhurried trip through Laos's spiritual capital — built for travelers who want space between stops, not another checklist.",
+      "A gentle, unhurried trip through Laos's spiritual capital, built for travelers who want space between stops rather than another checklist.",
       "Includes a private Mekong river cruise and time in the surrounding waterfalls and villages.",
     ],
     highlights: [

@@ -22,7 +22,7 @@ const FEATURES = [
   {
     title: "Transparent Pricing",
     description:
-      "No hidden fees — what you see in a quote is what you pay.",
+      "No hidden fees. What you see in a quote is what you pay.",
   },
 ];
 
@@ -41,7 +41,7 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "I've used other travel companies before — Unico is the first one that felt like it was actually designed around me.",
+      "I've used other travel companies before, but Unico is the first one that felt like it was actually designed around me.",
     name: "Owen R.",
     trip: "Swiss Alps Adventure",
   },
@@ -66,7 +66,7 @@ export default function Home() {
         <p className="mt-6 text-balance leading-relaxed text-ink/65">
           Unico Travel is a small team of trip designers who've lived,
           worked, and wandered in the places we plan for. Every itinerary is
-          built by hand — no templates, no filler days.
+          built by hand, with no templates and no filler days.
         </p>
         <Link
           href="/about"
@@ -160,7 +160,7 @@ export default function Home() {
             Ready to start planning your next trip?
           </h2>
           <p className="mt-5 text-balance text-white/90">
-            Tell us where you'd like to go and what matters most to you —
+            Tell us where you'd like to go and what matters most to you, and
             we'll take it from there.
           </p>
           <Link

@@ -56,7 +56,7 @@ export default function ContactForm() {
       <div className="rounded-2xl border border-forest/20 bg-forest/5 p-8 text-center">
         <h3 className="font-serif text-xl text-ink">Request received</h3>
         <p className="mt-3 text-sm leading-relaxed text-ink/65">
-          Thanks for reaching out — a trip designer will get back to you
+          Thanks for reaching out. A trip designer will get back to you
           within 1-2 business days.
         </p>
       </div>
