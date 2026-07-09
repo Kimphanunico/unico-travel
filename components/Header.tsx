@@ -62,13 +62,25 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="relative flex h-10 w-40 items-center">
+          <Image
+            src="/images/logo-white.png"
+            alt="Unico Travel"
+            width={160}
+            height={48}
+            className={`absolute left-0 h-10 w-auto transition-opacity duration-300 ${
+              solid ? "opacity-0" : "opacity-100"
+            }`}
+            priority
+          />
           <Image
             src="/images/logo.png"
             alt="Unico Travel"
             width={160}
             height={48}
-            className="h-10 w-auto"
+            className={`absolute left-0 h-10 w-auto transition-opacity duration-300 ${
+              solid ? "opacity-100" : "opacity-0"
+            }`}
             priority
           />
         </Link>
