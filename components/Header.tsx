@@ -85,10 +85,10 @@ export default function Header() {
           />
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-6 lg:flex">
           <Link
             href="/"
-            className={`text-sm uppercase tracking-widest transition-colors hover:text-terracotta ${
+            className={`whitespace-nowrap text-sm uppercase tracking-wide transition-colors hover:text-terracotta ${
               pathname === "/" ? "text-terracotta" : linkColor
             }`}
           >
@@ -98,7 +98,7 @@ export default function Header() {
           <div className="group relative">
             <Link
               href="/destinations"
-              className={`flex items-center gap-1 text-sm uppercase tracking-widest transition-colors hover:text-terracotta ${linkColor}`}
+              className={`flex items-center gap-1 whitespace-nowrap text-sm uppercase tracking-wide transition-colors hover:text-terracotta ${linkColor}`}
             >
               {t("nav.destinations")}
               <svg width="10" height="6" viewBox="0 0 10 6" fill="none" className="mt-0.5">
@@ -123,7 +123,7 @@ export default function Header() {
           <div className="group relative">
             <Link
               href="/services"
-              className={`flex items-center gap-1 text-sm uppercase tracking-widest transition-colors hover:text-terracotta ${linkColor}`}
+              className={`flex items-center gap-1 whitespace-nowrap text-sm uppercase tracking-wide transition-colors hover:text-terracotta ${linkColor}`}
             >
               {t("nav.services")}
               <svg width="10" height="6" viewBox="0 0 10 6" fill="none" className="mt-0.5">
@@ -149,7 +149,7 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className={`text-sm uppercase tracking-widest transition-colors hover:text-terracotta ${
+              className={`whitespace-nowrap text-sm uppercase tracking-wide transition-colors hover:text-terracotta ${
                 pathname === link.href ? "text-terracotta" : linkColor
               }`}
             >
@@ -160,7 +160,7 @@ export default function Header() {
           <div className="group relative">
             <Link
               href="/contact"
-              className={`flex items-center gap-1 text-sm uppercase tracking-widest transition-colors hover:text-terracotta ${
+              className={`flex items-center gap-1 whitespace-nowrap text-sm uppercase tracking-wide transition-colors hover:text-terracotta ${
                 pathname === "/contact" ? "text-terracotta" : linkColor
               }`}
             >
@@ -185,10 +185,10 @@ export default function Header() {
           </div>
         </nav>
 
-        <div className="hidden items-center gap-4 md:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <div className="group relative">
             <button
-              className={`flex items-center gap-1 rounded-full border px-3 py-1.5 text-[11px] uppercase tracking-wide transition-colors ${
+              className={`flex items-center gap-1 whitespace-nowrap rounded-full border px-3 py-1.5 text-[11px] uppercase tracking-wide transition-colors ${
                 solid ? "border-ink/20 hover:border-terracotta hover:text-terracotta" : "border-white/40 hover:border-white"
               } ${linkColor}`}
             >
@@ -218,7 +218,7 @@ export default function Header() {
             href="https://unicovisa.com.vn"
             target="_blank"
             rel="noopener noreferrer"
-            className={`flex items-center gap-1 rounded-full border px-3 py-1.5 text-[11px] uppercase tracking-wide transition-colors ${
+            className={`flex items-center gap-1 whitespace-nowrap rounded-full border px-3 py-1.5 text-[11px] uppercase tracking-wide transition-colors ${
               solid ? "border-ink/20 hover:border-terracotta hover:text-terracotta" : "border-white/40 hover:border-white"
             } ${linkColor}`}
           >
@@ -230,7 +230,7 @@ export default function Header() {
 
           <Link
             href="/contact"
-            className={`rounded-full border px-5 py-2 text-sm uppercase tracking-widest transition-colors ${
+            className={`whitespace-nowrap rounded-full border px-5 py-2 text-sm uppercase tracking-wide transition-colors ${
               solid
                 ? "border-ink text-ink hover:bg-ink hover:text-cream"
                 : "border-white text-white hover:bg-white hover:text-ink"
@@ -243,7 +243,7 @@ export default function Header() {
         <button
           aria-label="Toggle menu"
           onClick={() => setMenuOpen((v) => !v)}
-          className={`flex flex-col gap-1.5 md:hidden ${solid ? "text-ink" : "text-white"}`}
+          className={`flex flex-col gap-1.5 lg:hidden ${solid ? "text-ink" : "text-white"}`}
         >
           <span className={`h-px w-6 bg-current transition-transform ${menuOpen ? "translate-y-1.5 rotate-45" : ""}`} />
           <span className={`h-px w-6 bg-current transition-opacity ${menuOpen ? "opacity-0" : ""}`} />
@@ -252,7 +252,7 @@ export default function Header() {
       </div>
 
       {menuOpen && (
-        <div className="max-h-[calc(100vh-72px)] overflow-y-auto border-t border-ink/10 bg-cream px-6 py-6 md:hidden">
+        <div className="max-h-[calc(100vh-72px)] overflow-y-auto border-t border-ink/10 bg-cream px-6 py-6 lg:hidden">
           <nav className="flex flex-col gap-5">
             <Link
               href="/"
