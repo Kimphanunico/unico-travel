@@ -198,6 +198,68 @@ export const ui = {
       tradeshowsNote:
         "Have an event you would like to meet us at? Let us know and we will do our best to be there.",
     },
+    dentalTourism: {
+      tag: "New Service",
+      heading: "Dental Tourism",
+      intro:
+        "Get quality dental care and a proper vacation in the same trip. We pair trusted dental partners in Vietnam with an itinerary built around your treatment and recovery time.",
+      whyTag: "Why Vietnam",
+      whyHeading: "Save on dental care without cutting corners",
+      why: [
+        {
+          title: "Significant savings",
+          description:
+            "Dental treatment in Vietnam typically costs a fraction of prices in the US, Australia, or Europe, without compromising on quality.",
+        },
+        {
+          title: "Internationally trained dentists",
+          description:
+            "Many of our partner clinics are staffed by dentists trained or certified abroad, using modern equipment and materials.",
+        },
+        {
+          title: "Recovery, the pleasant way",
+          description:
+            "Rest and heal somewhere warm and interesting instead of stuck at home, with your itinerary paced around your treatment schedule.",
+        },
+        {
+          title: "One point of contact",
+          description:
+            "We coordinate the clinic, your travel, and your recovery time so you are not juggling two separate trips.",
+        },
+      ],
+      howTag: "How It Works",
+      howHeading: "From first message to your flight home",
+      how: [
+        {
+          title: "Tell us what you need",
+          description: "Share your dental needs, rough budget, and preferred travel dates.",
+        },
+        {
+          title: "We get you a quote",
+          description:
+            "We connect you with a vetted partner clinic and bring back a clear treatment plan and price.",
+        },
+        {
+          title: "We build your itinerary",
+          description:
+            "Your trip is planned around appointments and recovery time, with real sightseeing in between.",
+        },
+        {
+          title: "You travel and get treated",
+          description: "You arrive, complete your treatment, and enjoy Vietnam while you heal.",
+        },
+      ],
+      partnersTag: "Partner Clinics",
+      partnersHeading: "Trusted clinics in Ho Chi Minh City",
+      partnersBody:
+        "We are finalizing partnerships with licensed dental clinics in Ho Chi Minh City. Details of partner clinics, treatments, and pricing will be published here soon.",
+      partnersNote:
+        "Run a dental clinic and want to partner with us? Get in touch and let's talk.",
+      ctaHeading: "Curious if dental tourism is right for you?",
+      ctaBody:
+        "Tell us what treatment you are considering and we will get back to you with options and an estimated cost.",
+      ctaButton: "Request a Quote",
+    },
     services: {
       tag: "Our Tours",
       heading: "Find your next journey",
@@ -433,6 +495,68 @@ export const ui = {
         "Chúng tôi tham gia nhiều hội chợ và workshop du lịch trong năm để gặp gỡ trực tiếp các đối tác. Thông tin các sự kiện sắp tới sẽ sớm được cập nhật tại đây.",
       tradeshowsNote:
         "Có sự kiện nào bạn muốn gặp chúng tôi không? Hãy cho chúng tôi biết, chúng tôi sẽ cố gắng hết sức để có mặt.",
+    },
+    dentalTourism: {
+      tag: "Dịch Vụ Mới",
+      heading: "Du Lịch Nha Khoa",
+      intro:
+        "Vừa được chăm sóc răng miệng chất lượng, vừa có một kỳ nghỉ đúng nghĩa trong cùng một chuyến đi. Chúng tôi kết nối bạn với các phòng khám nha khoa uy tín tại Việt Nam và xây dựng lịch trình xoay quanh thời gian điều trị, hồi phục của bạn.",
+      whyTag: "Vì Sao Chọn Việt Nam",
+      whyHeading: "Tiết kiệm chi phí nha khoa mà không phải đánh đổi chất lượng",
+      why: [
+        {
+          title: "Tiết kiệm đáng kể",
+          description:
+            "Chi phí điều trị nha khoa tại Việt Nam thường chỉ bằng một phần nhỏ so với Mỹ, Úc hay châu Âu, mà chất lượng vẫn được đảm bảo.",
+        },
+        {
+          title: "Bác sĩ được đào tạo quốc tế",
+          description:
+            "Nhiều phòng khám đối tác của chúng tôi có bác sĩ từng tu nghiệp hoặc lấy chứng chỉ ở nước ngoài, sử dụng thiết bị và vật liệu hiện đại.",
+        },
+        {
+          title: "Hồi phục theo cách dễ chịu hơn",
+          description:
+            "Nghỉ dưỡng và hồi phục ở một nơi ấm áp, thú vị thay vì ở nhà một mình, lịch trình được sắp xếp phù hợp với tiến độ điều trị của bạn.",
+        },
+        {
+          title: "Một đầu mối duy nhất",
+          description:
+            "Chúng tôi lo luôn phần phòng khám, di chuyển và thời gian hồi phục, để bạn không phải tự sắp xếp hai chuyến đi riêng biệt.",
+        },
+      ],
+      howTag: "Quy Trình",
+      howHeading: "Từ tin nhắn đầu tiên đến ngày bạn bay về",
+      how: [
+        {
+          title: "Cho chúng tôi biết nhu cầu của bạn",
+          description: "Chia sẻ tình trạng răng miệng, ngân sách dự kiến và thời gian bạn muốn đi.",
+        },
+        {
+          title: "Chúng tôi báo giá cho bạn",
+          description:
+            "Chúng tôi kết nối bạn với phòng khám đối tác đã được kiểm chứng và gửi lại phác đồ điều trị cùng mức giá rõ ràng.",
+        },
+        {
+          title: "Chúng tôi lên lịch trình cho bạn",
+          description:
+            "Chuyến đi được sắp xếp quanh lịch hẹn khám và thời gian hồi phục, xen kẽ những điểm tham quan thật sự.",
+        },
+        {
+          title: "Bạn đi và điều trị",
+          description: "Bạn đến nơi, hoàn tất điều trị và tận hưởng Việt Nam trong lúc hồi phục.",
+        },
+      ],
+      partnersTag: "Phòng Khám Đối Tác",
+      partnersHeading: "Phòng khám uy tín tại Thành phố Hồ Chí Minh",
+      partnersBody:
+        "Chúng tôi đang hoàn tất hợp tác với các phòng khám nha khoa được cấp phép tại Thành phố Hồ Chí Minh. Thông tin phòng khám đối tác, dịch vụ và bảng giá sẽ sớm được cập nhật tại đây.",
+      partnersNote:
+        "Bạn đang điều hành phòng khám nha khoa và muốn hợp tác cùng chúng tôi? Hãy liên hệ để chúng tôi tìm hiểu thêm.",
+      ctaHeading: "Chưa chắc du lịch nha khoa có phù hợp với bạn?",
+      ctaBody:
+        "Cho chúng tôi biết bạn đang cân nhắc dịch vụ nha khoa nào, chúng tôi sẽ phản hồi với các lựa chọn và chi phí dự kiến.",
+      ctaButton: "Yêu Cầu Báo Giá",
     },
     services: {
       tag: "Các tour của chúng tôi",

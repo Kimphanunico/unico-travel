@@ -19,6 +19,7 @@ const SERVICE_TYPES: { href: string; label: Localized }[] = [
   { href: "/services?type=luxury", label: { en: "Luxury", vi: "Cao Cấp" } },
   { href: "/services?type=events", label: { en: "Events", vi: "Sự Kiện" } },
   { href: "/services?type=group", label: { en: "Group", vi: "Đoàn" } },
+  { href: "/dental-tourism", label: { en: "Dental Tourism", vi: "Du Lịch Nha Khoa" } },
 ];
 
 const LANGUAGES: { code: Locale; label: string }[] = [
@@ -130,13 +131,13 @@ export default function Header() {
                 <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </Link>
-            <div className="invisible absolute left-1/2 top-full w-48 -translate-x-1/2 pt-3 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100">
+            <div className="invisible absolute left-1/2 top-full w-56 -translate-x-1/2 pt-3 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100">
               <div className="rounded-xl border border-ink/10 bg-white py-2 shadow-lg">
                 {SERVICE_TYPES.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="block px-5 py-2.5 text-sm text-ink/75 hover:bg-cream hover:text-terracotta"
+                    className="block whitespace-nowrap px-5 py-2.5 text-sm text-ink/75 hover:bg-cream hover:text-terracotta"
                   >
                     {pick(item.label, locale)}
                   </Link>
