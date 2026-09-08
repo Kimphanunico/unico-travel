@@ -3,7 +3,7 @@ import ServicesList from "@/components/ServicesList";
 import { tours } from "@/lib/tours";
 
 export const metadata: Metadata = {
-  title: "Tours | Unico Travel",
+  title: "Tours",
   description:
     "Browse Unico Travel's small-group and private trips, from coastal escapes to mountain expeditions and safaris.",
 };

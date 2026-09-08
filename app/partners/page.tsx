@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import PartnersContent from "@/components/PartnersContent";
 
 export const metadata: Metadata = {
-  title: "Partner With Us | Unico Travel",
+  title: "Partner With Us",
   description:
     "Partner with Unico Travel for tailor-made itineraries across Vietnam, Cambodia, Laos and Japan.",
 };

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import BlogContent from "@/components/BlogContent";
 
 export const metadata: Metadata = {
-  title: "Journal | Unico Travel",
+  title: "Journal",
   description: "Stories, guides, and notes from Unico Travel's trip designers.",
 };
 

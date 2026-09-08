@@ -16,7 +16,7 @@ export async function generateMetadata({
   const tour = getTourBySlug(slug);
   if (!tour) return {};
   return {
-    title: `${tour.title.en} | Unico Travel`,
+    title: tour.title.en,
     description: tour.summary.en,
   };
 }

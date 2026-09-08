@@ -17,7 +17,7 @@ export async function generateMetadata({
   const destination = getDestinationBySlug(slug);
   if (!destination) return {};
   return {
-    title: `${destination.name.en} | Unico Travel`,
+    title: destination.name.en,
     description: destination.tagline.en,
   };
 }

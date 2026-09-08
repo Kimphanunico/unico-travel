@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import DentalTourismContent from "@/components/DentalTourismContent";
 
 export const metadata: Metadata = {
-  title: "Dental Tourism | Unico Travel",
+  title: "Dental Tourism",
   description:
     "Combine quality, affordable dental care in Vietnam with a proper vacation. Unico Travel plans your treatment and your trip together.",
 };

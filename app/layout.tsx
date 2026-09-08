@@ -5,15 +5,18 @@ import Footer from "@/components/Footer";
 import { LanguageProvider } from "@/components/LanguageProvider";
 
 export const metadata: Metadata = {
-  title: "Unico Travel | Journeys Worth Remembering",
+  title: {
+    default: "Unico Travel Vietnam DMC | Journeys Worth Remembering",
+    template: "%s | Unico Travel Vietnam DMC",
+  },
   description:
     "Unico Travel designs thoughtfully crafted trips across the globe, from coastal escapes to mountain expeditions. Let's plan your next journey.",
   metadataBase: new URL("https://unicotravel.example.com"),
   openGraph: {
-    title: "Unico Travel | Journeys Worth Remembering",
+    title: "Unico Travel Vietnam DMC | Journeys Worth Remembering",
     description:
       "Thoughtfully crafted trips across the globe. Let's plan your next journey.",
-    siteName: "Unico Travel",
+    siteName: "Unico Travel Vietnam DMC",
     type: "website",
   },
 };
