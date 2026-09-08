@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { LanguageProvider } from "@/components/LanguageProvider";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: {
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
   },
   description:
     "Unico Travel designs thoughtfully crafted trips across the globe, from coastal escapes to mountain expeditions. Let's plan your next journey.",
-  metadataBase: new URL("https://unicotravel.vercel.app"),
+  metadataBase: new URL(SITE_URL),
   openGraph: {
     title: "Unico Travel Vietnam DMC | Journeys Worth Remembering",
     description:

@@ -1,8 +1,7 @@
 import type { MetadataRoute } from "next";
 import { tours } from "@/lib/tours";
 import { destinations } from "@/lib/destinations";
-
-const BASE_URL = "https://unicotravel.vercel.app";
+import { SITE_URL } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
@@ -16,17 +15,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/blog",
     "/gallery",
   ].map((route) => ({
-    url: `${BASE_URL}${route}`,
+    url: `${SITE_URL}${route}`,
     lastModified: new Date(),
   }));
 
   const destinationRoutes = destinations.map((d) => ({
-    url: `${BASE_URL}/destinations/${d.slug}`,
+    url: `${SITE_URL}/destinations/${d.slug}`,
     lastModified: new Date(),
   }));
 
   const tourRoutes = tours.map((t) => ({
-    url: `${BASE_URL}/services/${t.slug}`,
+    url: `${SITE_URL}/services/${t.slug}`,
     lastModified: new Date(),
   }));
 
