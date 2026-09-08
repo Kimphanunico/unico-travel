@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   },
   description:
     "Unico Travel designs thoughtfully crafted trips across the globe, from coastal escapes to mountain expeditions. Let's plan your next journey.",
-  metadataBase: new URL("https://unicotravel.example.com"),
+  metadataBase: new URL("https://unicotravel.vercel.app"),
   openGraph: {
     title: "Unico Travel Vietnam DMC | Journeys Worth Remembering",
     description:
