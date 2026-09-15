@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSupabaseServerClient } from "@/lib/supabase";
+import { sendTripRequestNotification } from "@/lib/notify";
 
 export async function POST(request: NextRequest) {
   let body: Record<string, unknown>;
@@ -54,6 +55,18 @@ export async function POST(request: NextRequest) {
         { status: 500 }
       );
     }
+
+    // Best-effort: the request is already safely saved above, so a failed
+    // notification email should never turn into an error for the visitor.
+    await sendTripRequestNotification({
+      name,
+      email,
+      phone,
+      destination,
+      travelDates,
+      travelers,
+      message,
+    });
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (err) {
