@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 import type { Destination } from "@/lib/destinations";
 import type { Tour } from "@/lib/tours";
 import TourCard from "@/components/TourCard";
+import VietnamMap from "@/components/VietnamMap";
 import { useLanguage } from "@/components/LanguageProvider";
 import { pick } from "@/lib/i18n";
 
@@ -100,6 +101,52 @@ export default function DestinationDetail({
           </dl>
         </div>
       </section>
+
+      {/* Country map + stats (Vietnam only) */}
+      {destination.mapStats && destination.mapCities && destination.mapNeighbors && (
+        <section className="bg-white py-20">
+          <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-2 lg:px-10">
+            <div className="mx-auto w-full max-w-xs lg:max-w-sm">
+              <VietnamMap
+                cities={destination.mapCities.map((c) => ({
+                  name: pick(c.name, locale),
+                  x: c.x,
+                  y: c.y,
+                }))}
+                neighbors={destination.mapNeighbors.map((n) => ({
+                  name: pick(n.name, locale),
+                  x: n.x,
+                  y: n.y,
+                }))}
+                className="h-auto w-full text-ink"
+              />
+            </div>
+
+            <div>
+              <p className="text-xs uppercase tracking-[0.3em] text-terracotta">
+                {t("destinationDetail.tag")}
+              </p>
+              <h2 className="font-serif mt-3 text-3xl text-ink">
+                {t("destinationDetail.mapHeading")}
+              </h2>
+              <p className="mt-4 leading-relaxed text-ink/70">
+                {t("destinationDetail.mapBody")}
+              </p>
+
+              <div className="mt-8 grid grid-cols-3 gap-6 border-t border-ink/10 pt-8">
+                {destination.mapStats.map((stat, i) => (
+                  <div key={i}>
+                    <p className="font-serif text-3xl text-terracotta">{stat.value}</p>
+                    <p className="mt-1 text-xs uppercase tracking-wide text-ink/50">
+                      {pick(stat.label, locale)}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Region locator */}
       <section className="bg-sand/40 py-16">

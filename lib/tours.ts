@@ -4,6 +4,45 @@ export interface ItineraryDay {
   day: Localized;
   title: Localized;
   description: Localized;
+  activityLine?: Localized;
+}
+
+export interface GallerySegment {
+  title: Localized;
+  stops: Localized[];
+  gradient: string;
+  description: Localized;
+}
+
+export type InclusionIcon =
+  | "bed"
+  | "car"
+  | "users"
+  | "utensils"
+  | "camera"
+  | "shield";
+
+export interface InclusionItem {
+  icon: InclusionIcon;
+  category: Localized;
+  summary: Localized;
+  details: Localized[];
+}
+
+export interface HotelEntry {
+  city: Localized;
+  hotel: Localized;
+  roomType: Localized;
+}
+
+export interface HotelTier {
+  tierLabel: Localized;
+  hotels: HotelEntry[];
+}
+
+export interface FAQItem {
+  question: Localized;
+  answer: Localized;
 }
 
 export interface Tour {
@@ -23,6 +62,11 @@ export interface Tour {
   itinerary: ItineraryDay[];
   includes: Localized[];
   excludes: Localized[];
+  routeStops?: Localized[];
+  gallerySegments?: GallerySegment[];
+  inclusionsGrid?: InclusionItem[];
+  hotels?: HotelTier[];
+  faqs?: FAQItem[];
 }
 
 export const tours: Tour[] = [
@@ -59,12 +103,58 @@ export const tours: Tour[] = [
       loc("Private cooking class in Hoi An", "Lớp học nấu ăn riêng tại Hội An"),
       loc("Sunrise cycling tour through rice paddies", "Đạp xe ngắm bình minh qua cánh đồng lúa"),
       loc("Free day to explore Da Nang's beaches", "Một ngày tự do khám phá biển Đà Nẵng"),
+      loc("Kayaking beneath limestone caves", "Chèo kayak dưới chân những hang động đá vôi"),
+      loc("Old Quarter food walk in Hanoi", "Dạo phố ẩm thực tại Phố Cổ Hà Nội"),
     ],
     itinerary: [
-      { day: loc("Day 1-2", "Ngày 1-2"), title: loc("Arrive in Da Nang", "Đến Đà Nẵng"), description: loc("Settle in beachside, welcome dinner with the group.", "Nhận phòng ven biển, dùng bữa tối chào mừng cùng đoàn.") },
-      { day: loc("Day 3-5", "Ngày 3-5"), title: loc("Hoi An Ancient Town", "Phố cổ Hội An"), description: loc("Lantern markets, tailor visits, cooking class, cycling tour.", "Chợ đèn lồng, may đo, lớp nấu ăn, đạp xe tham quan.") },
-      { day: loc("Day 6-7", "Ngày 6-7"), title: loc("Ha Long Bay Cruise", "Du thuyền Vịnh Hạ Long"), description: loc("Overnight boat, kayaking, cave exploration.", "Ngủ đêm trên thuyền, chèo kayak, khám phá hang động.") },
-      { day: loc("Day 8-9", "Ngày 8-9"), title: loc("Hanoi & Departure", "Hà Nội & Khởi hành"), description: loc("Old Quarter walking tour, farewell dinner, departure.", "Dạo bộ Phố Cổ, tiệc chia tay, khởi hành.") },
+      {
+        day: loc("Day 1-2", "Ngày 1-2"),
+        title: loc("Arrive in Da Nang", "Đến Đà Nẵng"),
+        activityLine: loc(
+          "Airport pickup, beachside check-in, welcome dinner.",
+          "Đón sân bay, nhận phòng ven biển, tiệc tối chào mừng."
+        ),
+        description: loc(
+          "Our driver meets you at Da Nang International Airport and transfers you to a beachside hotel. Take the rest of the day to rest and settle in. In the evening, the group gathers for a welcome dinner with fresh local seafood, where your guide walks you through the days ahead.",
+          "Tài xế của chúng tôi đón bạn tại sân bay quốc tế Đà Nẵng và đưa về khách sạn ven biển. Bạn có thời gian còn lại trong ngày để nghỉ ngơi. Buổi tối, cả đoàn cùng dùng bữa tối chào mừng với hải sản tươi địa phương, hướng dẫn viên sẽ giới thiệu sơ lược hành trình những ngày tới."
+        ),
+      },
+      {
+        day: loc("Day 3-5", "Ngày 3-5"),
+        title: loc("Hoi An Ancient Town", "Phố cổ Hội An"),
+        activityLine: loc(
+          "Lantern markets, tailor visits, cooking class, cycling tour.",
+          "Chợ đèn lồng, may đo, lớp nấu ăn, đạp xe tham quan."
+        ),
+        description: loc(
+          "Transfer south to Hoi An, the lantern-lit trading port that has barely changed in two centuries. Wander the old town's tailor shops and riverside market, join a hands-on cooking class with a local family, and spend a morning cycling through the surrounding rice paddies as the sun comes up over the fields.",
+          "Di chuyển về phía nam đến Hội An, thương cảng rực ánh đèn lồng gần như không đổi thay suốt hai thế kỷ. Dạo quanh phố cổ với các tiệm may và khu chợ ven sông, tham gia lớp học nấu ăn cùng một gia đình địa phương, và dành một buổi sáng đạp xe giữa những cánh đồng lúa lúc mặt trời vừa lên."
+        ),
+      },
+      {
+        day: loc("Day 6-7", "Ngày 6-7"),
+        title: loc("Ha Long Bay Cruise", "Du thuyền Vịnh Hạ Long"),
+        activityLine: loc(
+          "Overnight boat, kayaking, cave exploration.",
+          "Ngủ đêm trên thuyền, chèo kayak, khám phá hang động."
+        ),
+        description: loc(
+          "Board a private cruise through the limestone karsts of Ha Long Bay, a UNESCO World Heritage Site. Kayak between towering islands, explore hidden caves by paddle, and watch the sunset from the top deck before an overnight stay on the water.",
+          "Lên du thuyền riêng xuyên qua những dãy núi đá vôi của Vịnh Hạ Long, Di sản Thế giới được UNESCO công nhận. Chèo kayak giữa những hòn đảo cao vút, khám phá các hang động ẩn giấu, và ngắm hoàng hôn từ boong tàu trước khi nghỉ đêm ngay trên vịnh."
+        ),
+      },
+      {
+        day: loc("Day 8-9", "Ngày 8-9"),
+        title: loc("Hanoi & Departure", "Hà Nội & Khởi hành"),
+        activityLine: loc(
+          "Old Quarter walking tour, farewell dinner, departure.",
+          "Dạo bộ Phố Cổ, tiệc chia tay, khởi hành."
+        ),
+        description: loc(
+          "Return to shore and transfer to Hanoi. Spend the afternoon wandering the 36 streets of the Old Quarter with a local guide, sampling street food along the way. The trip closes with a farewell dinner before your transfer to the airport for departure.",
+          "Trở về đất liền và di chuyển đến Hà Nội. Dành buổi chiều dạo bộ 36 phố phường Phố Cổ cùng hướng dẫn viên địa phương, nếm thử ẩm thực đường phố trên đường đi. Hành trình khép lại với bữa tối chia tay trước khi ra sân bay khởi hành."
+        ),
+      },
     ],
     includes: [
       loc("Accommodation", "Chỗ nghỉ"),
@@ -77,6 +167,162 @@ export const tours: Tour[] = [
       loc("International flights", "Vé máy bay quốc tế"),
       loc("Travel insurance", "Bảo hiểm du lịch"),
       loc("Personal expenses", "Chi tiêu cá nhân"),
+    ],
+    routeStops: [
+      loc("Da Nang", "Đà Nẵng"),
+      loc("Hoi An", "Hội An"),
+      loc("Ha Long Bay", "Vịnh Hạ Long"),
+      loc("Hanoi", "Hà Nội"),
+    ],
+    gallerySegments: [
+      {
+        title: loc("Da Nang to Hoi An", "Đà Nẵng đến Hội An"),
+        stops: [loc("Da Nang", "Đà Nẵng"), loc("Hoi An", "Hội An")],
+        gradient: "gradient-sunset",
+        description: loc(
+          "A short coastal drive links Da Nang's beaches to Hoi An's lantern-lit lanes.",
+          "Một quãng đường ven biển ngắn nối bãi biển Đà Nẵng với những con phố rực đèn lồng Hội An."
+        ),
+      },
+      {
+        title: loc("Hoi An to Ha Long Bay", "Hội An đến Vịnh Hạ Long"),
+        stops: [loc("Hoi An", "Hội An"), loc("Ha Long Bay", "Vịnh Hạ Long")],
+        gradient: "gradient-ocean",
+        description: loc(
+          "Fly north to board a private cruise through towering limestone islands.",
+          "Bay ra phía bắc để lên du thuyền riêng xuyên qua những hòn đảo đá vôi sừng sững."
+        ),
+      },
+      {
+        title: loc("Ha Long Bay to Hanoi", "Vịnh Hạ Long đến Hà Nội"),
+        stops: [loc("Ha Long Bay", "Vịnh Hạ Long"), loc("Hanoi", "Hà Nội")],
+        gradient: "gradient-forest",
+        description: loc(
+          "Close the loop back on land, ending among the Old Quarter's 36 streets.",
+          "Khép lại hành trình trên đất liền, dừng chân giữa 36 phố phường của Phố Cổ."
+        ),
+      },
+    ],
+    inclusionsGrid: [
+      {
+        icon: "bed",
+        category: loc("Accommodation", "Chỗ nghỉ"),
+        summary: loc("Hotel (8 nights)", "Khách sạn (8 đêm)"),
+        details: [
+          loc("Beachside hotel in Da Nang", "Khách sạn ven biển tại Đà Nẵng"),
+          loc("Boutique hotel in Hoi An", "Khách sạn boutique tại Hội An"),
+          loc("Overnight cabin on Ha Long Bay cruise", "Cabin ngủ đêm trên du thuyền Vịnh Hạ Long"),
+          loc("Hotel in Hanoi Old Quarter", "Khách sạn tại Phố Cổ Hà Nội"),
+        ],
+      },
+      {
+        icon: "car",
+        category: loc("Transport", "Di chuyển"),
+        summary: loc("Private car, cruise, domestic flight", "Xe riêng, du thuyền, chuyến bay nội địa"),
+        details: [
+          loc("Private air-conditioned vehicle", "Xe riêng có máy lạnh"),
+          loc("Bicycles for the Hoi An cycling tour", "Xe đạp cho buổi đạp xe tại Hội An"),
+          loc("Domestic flight to Ha Long", "Vé máy bay nội địa đến Hạ Long"),
+        ],
+      },
+      {
+        icon: "users",
+        category: loc("Team", "Đội ngũ"),
+        summary: loc("Private guide, driver", "Hướng dẫn viên và tài xế riêng"),
+        details: [
+          loc("English-speaking local guide throughout", "Hướng dẫn viên nói tiếng Anh suốt hành trình"),
+          loc("Dedicated private driver", "Tài xế riêng đồng hành"),
+        ],
+      },
+      {
+        icon: "utensils",
+        category: loc("Meals", "Bữa ăn"),
+        summary: loc("8 breakfasts, 3 lunches", "8 bữa sáng, 3 bữa trưa"),
+        details: [
+          loc("Daily breakfast at each hotel", "Ăn sáng hàng ngày tại khách sạn"),
+          loc("Welcome and farewell dinners", "Tiệc tối chào mừng và chia tay"),
+          loc("Lunch included on cruise days", "Bữa trưa trong những ngày du thuyền"),
+        ],
+      },
+      {
+        icon: "camera",
+        category: loc("Experiences", "Trải nghiệm"),
+        summary: loc("6 curated experiences", "6 trải nghiệm được chọn lọc"),
+        details: [
+          loc("Hoi An cooking class", "Lớp học nấu ăn Hội An"),
+          loc("Sunrise cycling tour", "Đạp xe ngắm bình minh"),
+          loc("Ha Long Bay kayaking", "Chèo kayak Vịnh Hạ Long"),
+          loc("Cave exploration", "Khám phá hang động"),
+          loc("Old Quarter food walk", "Dạo phố ẩm thực Phố Cổ"),
+        ],
+      },
+      {
+        icon: "shield",
+        category: loc("Services", "Dịch vụ hỗ trợ"),
+        summary: loc("Entrance fees, transfers, support", "Vé tham quan, đưa đón, hỗ trợ"),
+        details: [
+          loc("All entrance and activity fees", "Toàn bộ vé tham quan và hoạt động"),
+          loc("Airport transfers on arrival and departure", "Đưa đón sân bay lúc đến và khởi hành"),
+          loc("24/7 support from your trip designer", "Hỗ trợ 24/7 từ người thiết kế hành trình của bạn"),
+        ],
+      },
+    ],
+    hotels: [
+      {
+        tierLabel: loc("Deluxe Category / 5-star Hotel", "Hạng sang / Khách sạn 5 sao"),
+        hotels: [
+          { city: loc("Da Nang", "Đà Nẵng"), hotel: loc("InterContinental Danang Sun Peninsula Resort", "InterContinental Danang Sun Peninsula Resort"), roomType: loc("Junior Suite", "Junior Suite") },
+          { city: loc("Hoi An", "Hội An"), hotel: loc("Four Seasons Resort The Nam Hai", "Four Seasons Resort The Nam Hai"), roomType: loc("Ocean View Room", "Phòng hướng biển") },
+          { city: loc("Ha Long Bay", "Vịnh Hạ Long"), hotel: loc("Heritage Cruises Binh Chuan", "Heritage Cruises Bình Chuẩn"), roomType: loc("Premium Suite", "Premium Suite") },
+          { city: loc("Hanoi", "Hà Nội"), hotel: loc("Sofitel Legend Metropole Hanoi", "Sofitel Legend Metropole Hanoi"), roomType: loc("Premium Room", "Premium Room") },
+        ],
+      },
+      {
+        tierLabel: loc("Superior Category / 4-star Hotel", "Hạng tiêu chuẩn cao / Khách sạn 4 sao"),
+        hotels: [
+          { city: loc("Da Nang", "Đà Nẵng"), hotel: loc("Melia Danang Beach Resort", "Melia Danang Beach Resort"), roomType: loc("Deluxe Room", "Phòng Deluxe") },
+          { city: loc("Hoi An", "Hội An"), hotel: loc("Hoi An Ancient House Resort & Spa", "Hoi An Ancient House Resort & Spa"), roomType: loc("Garden View Room", "Phòng hướng vườn") },
+          { city: loc("Ha Long Bay", "Vịnh Hạ Long"), hotel: loc("Paradise Elegance Cruise", "Paradise Elegance Cruise"), roomType: loc("Deluxe Cabin", "Cabin Deluxe") },
+          { city: loc("Hanoi", "Hà Nội"), hotel: loc("Hanoi La Siesta Hotel & Spa", "Hanoi La Siesta Hotel & Spa"), roomType: loc("Classic Room", "Phòng Classic") },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: loc("How do I reserve this tour?", "Làm sao để đặt tour này?"),
+        answer: loc(
+          "Send an enquiry through our contact form with your preferred dates and number of travelers. A trip designer will follow up within 1-2 business days with a tailored quote.",
+          "Gửi yêu cầu qua form liên hệ kèm ngày dự kiến và số lượng khách. Người thiết kế hành trình sẽ phản hồi trong 1-2 ngày làm việc kèm báo giá phù hợp với bạn."
+        ),
+      },
+      {
+        question: loc("Can the itinerary be customized?", "Tôi có thể tùy chỉnh lịch trình không?"),
+        answer: loc(
+          "Yes. This itinerary is a starting point. We can adjust the pace, upgrade hotels, or add extra days in any of the destinations.",
+          "Được. Lịch trình này chỉ là điểm khởi đầu. Chúng tôi có thể điều chỉnh nhịp độ, nâng cấp khách sạn, hoặc thêm ngày ở bất kỳ điểm đến nào."
+        ),
+      },
+      {
+        question: loc("How much deposit is required?", "Cần đặt cọc bao nhiêu?"),
+        answer: loc(
+          "A 30% deposit confirms your booking, with the balance due 30 days before departure.",
+          "Đặt cọc 30% để xác nhận đặt chỗ, phần còn lại thanh toán trước ngày khởi hành 30 ngày."
+        ),
+      },
+      {
+        question: loc("What is the cancellation policy?", "Chính sách hủy tour ra sao?"),
+        answer: loc(
+          "Cancellations more than 30 days before departure receive a full refund minus the deposit. Details vary by season, your trip designer will confirm the exact terms with your quote.",
+          "Hủy trước ngày khởi hành hơn 30 ngày sẽ được hoàn tiền toàn bộ trừ tiền cọc. Điều khoản cụ thể tùy mùa, người thiết kế hành trình sẽ xác nhận chi tiết cùng báo giá của bạn."
+        ),
+      },
+      {
+        question: loc("What if my flight is delayed?", "Nếu chuyến bay của tôi bị trễ thì sao?"),
+        answer: loc(
+          "Let your guide know as soon as possible. We build buffer time into every itinerary and will adjust the first day's plan around your new arrival time.",
+          "Báo ngay cho hướng dẫn viên khi có thể. Mỗi lịch trình đều có thời gian dự phòng, chúng tôi sẽ điều chỉnh kế hoạch ngày đầu theo giờ đến mới của bạn."
+        ),
+      },
     ],
   },
   {

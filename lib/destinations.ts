@@ -1,5 +1,16 @@
 import { loc, type Localized } from "./i18n";
 
+export interface MapStat {
+  value: string;
+  label: Localized;
+}
+
+export interface MapMarker {
+  name: Localized;
+  x: number;
+  y: number;
+}
+
 export interface Destination {
   slug: string;
   name: Localized;
@@ -11,6 +22,9 @@ export interface Destination {
   facts: { label: Localized; value: Localized }[];
   neighborsLabel: Localized;
   neighbors: Localized[];
+  mapStats?: MapStat[];
+  mapCities?: MapMarker[];
+  mapNeighbors?: MapMarker[];
 }
 
 export const destinations: Destination[] = [
@@ -42,6 +56,21 @@ export const destinations: Destination[] = [
     ],
     neighborsLabel: loc("Borders", "Giáp ranh"),
     neighbors: [loc("China", "Trung Quốc"), loc("Laos", "Lào"), loc("Cambodia", "Campuchia")],
+    mapStats: [
+      { value: "8", label: loc("UNESCO World Heritage Sites", "Di sản Thế giới UNESCO") },
+      { value: "54", label: loc("Ethnic groups", "Dân tộc anh em") },
+      { value: "34", label: loc("Provinces & cities", "Tỉnh, thành phố") },
+    ],
+    mapCities: [
+      { name: loc("Hanoi", "Hà Nội"), x: 95, y: 45 },
+      { name: loc("Da Nang", "Đà Nẵng"), x: 92, y: 168 },
+      { name: loc("Ho Chi Minh City", "TP. Hồ Chí Minh"), x: 88, y: 268 },
+    ],
+    mapNeighbors: [
+      { name: loc("China", "Trung Quốc"), x: 100, y: 6 },
+      { name: loc("Laos", "Lào"), x: 38, y: 140 },
+      { name: loc("Cambodia", "Campuchia"), x: 40, y: 272 },
+    ],
   },
   {
     slug: "cambodia",
