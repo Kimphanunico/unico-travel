@@ -201,7 +201,7 @@ export default function TourDetail({ tour }: { tour: Tour }) {
                           <button
                             type="button"
                             onClick={() => toggleCard(i)}
-                            className="mt-3 text-xs font-medium uppercase tracking-widest text-terracotta hover:text-terracotta-dark"
+                            className="mt-3 text-[10px] font-medium uppercase tracking-wide text-terracotta hover:text-terracotta-dark"
                           >
                             {expanded ? t("tour.readLess") : t("tour.readMore")}
                           </button>
