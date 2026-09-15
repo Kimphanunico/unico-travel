@@ -84,15 +84,17 @@ export default function DestinationDetail({
           </p>
         ))}
 
-        <div className="mx-auto mt-12 max-w-lg border-t border-ink/10 pt-10">
+        <div className="mx-auto mt-12 max-w-2xl border-t border-ink/10 pt-10">
           <h2 className="text-xs uppercase tracking-[0.3em] text-terracotta">
             {t("destinationDetail.goodToKnow")}
           </h2>
-          <dl className="mt-6 space-y-3">
+          <dl className="mt-8 grid grid-cols-2 gap-x-6 gap-y-8 text-center sm:grid-cols-4">
             {destination.facts.map((fact, i) => (
-              <div key={i} className="text-sm leading-relaxed text-ink/70">
-                <span className="font-semibold text-ink">{pick(fact.label, locale)}:</span>{" "}
-                {pick(fact.value, locale)}
+              <div key={i}>
+                <dt className="text-[10px] uppercase tracking-[0.15em] text-terracotta/80">
+                  {pick(fact.label, locale)}
+                </dt>
+                <dd className="font-serif mt-2 text-base text-ink">{pick(fact.value, locale)}</dd>
               </div>
             ))}
           </dl>
