@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import Modal from "@/components/Modal";
+import SuccessAnimation from "@/components/SuccessAnimation";
 import { destinations } from "@/lib/destinations";
 import { BUDGET_RANGES } from "@/lib/budgetRanges";
 import { useLanguage } from "@/components/LanguageProvider";
@@ -101,9 +102,10 @@ export default function BuildTripModal({
   return (
     <Modal open={open} onClose={handleClose} title={t("buildModal.heading")}>
       {status === "success" ? (
-        <div className="py-6 text-center">
-          <h3 className="font-serif text-xl text-ink">{t("buildModal.successTitle")}</h3>
-          <p className="mt-3 text-sm leading-relaxed text-ink/65">
+        <div className="py-4 text-center">
+          <SuccessAnimation className="mx-auto h-36 w-auto" />
+          <h3 className="font-serif mt-2 text-2xl text-ink">{t("buildModal.successTitle")}</h3>
+          <p className="mx-auto mt-3 max-w-xs text-sm leading-relaxed text-ink/65">
             {t("buildModal.successBody")}
           </p>
         </div>

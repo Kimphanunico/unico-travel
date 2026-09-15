@@ -70,3 +70,53 @@ body {
 .text-balance {
   text-wrap: balance;
 }
+
+@keyframes float-gentle {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-3deg);
+  }
+}
+
+@keyframes sparkle-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes trail-fade {
+  0% {
+    stroke-dashoffset: 24;
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+.animate-float-gentle {
+  animation: float-gentle 3s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.animate-sparkle {
+  animation: sparkle-pulse 1.7s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.animate-trail {
+  animation: trail-fade 1.2s ease-out forwards;
+}
