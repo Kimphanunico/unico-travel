@@ -28,6 +28,14 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     if (stored === "en" || stored === "vi") setLocaleState(stored);
   }, []);
 
+  // Poppins (see globals.css) only applies to the English site, since it has
+  // no Vietnamese glyph coverage. This keeps <html data-locale> in sync so
+  // that CSS rule can switch --font-serif at runtime.
+  useEffect(() => {
+    document.documentElement.setAttribute("data-locale", locale);
+    document.documentElement.setAttribute("lang", locale);
+  }, [locale]);
+
   const setLocale = (next: Locale) => {
     setLocaleState(next);
     window.localStorage.setItem("unico-locale", next);

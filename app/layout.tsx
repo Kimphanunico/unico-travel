@@ -1,9 +1,20 @@
 import type { Metadata } from "next";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { LanguageProvider } from "@/components/LanguageProvider";
 import { SITE_URL } from "@/lib/site";
+
+// Trial font for the English site only (Poppins has no Vietnamese glyph
+// coverage on Google Fonts, so the Vietnamese version keeps the original
+// serif headings). Toggled on via the html[data-locale="en"] rule in
+// globals.css, switched at runtime by LanguageProvider.
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-poppins",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -31,7 +42,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased">
+    <html lang="en" data-locale="en" className={`h-full antialiased ${poppins.variable}`}>
       <body className="min-h-full flex flex-col bg-cream text-ink font-sans">
         <LanguageProvider>
           <Header />

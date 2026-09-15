@@ -31,6 +31,14 @@
   box-sizing: border-box;
 }
 
+/* Poppins trial: English only. Poppins has no Vietnamese glyph coverage on
+   Google Fonts, so the Vietnamese site keeps the original serif headings
+   (see :root above). LanguageProvider toggles this attribute on <html>. */
+html[data-locale="en"] {
+  --font-serif: var(--font-poppins), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+}
+
 html {
   scroll-behavior: smooth;
 }

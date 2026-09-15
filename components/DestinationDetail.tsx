@@ -67,7 +67,7 @@ export default function DestinationDetail({
           <p className="text-xs uppercase tracking-[0.3em] text-white/75">
             {t("destinationDetail.tag")}
           </p>
-          <h1 className="font-serif mt-4 text-5xl text-white sm:text-6xl">
+          <h1 className="font-serif mt-4 text-5xl uppercase tracking-wide text-white sm:text-6xl">
             {name}
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-balance text-white/85">
