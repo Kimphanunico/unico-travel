@@ -20,6 +20,9 @@ export const metadata: Metadata = {
     siteName: "Unico Travel Vietnam DMC",
     type: "website",
   },
+  verification: {
+    google: "sECprBaiZFwT4tnERMzj7YlQXTMYJuw8_0S1T1oU-eU",
+  },
 };
 
 export default function RootLayout({
