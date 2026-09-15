@@ -40,19 +40,23 @@ export const destinations: Destination[] = [
     videoPoster: "/videos/vietnam-hero-poster.jpg",
     intro: [
       loc(
-        "Vietnam runs the full length of a coastline, from limestone bays in the north to river deltas in the south, with terraced highlands and centuries-old trading towns in between.",
-        "Việt Nam trải dài suốt một bờ biển, từ những vịnh đá vôi ở phía bắc đến vùng đồng bằng sông nước ở phía nam, xen giữa là cao nguyên ruộng bậc thang và những phố cổ giao thương hàng trăm năm tuổi."
+        "Vietnam reaches the senses before it reaches an itinerary: golden rice terraces cut into the hillsides, limestone islands rising out of jade-green water, lantern light spilling across centuries-old trading streets at dusk. It's a country of striking contrast, from the misty highlands of the north to the sun-warmed river deltas of the south.",
+        "Việt Nam chạm đến các giác quan trước cả khi chạm đến lịch trình: những thửa ruộng bậc thang vàng óng trên sườn núi, những hòn đảo đá vôi vươn lên giữa làn nước xanh ngọc, ánh đèn lồng trải dài trên những con phố cổ mỗi khi chiều buông. Đây là đất nước của những tương phản đầy cuốn hút, từ cao nguyên sương mù phía bắc đến vùng đồng bằng sông nước ấm áp phía nam."
       ),
       loc(
-        "It's a country that rewards slower travel, whether that's a few extra days in Hoi An, a detour into the highlands, or an early start for Ha Long Bay before the day boats arrive. We build every Vietnam itinerary around that kind of pacing.",
-        "Đây là đất nước xứng đáng để bạn đi chậm lại, dù đó là thêm vài ngày ở Hội An, một chuyến rẽ lên cao nguyên, hay khởi hành sớm đến Vịnh Hạ Long trước khi tàu du lịch đông đúc. Chúng tôi xây dựng mọi hành trình Việt Nam theo đúng nhịp độ đó."
+        "What stays with travelers longest usually isn't the sights, it's the warmth: a bowl of pho shared with strangers, a fisherman's wave from a bamboo boat, a grandmother's smile at a village market. We build every Vietnam itinerary to leave room for those unplanned moments, not just the landmarks.",
+        "Điều đọng lại lâu nhất với du khách thường không phải là cảnh đẹp, mà là sự ấm áp: một tô phở sẻ chia cùng người lạ, cái vẫy tay của ngư dân trên chiếc thuyền tre, nụ cười của một cụ bà nơi phiên chợ làng. Chúng tôi xây dựng mọi hành trình Việt Nam để luôn dành chỗ cho những khoảnh khắc bất ngờ ấy, chứ không chỉ là các điểm tham quan."
       ),
     ],
     facts: [
       { label: loc("Best time to visit", "Thời điểm lý tưởng"), value: loc("November to April", "Tháng 11 đến tháng 4") },
-      { label: loc("Currency", "Tiền tệ"), value: loc("Vietnamese Dong (VND)", "Việt Nam Đồng (VND)") },
+      { label: loc("Population", "Dân số"), value: loc("About 102 million", "Khoảng 102 triệu người") },
+      { label: loc("Capital", "Thủ đô"), value: loc("Hanoi", "Hà Nội") },
+      { label: loc("People", "Dân tộc"), value: loc("54 ethnic groups", "54 dân tộc anh em") },
       { label: loc("Language", "Ngôn ngữ"), value: loc("Vietnamese", "Tiếng Việt") },
+      { label: loc("Currency", "Tiền tệ"), value: loc("Vietnamese Dong (VND)", "Việt Nam Đồng (VND)") },
       { label: loc("Time zone", "Múi giờ"), value: loc("GMT+7", "GMT+7") },
+      { label: loc("Dialing code", "Mã vùng điện thoại"), value: loc("+84", "+84") },
     ],
     neighborsLabel: loc("Borders", "Giáp ranh"),
     neighbors: [loc("China", "Trung Quốc"), loc("Laos", "Lào"), loc("Cambodia", "Campuchia")],

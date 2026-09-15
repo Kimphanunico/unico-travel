@@ -77,26 +77,22 @@ export default function DestinationDetail({
       </section>
 
       {/* Intro + facts */}
-      <section className="mx-auto grid max-w-6xl gap-12 px-6 py-20 lg:grid-cols-3 lg:px-10">
-        <div className="lg:col-span-2">
-          {destination.intro.map((p, i) => (
-            <p key={i} className="mt-4 leading-relaxed text-ink/70 first:mt-0">
-              {pick(p, locale)}
-            </p>
-          ))}
-        </div>
+      <section className="mx-auto max-w-3xl px-6 py-20 text-center lg:px-10">
+        {destination.intro.map((p, i) => (
+          <p key={i} className="mt-5 leading-relaxed text-ink/70 first:mt-0">
+            {pick(p, locale)}
+          </p>
+        ))}
 
-        <div className="rounded-2xl border border-ink/10 bg-white p-8">
-          <h2 className="text-xs uppercase tracking-widest text-terracotta">
+        <div className="mx-auto mt-12 max-w-lg border-t border-ink/10 pt-10">
+          <h2 className="text-xs uppercase tracking-[0.3em] text-terracotta">
             {t("destinationDetail.goodToKnow")}
           </h2>
-          <dl className="mt-5 space-y-4">
+          <dl className="mt-6 space-y-3">
             {destination.facts.map((fact, i) => (
-              <div key={i}>
-                <dt className="text-xs uppercase tracking-widest text-ink/40">
-                  {pick(fact.label, locale)}
-                </dt>
-                <dd className="mt-1 text-sm text-ink">{pick(fact.value, locale)}</dd>
+              <div key={i} className="text-sm leading-relaxed text-ink/70">
+                <span className="font-semibold text-ink">{pick(fact.label, locale)}:</span>{" "}
+                {pick(fact.value, locale)}
               </div>
             ))}
           </dl>
