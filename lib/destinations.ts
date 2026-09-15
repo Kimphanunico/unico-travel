@@ -24,7 +24,7 @@ export interface Destination {
   neighbors: Localized[];
   mapStats?: MapStat[];
   mapCities?: MapMarker[];
-  mapNeighbors?: MapMarker[];
+  mapImage?: string;
 }
 
 export const destinations: Destination[] = [
@@ -62,15 +62,10 @@ export const destinations: Destination[] = [
       { value: "34", label: loc("Provinces & cities", "Tỉnh, thành phố") },
     ],
     mapCities: [
-      { name: loc("Hanoi", "Hà Nội"), x: 95, y: 45 },
-      { name: loc("Da Nang", "Đà Nẵng"), x: 92, y: 168 },
-      { name: loc("Ho Chi Minh City", "TP. Hồ Chí Minh"), x: 88, y: 268 },
+      { name: loc("Da Nang", "Đà Nẵng"), x: 87, y: 205 },
+      { name: loc("Ho Chi Minh City", "TP. Hồ Chí Minh"), x: 100, y: 345 },
     ],
-    mapNeighbors: [
-      { name: loc("China", "Trung Quốc"), x: 100, y: 6 },
-      { name: loc("Laos", "Lào"), x: 38, y: 140 },
-      { name: loc("Cambodia", "Campuchia"), x: 40, y: 272 },
-    ],
+    mapImage: "/images/vietnam-map.png",
   },
   {
     slug: "cambodia",
