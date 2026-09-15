@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ServicesList from "@/components/ServicesList";
 import { tours } from "@/lib/tours";
+import { parseDurationRange } from "@/lib/durationBuckets";
 
 export const metadata: Metadata = {
   title: "Tours",
@@ -11,13 +12,18 @@ export const metadata: Metadata = {
 export default async function ServicesPage({
   searchParams,
 }: {
-  searchParams: Promise<{ country?: string; type?: string }>;
+  searchParams: Promise<{ country?: string; type?: string; days?: string }>;
 }) {
-  const { country, type } = await searchParams;
+  const { country, type, days } = await searchParams;
 
   let filtered = tours;
   if (country) filtered = filtered.filter((t) => t.country === country);
   if (type) filtered = filtered.filter((t) => t.serviceType === type);
 
-  return <ServicesList tours={filtered} country={country} type={type} />;
+  const durationRange = days ? parseDurationRange(days) : null;
+  if (durationRange) {
+    filtered = filtered.filter((t) => t.days >= durationRange.min && t.days <= durationRange.max);
+  }
+
+  return <ServicesList tours={filtered} country={country} type={type} days={days} />;
 }

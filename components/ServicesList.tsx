@@ -5,6 +5,7 @@ import TourCard from "@/components/TourCard";
 import type { Tour } from "@/lib/tours";
 import { useLanguage } from "@/components/LanguageProvider";
 import { pick } from "@/lib/i18n";
+import { getDurationBucket } from "@/lib/durationBuckets";
 
 const COUNTRY_LABELS: Record<string, { en: string; vi: string }> = {
   vietnam: { en: "Vietnam", vi: "Việt Nam" },
@@ -28,10 +29,12 @@ export default function ServicesList({
   tours,
   country,
   type,
+  days,
 }: {
   tours: Tour[];
   country?: string;
   type?: string;
+  days?: string;
 }) {
   const { locale, t } = useLanguage();
 
@@ -41,12 +44,16 @@ export default function ServicesList({
     ? pick(TYPE_LABELS[type] ?? { en: type, vi: type }, locale)
     : null;
 
+  const durationBucket = days ? getDurationBucket(days) : undefined;
+  const durationLabel = durationBucket ? pick(durationBucket.label, locale) : null;
+
   return (
     <div className="pt-32">
       <section className="mx-auto max-w-4xl px-6 text-center lg:px-10">
         <p className="text-xs uppercase tracking-[0.3em] text-terracotta">
           {activeLabel
-            ? `${activeLabel} ${locale === "vi" ? "" : "Tours"}`.trim()
+            ? `${activeLabel} ${locale === "vi" ? "" : "Tours"}`.trim() +
+              (durationLabel ? ` · ${durationLabel}` : "")
             : t("services.tag")}
         </p>
         <h1 className="font-serif mt-5 text-4xl text-ink sm:text-5xl">

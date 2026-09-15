@@ -53,6 +53,7 @@ export interface Tour {
   country: string;
   serviceType: string;
   duration: Localized;
+  days: number;
   price: string;
   groupSize: Localized;
   gradient: string;
@@ -81,6 +82,7 @@ export const tours: Tour[] = [
     country: "vietnam",
     serviceType: "group",
     duration: loc("9 days / 8 nights", "9 ngày / 8 đêm"),
+    days: 9,
     price: "$1,890",
     groupSize: loc("6 - 12 travelers", "6 - 12 khách"),
     gradient: "gradient-ocean",
@@ -342,6 +344,7 @@ export const tours: Tour[] = [
     country: "japan",
     serviceType: "luxury",
     duration: loc("10 days / 9 nights", "10 ngày / 9 đêm"),
+    days: 10,
     price: "$3,250",
     groupSize: loc("6 - 10 travelers", "6 - 10 khách"),
     gradient: "gradient-sunset",
@@ -395,6 +398,7 @@ export const tours: Tour[] = [
     country: "switzerland",
     serviceType: "tailor-made",
     duration: loc("8 days / 7 nights", "8 ngày / 7 đêm"),
+    days: 8,
     price: "$4,100",
     groupSize: loc("4 - 10 travelers", "4 - 10 khách"),
     gradient: "gradient-snow",
@@ -448,6 +452,7 @@ export const tours: Tour[] = [
     country: "tanzania",
     serviceType: "luxury",
     duration: loc("7 days / 6 nights", "7 ngày / 6 đêm"),
+    days: 7,
     price: "$3,780",
     groupSize: loc("4 - 8 travelers", "4 - 8 khách"),
     gradient: "gradient-sand",
@@ -498,6 +503,7 @@ export const tours: Tour[] = [
     country: "indonesia",
     serviceType: "group",
     duration: loc("6 days / 5 nights", "6 ngày / 5 đêm"),
+    days: 6,
     price: "$1,450",
     groupSize: loc("8 - 14 travelers", "8 - 14 khách"),
     gradient: "gradient-forest",
@@ -547,6 +553,7 @@ export const tours: Tour[] = [
     country: "iceland",
     serviceType: "tailor-made",
     duration: loc("6 days / 5 nights", "6 ngày / 5 đêm"),
+    days: 6,
     price: "$2,690",
     groupSize: loc("6 - 12 travelers", "6 - 12 khách"),
     gradient: "gradient-dusk",
@@ -597,6 +604,7 @@ export const tours: Tour[] = [
     country: "cambodia",
     serviceType: "tailor-made",
     duration: loc("6 days / 5 nights", "6 ngày / 5 đêm"),
+    days: 6,
     price: "$1,280",
     groupSize: loc("Private, any size", "Riêng tư, mọi quy mô"),
     gradient: "gradient-sand",
@@ -645,6 +653,7 @@ export const tours: Tour[] = [
     country: "laos",
     serviceType: "tailor-made",
     duration: loc("5 days / 4 nights", "5 ngày / 4 đêm"),
+    days: 5,
     price: "$1,150",
     groupSize: loc("Private, any size", "Riêng tư, mọi quy mô"),
     gradient: "gradient-forest",
