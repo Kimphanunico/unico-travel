@@ -340,6 +340,11 @@ export const ui = {
       step3Title: "Customize & book",
       step3Body: "Fine-tune every detail, then confirm and start planning.",
     },
+    floatingBar: {
+      build: "Build",
+      enquire: "Enquire",
+      callUs: "Call Us",
+    },
   },
   vi: {
     nav: {
@@ -665,6 +670,11 @@ export const ui = {
       step2Body: "Chuyên viên tư vấn thiết kế lịch trình riêng và gửi báo giá cho bạn.",
       step3Title: "Tùy chỉnh & đặt tour",
       step3Body: "Điều chỉnh từng chi tiết, sau đó xác nhận và bắt đầu chuẩn bị chuyến đi.",
+    },
+    floatingBar: {
+      build: "Tạo Lịch Trình",
+      enquire: "Yêu Cầu Tư Vấn",
+      callUs: "Gọi Ngay",
     },
   },
 } as const;

@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import FloatingContactBar from "@/components/FloatingContactBar";
 import { LanguageProvider } from "@/components/LanguageProvider";
 import { SITE_URL } from "@/lib/site";
 
@@ -48,6 +49,7 @@ export default function RootLayout({
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
+          <FloatingContactBar />
         </LanguageProvider>
       </body>
     </html>
