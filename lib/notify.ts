@@ -9,7 +9,7 @@
 // The sending domain (unicotraveldmc.com) must be verified in Resend first,
 // otherwise sends will fail silently (logged, but never blocks the form).
 
-const DEFAULT_NOTIFY_TO = "admin@unicovisa.com.vn";
+const DEFAULT_NOTIFY_TO = "kim.phan@unicovisa.com.vn";
 const FROM_ADDRESS = "Unico Travel Website <notifications@unicotraveldmc.com>";
 
 export interface TripRequestNotification {
