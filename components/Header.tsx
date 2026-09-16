@@ -62,6 +62,54 @@ export default function Header() {
         solid ? "bg-cream/95 backdrop-blur border-b border-ink/10" : "bg-transparent"
       }`}
     >
+      {/* Utility bar: secondary, non-primary links kept out of the main
+          row so it doesn't compete visually with the core navigation. */}
+      <div
+        className={`hidden border-b transition-colors duration-300 lg:block ${
+          solid ? "border-ink/10" : "border-white/15"
+        }`}
+      >
+        <div className="mx-auto flex max-w-7xl items-center justify-end gap-6 px-6 py-2 lg:px-10">
+          <div className="group relative">
+            <button
+              className={`flex items-center gap-1 whitespace-nowrap text-[11px] uppercase tracking-wide transition-colors hover:text-terracotta ${linkColor}`}
+            >
+              {currentLanguage.label}
+              <svg width="8" height="5" viewBox="0 0 10 6" fill="none" className="mt-0.5">
+                <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+            <div className="invisible absolute right-0 top-full w-28 pt-2 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100">
+              <div className="overflow-hidden rounded-lg border border-ink/10 bg-white shadow-lg">
+                {LANGUAGES.map((lang) => (
+                  <button
+                    key={lang.code}
+                    onClick={() => setLocale(lang.code)}
+                    className={`block w-full px-3 py-2 text-left text-xs hover:bg-cream hover:text-terracotta ${
+                      lang.code === locale ? "text-terracotta" : "text-ink/75"
+                    }`}
+                  >
+                    {lang.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <a
+            href="https://unicovisa.com.vn"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`flex items-center gap-1 whitespace-nowrap text-[11px] uppercase tracking-wide transition-colors hover:text-terracotta ${linkColor}`}
+          >
+            {t("nav.visaServices")}
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className="mt-px">
+              <path d="M2.5 7.5L7.5 2.5M7.5 2.5H3.5M7.5 2.5V6.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
         <Link href="/" className="relative flex h-10 w-40 items-center">
           <Image
@@ -186,49 +234,7 @@ export default function Header() {
           </div>
         </nav>
 
-        <div className="hidden items-center gap-4 lg:ml-10 lg:flex">
-          <div className="group relative">
-            <button
-              className={`flex items-center gap-1 whitespace-nowrap rounded-full border px-3 py-1.5 text-[11px] uppercase tracking-wide transition-colors ${
-                solid ? "border-ink/20 hover:border-terracotta hover:text-terracotta" : "border-white/40 hover:border-white"
-              } ${linkColor}`}
-            >
-              {currentLanguage.label}
-              <svg width="8" height="5" viewBox="0 0 10 6" fill="none" className="mt-0.5">
-                <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-            <div className="invisible absolute right-0 top-full w-28 pt-2 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100">
-              <div className="overflow-hidden rounded-lg border border-ink/10 bg-white shadow-lg">
-                {LANGUAGES.map((lang) => (
-                  <button
-                    key={lang.code}
-                    onClick={() => setLocale(lang.code)}
-                    className={`block w-full px-3 py-2 text-left text-xs hover:bg-cream hover:text-terracotta ${
-                      lang.code === locale ? "text-terracotta" : "text-ink/75"
-                    }`}
-                  >
-                    {lang.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <a
-            href="https://unicovisa.com.vn"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`flex items-center gap-1 whitespace-nowrap rounded-full border px-3 py-1.5 text-[11px] uppercase tracking-wide transition-colors ${
-              solid ? "border-ink/20 hover:border-terracotta hover:text-terracotta" : "border-white/40 hover:border-white"
-            } ${linkColor}`}
-          >
-            {t("nav.visaServices")}
-            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className="mt-px">
-              <path d="M2.5 7.5L7.5 2.5M7.5 2.5H3.5M7.5 2.5V6.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </a>
-
+        <div className="hidden items-center lg:ml-10 lg:flex">
           <Link
             href="/contact"
             className={`whitespace-nowrap rounded-full border px-5 py-2 text-sm uppercase tracking-wide transition-colors ${
