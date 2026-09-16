@@ -11,7 +11,7 @@ type Status = "idle" | "submitting" | "success" | "error";
 
 const PHONE_NUMBER = "+84 376 792 974";
 const PHONE_HREF = "tel:+84376792974";
-const EMAIL_ADDRESS = "admin@unicovisa.com.vn";
+const EMAIL_ADDRESS = "kim.phan@unicovisa.com.vn";
 
 const inputClass =
   "mt-2 w-full rounded-lg border border-ink/15 bg-white px-4 py-3 text-sm text-ink outline-none focus:border-terracotta";

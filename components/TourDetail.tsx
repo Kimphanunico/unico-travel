@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useState } from "react";
 import { tours, type Tour } from "@/lib/tours";
 import TourCard from "@/components/TourCard";
-import RouteMap from "@/components/RouteMap";
 import InclusionIconGraphic from "@/components/InclusionIcon";
 import { useLanguage } from "@/components/LanguageProvider";
 import { pick } from "@/lib/i18n";
@@ -129,33 +128,62 @@ export default function TourDetail({ tour }: { tour: Tour }) {
               <p className="mt-3 text-sm leading-relaxed text-ink/60">
                 {t("tour.journeyBody")}
               </p>
-              <div className="mt-6 space-y-4">
+              <div className="mt-6 space-y-6">
                 {tour.gallerySegments!.map((segment, i) => (
                   <div
                     key={i}
-                    className="flex flex-col gap-5 rounded-2xl border border-ink/10 bg-white p-5 sm:flex-row sm:items-center"
+                    className="overflow-hidden rounded-2xl border border-ink/10 bg-white transition-shadow hover:shadow-lg"
                   >
-                    <div className="sm:flex-1">
+                    {/* Stage cover: brand-gradient panel standing in for a
+                        destination photo, with a large chapter number and a
+                        minimal route line between the two stop pills — an
+                        editorial, Apple/Pizza4p-style "stage" treatment
+                        rather than a literal illustrated map. */}
+                    <div className={`relative h-44 w-full overflow-hidden sm:h-52 ${segment.gradient}`}>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/0 to-transparent" />
+                      <span className="font-serif absolute left-5 top-3 text-6xl leading-none text-white/20 sm:text-7xl">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <div className="absolute inset-x-5 bottom-5 flex items-center gap-3">
+                        <span className="shrink-0 rounded-full bg-white/15 px-3 py-1 text-[11px] uppercase tracking-widest text-white backdrop-blur-sm">
+                          {pick(segment.stops[0], locale)}
+                        </span>
+                        <svg
+                          viewBox="0 0 100 20"
+                          preserveAspectRatio="none"
+                          className="h-4 w-full max-w-[96px] flex-1 text-white/70"
+                        >
+                          <line
+                            x1="4"
+                            y1="10"
+                            x2="90"
+                            y2="10"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeDasharray="1 8"
+                            strokeLinecap="round"
+                          />
+                          <circle cx="4" cy="10" r="3" fill="currentColor" />
+                          <path
+                            d="M84 4 L94 10 L84 16"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                        <span className="shrink-0 rounded-full bg-white/15 px-3 py-1 text-[11px] uppercase tracking-widest text-white backdrop-blur-sm">
+                          {pick(segment.stops[segment.stops.length - 1], locale)}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="p-6">
                       <h3 className="font-serif text-lg text-ink">{pick(segment.title, locale)}</h3>
                       <p className="mt-2 text-sm leading-relaxed text-ink/65">
                         {pick(segment.description, locale)}
                       </p>
-                    </div>
-
-                    {/* Compact route thumbnail. Kept small and self-contained
-                        (light background, own rounded card) so it can later
-                        sit as a small inset badge on top of a real photo,
-                        instead of filling the whole card as a full-bleed cover. */}
-                    <div className="shrink-0 sm:w-56">
-                      <div
-                        className="overflow-hidden rounded-xl border border-ink/10 text-forest"
-                        style={{ background: "#e7eef0" }}
-                      >
-                        <RouteMap
-                          stops={segment.stops.map((s) => pick(s, locale))}
-                          className="h-32 w-full"
-                        />
-                      </div>
                     </div>
                   </div>
                 ))}
