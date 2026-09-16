@@ -6,6 +6,7 @@ import { useEffect, useRef } from "react";
 import type { Destination } from "@/lib/destinations";
 import type { Tour } from "@/lib/tours";
 import TourCard from "@/components/TourCard";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { useLanguage } from "@/components/LanguageProvider";
 import { pick } from "@/lib/i18n";
 import { DURATION_BUCKETS } from "@/lib/durationBuckets";
@@ -64,6 +65,14 @@ export default function DestinationDetail({
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
         <div className="relative mx-auto w-full max-w-5xl px-6 pb-16 pt-32 text-center lg:px-10">
+          <Breadcrumbs
+            align="center"
+            items={[
+              { label: t("nav.home"), href: "/" },
+              { label: t("nav.destinations"), href: "/destinations" },
+              { label: name },
+            ]}
+          />
           <p className="text-xs uppercase tracking-[0.3em] text-white/75">
             {t("destinationDetail.tag")}
           </p>

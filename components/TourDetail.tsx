@@ -6,6 +6,7 @@ import { tours, type Tour } from "@/lib/tours";
 import TourCard from "@/components/TourCard";
 import InclusionIconGraphic from "@/components/InclusionIcon";
 import TransportIcon from "@/components/TransportIcon";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { useLanguage } from "@/components/LanguageProvider";
 import { pick } from "@/lib/i18n";
 
@@ -59,6 +60,13 @@ export default function TourDetail({ tour }: { tour: Tour }) {
       <section className={`relative flex h-[60vh] min-h-[420px] items-end ${tour.gradient}`}>
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
         <div className="relative mx-auto w-full max-w-7xl px-6 pb-14 pt-32 lg:px-10">
+          <Breadcrumbs
+            items={[
+              { label: t("nav.home"), href: "/" },
+              { label: t("nav.services"), href: "/services" },
+              { label: pick(tour.title, locale) },
+            ]}
+          />
           <p className="text-xs uppercase tracking-[0.3em] text-white/80">
             {pick(tour.category, locale)}
           </p>
