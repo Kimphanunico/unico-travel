@@ -5,6 +5,7 @@ import { useState } from "react";
 import { tours, type Tour } from "@/lib/tours";
 import TourCard from "@/components/TourCard";
 import InclusionIconGraphic from "@/components/InclusionIcon";
+import TransportIcon from "@/components/TransportIcon";
 import { useLanguage } from "@/components/LanguageProvider";
 import { pick } from "@/lib/i18n";
 
@@ -128,65 +129,39 @@ export default function TourDetail({ tour }: { tour: Tour }) {
               <p className="mt-3 text-sm leading-relaxed text-ink/60">
                 {t("tour.journeyBody")}
               </p>
-              <div className="mt-6 space-y-6">
-                {tour.gallerySegments!.map((segment, i) => (
-                  <div
-                    key={i}
-                    className="overflow-hidden rounded-2xl border border-ink/10 bg-white transition-shadow hover:shadow-lg"
-                  >
-                    {/* Stage cover: brand-gradient panel standing in for a
-                        destination photo, with a large chapter number and a
-                        minimal route line between the two stop pills — an
-                        editorial, Apple/Pizza4p-style "stage" treatment
-                        rather than a literal illustrated map. */}
-                    <div className={`relative h-44 w-full overflow-hidden sm:h-52 ${segment.gradient}`}>
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/0 to-transparent" />
-                      <span className="font-serif absolute left-5 top-3 text-6xl leading-none text-white/20 sm:text-7xl">
+              {/* Vertical timeline: compact, information-first treatment.
+                  Each stage shows the transport mode and travel time so the
+                  itinerary's logic (how one leg connects to the next) is
+                  legible at a glance, instead of a large decorative cover
+                  with no real photography behind it. */}
+              <div className="relative mt-8 pl-11">
+                <div className="absolute bottom-3.5 left-4 top-3.5 border-l border-dashed border-terracotta/30" />
+                {tour.gallerySegments!.map((segment, i) => {
+                  const isLast = i === tour.gallerySegments!.length - 1;
+                  return (
+                    <div key={i} className={isLast ? "relative" : "relative pb-7"}>
+                      <div
+                        className="absolute -left-11 top-0 flex h-8 w-8 items-center justify-center rounded-full text-xs font-semibold text-white"
+                        style={{ background: segment.accent }}
+                      >
                         {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <div className="absolute inset-x-5 bottom-5 flex items-center gap-3">
-                        <span className="shrink-0 rounded-full bg-white/15 px-3 py-1 text-[11px] uppercase tracking-widest text-white backdrop-blur-sm">
-                          {pick(segment.stops[0], locale)}
-                        </span>
-                        <svg
-                          viewBox="0 0 100 20"
-                          preserveAspectRatio="none"
-                          className="h-4 w-full max-w-[96px] flex-1 text-white/70"
+                      </div>
+                      <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                        <h3 className="font-serif text-lg text-ink">{pick(segment.title, locale)}</h3>
+                        <span
+                          className="flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-1 text-[11px] font-medium"
+                          style={{ color: segment.accent, background: `${segment.accent}18` }}
                         >
-                          <line
-                            x1="4"
-                            y1="10"
-                            x2="90"
-                            y2="10"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeDasharray="1 8"
-                            strokeLinecap="round"
-                          />
-                          <circle cx="4" cy="10" r="3" fill="currentColor" />
-                          <path
-                            d="M84 4 L94 10 L84 16"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                        <span className="shrink-0 rounded-full bg-white/15 px-3 py-1 text-[11px] uppercase tracking-widest text-white backdrop-blur-sm">
-                          {pick(segment.stops[segment.stops.length - 1], locale)}
+                          <TransportIcon mode={segment.transport} className="h-3.5 w-3.5" />
+                          {pick(segment.travelTime, locale)}
                         </span>
                       </div>
-                    </div>
-
-                    <div className="p-6">
-                      <h3 className="font-serif text-lg text-ink">{pick(segment.title, locale)}</h3>
-                      <p className="mt-2 text-sm leading-relaxed text-ink/65">
+                      <p className="mt-1.5 text-sm leading-relaxed text-ink/65">
                         {pick(segment.description, locale)}
                       </p>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           )}

@@ -7,10 +7,15 @@ export interface ItineraryDay {
   activityLine?: Localized;
 }
 
+export type TransportMode = "car" | "flight" | "boat";
+
 export interface GallerySegment {
   title: Localized;
   stops: Localized[];
   gradient: string;
+  accent: string;
+  transport: TransportMode;
+  travelTime: Localized;
   description: Localized;
 }
 
@@ -190,6 +195,9 @@ export const tours: Tour[] = [
         title: loc("Da Nang to Hoi An", "Đà Nẵng đến Hội An"),
         stops: [loc("Da Nang", "Đà Nẵng"), loc("Hoi An", "Hội An")],
         gradient: "gradient-sunset",
+        accent: "#c1622d",
+        transport: "car",
+        travelTime: loc("45 min drive", "45 phút lái xe"),
         description: loc(
           "A short coastal drive links Da Nang's beaches to Hoi An's lantern-lit lanes.",
           "Một quãng đường ven biển ngắn nối bãi biển Đà Nẵng với những con phố rực đèn lồng Hội An."
@@ -199,6 +207,9 @@ export const tours: Tour[] = [
         title: loc("Hoi An to Ha Long Bay", "Hội An đến Vịnh Hạ Long"),
         stops: [loc("Hoi An", "Hội An"), loc("Ha Long Bay", "Vịnh Hạ Long")],
         gradient: "gradient-ocean",
+        accent: "#3f7c82",
+        transport: "flight",
+        travelTime: loc("1h20 flight + transfer", "1 giờ 20 bay + di chuyển"),
         description: loc(
           "Fly north to board a private cruise through towering limestone islands.",
           "Bay ra phía bắc để lên du thuyền riêng xuyên qua những hòn đảo đá vôi sừng sững."
@@ -208,6 +219,9 @@ export const tours: Tour[] = [
         title: loc("Ha Long Bay to Hanoi", "Vịnh Hạ Long đến Hà Nội"),
         stops: [loc("Ha Long Bay", "Vịnh Hạ Long"), loc("Hanoi", "Hà Nội")],
         gradient: "gradient-forest",
+        accent: "#445340",
+        transport: "car",
+        travelTime: loc("3.5 hr drive", "3,5 giờ lái xe"),
         description: loc(
           "Close the loop back on land, ending among the Old Quarter's 36 streets.",
           "Khép lại hành trình trên đất liền, dừng chân giữa 36 phố phường của Phố Cổ."
