@@ -60,7 +60,7 @@ export default function DestinationDetail({
       </div>
 
       {/* Hero */}
-      <section className={`relative flex h-[52vh] min-h-[380px] items-center overflow-hidden ${destination.gradient}`}>
+      <section className={`relative flex h-[62vh] min-h-[440px] items-end overflow-hidden ${destination.gradient}`}>
         {destination.video && (
           <video
             ref={videoRef}
@@ -79,7 +79,7 @@ export default function DestinationDetail({
           </video>
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
-        <div className="relative mx-auto w-full max-w-5xl px-6 py-14 text-center lg:px-10">
+        <div className="relative mx-auto w-full max-w-5xl px-6 pb-16 pt-10 text-center lg:px-10">
           <p className="text-xs uppercase tracking-[0.3em] text-white/75">
             {t("destinationDetail.tag")}
           </p>

@@ -73,9 +73,9 @@ export default function TourDetail({ tour }: { tour: Tour }) {
       </div>
 
       {/* Hero */}
-      <section className={`relative flex h-[50vh] min-h-[360px] items-center ${tour.gradient}`}>
+      <section className={`relative flex h-[60vh] min-h-[420px] items-end ${tour.gradient}`}>
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-        <div className="relative mx-auto w-full max-w-7xl px-6 py-10 lg:px-10">
+        <div className="relative mx-auto w-full max-w-7xl px-6 pb-14 pt-10 lg:px-10">
           <p className="text-xs uppercase tracking-[0.3em] text-white/80">
             {pick(tour.category, locale)}
           </p>
