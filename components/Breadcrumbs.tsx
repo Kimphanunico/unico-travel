@@ -5,36 +5,29 @@ export interface BreadcrumbItem {
   href?: string;
 }
 
-// Lightweight breadcrumb trail, meant to sit inside a hero section on top of
-// a photo/gradient background so visitors always see where they are and can
-// jump back to a previous section in one click. The last item (current
-// page) is never a link.
-export default function Breadcrumbs({
-  items,
-  align = "left",
-}: {
-  items: BreadcrumbItem[];
-  align?: "left" | "center";
-}) {
+// Breadcrumb trail shown as its own plain bar just below the header (not
+// overlaid on a photo), so it stays legible on any hero image and matches
+// the familiar "Home > Section > Page" pattern from other travel sites.
+// The last item (current page) is never a link.
+export default function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
   return (
-    <nav
-      aria-label="Breadcrumb"
-      className={`mb-4 flex flex-wrap items-center gap-1.5 text-xs text-white/70 ${
-        align === "center" ? "justify-center" : "justify-start"
-      }`}
-    >
+    <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-xs">
       {items.map((item, i) => {
         const isLast = i === items.length - 1;
         return (
           <span key={i} className="flex items-center gap-1.5">
             {item.href && !isLast ? (
-              <Link href={item.href} className="transition-colors hover:text-white">
+              <Link href={item.href} className="text-ink/55 transition-colors hover:text-terracotta">
                 {item.label}
               </Link>
             ) : (
-              <span className={isLast ? "text-white" : undefined}>{item.label}</span>
+              <span className={isLast ? "font-medium text-ink" : "text-ink/55"}>{item.label}</span>
             )}
-            {!isLast && <span className="text-white/40">/</span>}
+            {!isLast && (
+              <svg width="6" height="9" viewBox="0 0 6 9" fill="none" className="text-ink/30">
+                <path d="M1 1L5 4.5L1 8" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            )}
           </span>
         );
       })}

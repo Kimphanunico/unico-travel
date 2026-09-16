@@ -44,6 +44,21 @@ export default function DestinationDetail({
 
   return (
     <div>
+      {/* Spacer to clear the fixed header (always solid on this page),
+          then the breadcrumb bar as its own plain strip. */}
+      <div className="h-[72px] lg:h-[104px]" />
+      <div className="border-b border-ink/10 bg-cream">
+        <div className="mx-auto max-w-5xl px-6 py-3 lg:px-10">
+          <Breadcrumbs
+            items={[
+              { label: t("nav.home"), href: "/" },
+              { label: t("nav.destinations"), href: "/destinations" },
+              { label: name },
+            ]}
+          />
+        </div>
+      </div>
+
       {/* Hero */}
       <section className={`relative flex h-[62vh] min-h-[440px] items-end overflow-hidden ${destination.gradient}`}>
         {destination.video && (
@@ -64,15 +79,7 @@ export default function DestinationDetail({
           </video>
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
-        <div className="relative mx-auto w-full max-w-5xl px-6 pb-16 pt-32 text-center lg:px-10">
-          <Breadcrumbs
-            align="center"
-            items={[
-              { label: t("nav.home"), href: "/" },
-              { label: t("nav.destinations"), href: "/destinations" },
-              { label: name },
-            ]}
-          />
+        <div className="relative mx-auto w-full max-w-5xl px-6 pb-16 pt-10 text-center lg:px-10">
           <p className="text-xs uppercase tracking-[0.3em] text-white/75">
             {t("destinationDetail.tag")}
           </p>
