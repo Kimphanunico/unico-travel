@@ -59,7 +59,7 @@ export default function TourDetail({ tour }: { tour: Tour }) {
       {/* Spacer to clear the fixed header (always solid on this page),
           then the breadcrumb bar as its own plain strip -- legible on any
           hero image and lets visitors jump back to a previous section. */}
-      <div className="h-[72px] lg:h-[104px]" />
+      <div className="h-[84px] lg:h-[117px]" />
       <div className="border-b border-ink/10 bg-cream">
         <div className="mx-auto flex min-h-[46px] max-w-7xl items-center px-6 lg:px-10">
           <Breadcrumbs
@@ -96,7 +96,7 @@ export default function TourDetail({ tour }: { tour: Tour }) {
       </section>
 
       {/* Sticky sub-navigation */}
-      <div className="sticky top-[72px] z-30 border-b border-ink/10 bg-cream/95 backdrop-blur-sm lg:top-[104px]">
+      <div className="sticky top-[84px] z-30 border-b border-ink/10 bg-cream/95 backdrop-blur-sm lg:top-[117px]">
         <nav className="mx-auto flex max-w-7xl gap-6 overflow-x-auto px-6 py-3 text-xs uppercase tracking-widest text-ink/60 lg:px-10">
           {navItems.map((item) => (
             <a

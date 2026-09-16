@@ -46,7 +46,7 @@ export default function DestinationDetail({
     <div>
       {/* Spacer to clear the fixed header (always solid on this page),
           then the breadcrumb bar as its own plain strip. */}
-      <div className="h-[72px] lg:h-[104px]" />
+      <div className="h-[84px] lg:h-[117px]" />
       <div className="border-b border-ink/10 bg-cream">
         <div className="mx-auto flex min-h-[46px] max-w-7xl items-center px-6 lg:px-10">
           <Breadcrumbs
