@@ -280,21 +280,21 @@ export const tours: Tour[] = [
     ],
     hotels: [
       {
-        tierLabel: loc("Deluxe Category / 5-star Hotel", "Hạng sang / Khách sạn 5 sao"),
-        hotels: [
-          { city: loc("Da Nang", "Đà Nẵng"), hotel: loc("InterContinental Danang Sun Peninsula Resort", "InterContinental Danang Sun Peninsula Resort"), roomType: loc("Junior Suite", "Junior Suite") },
-          { city: loc("Hoi An", "Hội An"), hotel: loc("Four Seasons Resort The Nam Hai", "Four Seasons Resort The Nam Hai"), roomType: loc("Ocean View Room", "Phòng hướng biển") },
-          { city: loc("Ha Long Bay", "Vịnh Hạ Long"), hotel: loc("Heritage Cruises Binh Chuan", "Heritage Cruises Bình Chuẩn"), roomType: loc("Premium Suite", "Premium Suite") },
-          { city: loc("Hanoi", "Hà Nội"), hotel: loc("Sofitel Legend Metropole Hanoi", "Sofitel Legend Metropole Hanoi"), roomType: loc("Premium Room", "Premium Room") },
-        ],
-      },
-      {
         tierLabel: loc("Superior Category / 4-star Hotel", "Hạng tiêu chuẩn cao / Khách sạn 4 sao"),
         hotels: [
           { city: loc("Da Nang", "Đà Nẵng"), hotel: loc("Melia Danang Beach Resort", "Melia Danang Beach Resort"), roomType: loc("Deluxe Room", "Phòng Deluxe") },
           { city: loc("Hoi An", "Hội An"), hotel: loc("Hoi An Ancient House Resort & Spa", "Hoi An Ancient House Resort & Spa"), roomType: loc("Garden View Room", "Phòng hướng vườn") },
           { city: loc("Ha Long Bay", "Vịnh Hạ Long"), hotel: loc("Paradise Elegance Cruise", "Paradise Elegance Cruise"), roomType: loc("Deluxe Cabin", "Cabin Deluxe") },
           { city: loc("Hanoi", "Hà Nội"), hotel: loc("Hanoi La Siesta Hotel & Spa", "Hanoi La Siesta Hotel & Spa"), roomType: loc("Classic Room", "Phòng Classic") },
+        ],
+      },
+      {
+        tierLabel: loc("Deluxe Category / 5-star Hotel", "Hạng sang / Khách sạn 5 sao"),
+        hotels: [
+          { city: loc("Da Nang", "Đà Nẵng"), hotel: loc("InterContinental Danang Sun Peninsula Resort", "InterContinental Danang Sun Peninsula Resort"), roomType: loc("Junior Suite", "Junior Suite") },
+          { city: loc("Hoi An", "Hội An"), hotel: loc("Four Seasons Resort The Nam Hai", "Four Seasons Resort The Nam Hai"), roomType: loc("Ocean View Room", "Phòng hướng biển") },
+          { city: loc("Ha Long Bay", "Vịnh Hạ Long"), hotel: loc("Heritage Cruises Binh Chuan", "Heritage Cruises Bình Chuẩn"), roomType: loc("Premium Suite", "Premium Suite") },
+          { city: loc("Hanoi", "Hà Nội"), hotel: loc("Sofitel Legend Metropole Hanoi", "Sofitel Legend Metropole Hanoi"), roomType: loc("Premium Room", "Premium Room") },
         ],
       },
     ],
