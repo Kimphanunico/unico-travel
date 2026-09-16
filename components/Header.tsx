@@ -86,7 +86,7 @@ export default function Header() {
           />
         </Link>
 
-        <nav className="hidden items-center gap-6 lg:flex">
+        <nav className="hidden items-center gap-8 lg:flex">
           <Link
             href="/"
             className={`whitespace-nowrap text-sm uppercase tracking-wide transition-colors hover:text-terracotta ${
@@ -186,7 +186,7 @@ export default function Header() {
           </div>
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-4 lg:ml-10 lg:flex">
           <div className="group relative">
             <button
               className={`flex items-center gap-1 whitespace-nowrap rounded-full border px-3 py-1.5 text-[11px] uppercase tracking-wide transition-colors ${
