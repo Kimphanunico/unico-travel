@@ -48,7 +48,7 @@ export default function DestinationDetail({
           then the breadcrumb bar as its own plain strip. */}
       <div className="h-[72px] lg:h-[104px]" />
       <div className="border-b border-ink/10 bg-cream">
-        <div className="mx-auto flex min-h-[46px] max-w-5xl items-center px-6 lg:px-10">
+        <div className="mx-auto flex min-h-[46px] max-w-7xl items-center px-6 lg:px-10">
           <Breadcrumbs
             items={[
               { label: t("nav.home"), href: "/" },

@@ -11,7 +11,7 @@ export interface BreadcrumbItem {
 // The last item (current page) is never a link.
 export default function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
   return (
-    <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-xs">
+    <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-xs leading-none">
       {items.map((item, i) => {
         const isLast = i === items.length - 1;
         return (
