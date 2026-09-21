@@ -3,11 +3,9 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-// Slow crossfade between real photos. The hero box is short and wide while
-// the photos are closer to landscape/portrait, so object-contain is used to
-// always show the whole photo -- any leftover space on the sides shows the
-// tour's own brand-gradient background (set on the parent <section>) rather
-// than a blurred copy of the photo, which read as a rendering glitch.
+// Slow crossfade between real photos, full-bleed across the hero box
+// (object-cover) -- no letterbox bars, no blur. A gentle Ken Burns zoom
+// gives it some life instead of sitting as a flat, static crop.
 export default function TourHeroSlideshow({ images }: { images: string[] }) {
   const [active, setActive] = useState(0);
 
@@ -34,7 +32,7 @@ export default function TourHeroSlideshow({ images }: { images: string[] }) {
             fill
             priority={i === 0}
             sizes="100vw"
-            className="object-contain"
+            className="animate-kenburns object-cover"
           />
         </div>
       ))}
