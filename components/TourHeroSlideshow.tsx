@@ -3,15 +3,11 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-// Slow crossfade + gentle Ken Burns zoom, the same visual language cruise
-// and luxury hotel brands use for hero photography -- calm motion instead
-// of a static flat image, without ever fighting the text on top of it.
-//
-// The hero box is short and photos come in different aspect ratios, so a
-// plain object-cover would crop into the subject. Each frame is built from
-// two layers instead: a blurred, darkened object-cover copy that fills the
-// whole box (so there's never an empty letterbox bar), and the real photo
-// on top with object-contain, always shown whole and never cropped.
+// Slow crossfade between real photos. The hero box is short and wide while
+// the photos are closer to landscape/portrait, so object-contain is used to
+// always show the whole photo -- any leftover space on the sides shows the
+// tour's own brand-gradient background (set on the parent <section>) rather
+// than a blurred copy of the photo, which read as a rendering glitch.
 export default function TourHeroSlideshow({ images }: { images: string[] }) {
   const [active, setActive] = useState(0);
 
@@ -24,7 +20,7 @@ export default function TourHeroSlideshow({ images }: { images: string[] }) {
   }, [images.length]);
 
   return (
-    <div className="absolute inset-0 overflow-hidden bg-ink">
+    <div className="absolute inset-0 overflow-hidden">
       {images.map((src, i) => (
         <div
           key={src}
@@ -32,15 +28,6 @@ export default function TourHeroSlideshow({ images }: { images: string[] }) {
             i === active ? "opacity-100" : "opacity-0"
           }`}
         >
-          <Image
-            src={src}
-            alt=""
-            fill
-            priority={i === 0}
-            sizes="100vw"
-            aria-hidden="true"
-            className="animate-kenburns object-cover opacity-70 blur-2xl brightness-75"
-          />
           <Image
             src={src}
             alt=""

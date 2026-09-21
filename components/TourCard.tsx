@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import type { Tour } from "@/lib/tours";
 import { useLanguage } from "@/components/LanguageProvider";
@@ -7,6 +8,7 @@ import { pick } from "@/lib/i18n";
 
 export default function TourCard({ tour }: { tour: Tour }) {
   const { locale } = useLanguage();
+  const coverImage = tour.heroImages?.[0];
 
   return (
     <Link
@@ -14,6 +16,15 @@ export default function TourCard({ tour }: { tour: Tour }) {
       className="group block overflow-hidden rounded-2xl border border-ink/10 bg-white transition-shadow hover:shadow-xl"
     >
       <div className={`relative h-64 w-full overflow-hidden ${tour.gradient}`}>
+        {coverImage && (
+          <Image
+            src={coverImage}
+            alt={pick(tour.title, locale)}
+            fill
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        )}
         <div className="absolute inset-x-4 top-4 flex flex-wrap items-start gap-2">
           <span className="rounded-full bg-white/90 px-3 py-1 text-[10px] uppercase tracking-widest text-ink">
             {pick(tour.category, locale)}
