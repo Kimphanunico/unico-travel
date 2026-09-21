@@ -31,7 +31,9 @@ export default async function DestinationPage({
   const destination = getDestinationBySlug(slug);
   if (!destination) notFound();
 
-  const destinationTours = tours.filter((t) => t.country === destination.slug);
+  const destinationTours = tours
+    .filter((t) => t.country === destination.slug)
+    .sort((a, b) => a.days - b.days);
 
   return <DestinationDetail destination={destination} destinationTours={destinationTours} />;
 }

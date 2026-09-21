@@ -14,14 +14,16 @@ export default function TourCard({ tour }: { tour: Tour }) {
       className="group block overflow-hidden rounded-2xl border border-ink/10 bg-white transition-shadow hover:shadow-xl"
     >
       <div className={`relative h-64 w-full overflow-hidden ${tour.gradient}`}>
-        <div className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-[10px] uppercase tracking-widest text-ink">
-          {pick(tour.category, locale)}
+        <div className="absolute inset-x-4 top-4 flex flex-wrap items-start gap-2">
+          <span className="rounded-full bg-white/90 px-3 py-1 text-[10px] uppercase tracking-widest text-ink">
+            {pick(tour.category, locale)}
+          </span>
+          {tour.tourType && (
+            <span className="ml-auto rounded-full bg-terracotta px-3 py-1 text-[10px] uppercase tracking-widest text-white">
+              {pick(tour.tourType, locale)}
+            </span>
+          )}
         </div>
-        {tour.tourType && (
-          <div className="absolute right-4 top-4 rounded-full bg-terracotta px-3 py-1 text-[10px] uppercase tracking-widest text-white">
-            {pick(tour.tourType, locale)}
-          </div>
-        )}
         <div className="absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/10" />
       </div>
       <div className="p-6">
