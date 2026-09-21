@@ -7,6 +7,7 @@ import TourCard from "@/components/TourCard";
 import InclusionIconGraphic from "@/components/InclusionIcon";
 import TransportIcon from "@/components/TransportIcon";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import TourHeroSlideshow from "@/components/TourHeroSlideshow";
 import { useLanguage } from "@/components/LanguageProvider";
 import { pick } from "@/lib/i18n";
 
@@ -31,6 +32,7 @@ export default function TourDetail({ tour }: { tour: Tour }) {
     )
     .slice(0, 3);
   const hasSimilar = similarTours.length > 0;
+  const hasHeroImages = !!tour.heroImages && tour.heroImages.length > 0;
 
   const locationTags =
     tour.routeStops && tour.routeStops.length > 0
@@ -78,8 +80,9 @@ export default function TourDetail({ tour }: { tour: Tour }) {
       </div>
 
       {/* Hero */}
-      <section className={`relative flex h-[60vh] min-h-[420px] items-end ${tour.gradient}`}>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+      <section className={`relative flex h-[60vh] min-h-[420px] items-end overflow-hidden ${tour.gradient}`}>
+        {hasHeroImages && <TourHeroSlideshow images={tour.heroImages!} />}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent" />
         <div className="relative mx-auto w-full max-w-7xl px-6 pb-14 pt-10 lg:px-10">
           <p className="text-xs uppercase tracking-[0.3em] text-white/80">
             {pick(tour.category, locale)}

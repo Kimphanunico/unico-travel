@@ -75,6 +75,9 @@ export interface Tour {
   // "SIC tour") -- independent of serviceType, which drives the /services
   // filter dropdown.
   tourType?: Localized;
+  // Optional real photography for the hero, shown as a slow crossfade
+  // slideshow instead of the flat gradient. Omit to keep the gradient hero.
+  heroImages?: string[];
   routeStops?: Localized[];
   gallerySegments?: GallerySegment[];
   inclusionsGrid?: InclusionItem[];
@@ -728,6 +731,10 @@ export const tours: Tour[] = [
     price: "Contact for price",
     groupSize: loc("Private group", "Nhóm riêng"),
     gradient: "gradient-ocean",
+    heroImages: [
+      "/images/tours/halong-bay-cruise-sunset.png",
+      "/images/tours/halong-bay-kayak.png",
+    ],
     tourType: loc("Private and tailored tour", "Riêng tư và thiết kế theo yêu cầu"),
     summary: loc(
       "Full itinerary details are being finalized -- enquire and our team will share the complete plan.",
