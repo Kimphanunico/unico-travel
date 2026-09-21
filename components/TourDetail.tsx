@@ -79,18 +79,19 @@ export default function TourDetail({ tour }: { tour: Tour }) {
         </div>
       </div>
 
-      {/* Hero */}
-      <section className={`relative flex h-[60vh] min-h-[420px] items-end overflow-hidden ${tour.gradient}`}>
+      {/* Hero -- kept compact so the actual content starts sooner; the
+          photo/video is a frame for the page, not the page itself. */}
+      <section className={`relative flex h-[38vh] max-h-[420px] min-h-[300px] items-end overflow-hidden ${tour.gradient}`}>
         {hasHeroImages && <TourHeroSlideshow images={tour.heroImages!} />}
         <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent" />
-        <div className="relative mx-auto w-full max-w-7xl px-6 pb-14 pt-10 lg:px-10">
+        <div className="relative mx-auto w-full max-w-7xl px-6 pb-8 pt-6 lg:px-10">
           <p className="text-xs uppercase tracking-[0.3em] text-white/80">
             {pick(tour.category, locale)}
           </p>
-          <h1 className="font-serif text-balance mt-4 max-w-2xl text-4xl text-white sm:text-5xl">
+          <h1 className="font-serif text-balance mt-3 max-w-2xl text-3xl text-white sm:text-4xl">
             {pick(tour.title, locale)}
           </h1>
-          <div className="mt-5 flex flex-wrap gap-2">
+          <div className="mt-4 flex flex-wrap gap-2">
             {tour.tourType && (
               <span className="rounded-full bg-terracotta px-3 py-1 text-xs text-white">
                 {pick(tour.tourType, locale)}

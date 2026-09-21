@@ -22,7 +22,7 @@ export default function TourHeroSlideshow({ images }: { images: string[] }) {
       {images.map((src, i) => (
         <div
           key={src}
-          className={`absolute inset-0 transition-opacity duration-[1800ms] ease-in-out ${
+          className={`absolute inset-0 transition-opacity duration-[900ms] ease-in-out ${
             i === active ? "opacity-100" : "opacity-0"
           }`}
         >

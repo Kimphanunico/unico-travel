@@ -59,8 +59,9 @@ export default function DestinationDetail({
         </div>
       </div>
 
-      {/* Hero */}
-      <section className={`relative flex h-[62vh] min-h-[440px] items-end overflow-hidden ${destination.gradient}`}>
+      {/* Hero -- kept compact so the actual content starts sooner; the
+          photo/video is a frame for the page, not the page itself. */}
+      <section className={`relative flex h-[38vh] max-h-[420px] min-h-[300px] items-end overflow-hidden ${destination.gradient}`}>
         {destination.video && (
           <video
             ref={videoRef}
@@ -79,14 +80,14 @@ export default function DestinationDetail({
           </video>
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
-        <div className="relative mx-auto w-full max-w-5xl px-6 pb-16 pt-10 text-center lg:px-10">
+        <div className="relative mx-auto w-full max-w-5xl px-6 pb-8 pt-6 text-center lg:px-10">
           <p className="text-xs uppercase tracking-[0.3em] text-white/75">
             {t("destinationDetail.tag")}
           </p>
-          <h1 className="font-serif mt-4 text-5xl uppercase tracking-wide text-white sm:text-6xl">
+          <h1 className="font-serif mt-3 text-4xl uppercase tracking-wide text-white sm:text-5xl">
             {name}
           </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-balance text-white/85">
+          <p className="mx-auto mt-3 max-w-2xl text-balance text-white/85">
             {pick(destination.tagline, locale)}
           </p>
         </div>
