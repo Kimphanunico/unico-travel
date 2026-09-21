@@ -15,7 +15,7 @@ export default function TourHeroSlideshow({ images }: { images: string[] }) {
     if (images.length < 2) return;
     const id = setInterval(() => {
       setActive((i) => (i + 1) % images.length);
-    }, 6000);
+    }, 3000);
     return () => clearInterval(id);
   }, [images.length]);
 
