@@ -111,7 +111,7 @@ export default function TourDetail({ tour }: { tour: Tour }) {
 
       {/* Sticky sub-navigation */}
       <div className="sticky top-[84px] z-30 border-b border-ink/10 bg-cream/95 backdrop-blur-sm lg:top-[117px]">
-        <nav className="mx-auto flex max-w-7xl gap-6 overflow-x-auto px-6 py-3 text-xs uppercase tracking-widest text-ink/60 lg:px-10">
+        <nav className="mx-auto flex max-w-7xl gap-4 overflow-x-auto px-4 py-3 text-[11px] uppercase tracking-wide text-ink/60 sm:gap-6 sm:px-6 sm:text-xs sm:tracking-widest lg:px-10">
           {navItems.map((item) => (
             <a
               key={item.id}
