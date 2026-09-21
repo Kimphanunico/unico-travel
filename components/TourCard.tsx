@@ -17,6 +17,11 @@ export default function TourCard({ tour }: { tour: Tour }) {
         <div className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-[10px] uppercase tracking-widest text-ink">
           {pick(tour.category, locale)}
         </div>
+        {tour.tourType && (
+          <div className="absolute right-4 top-4 rounded-full bg-terracotta px-3 py-1 text-[10px] uppercase tracking-widest text-white">
+            {pick(tour.tourType, locale)}
+          </div>
+        )}
         <div className="absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/10" />
       </div>
       <div className="p-6">

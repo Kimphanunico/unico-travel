@@ -63,11 +63,18 @@ export interface Tour {
   groupSize: Localized;
   gradient: string;
   summary: Localized;
-  description: Localized[];
-  highlights: Localized[];
-  itinerary: ItineraryDay[];
-  includes: Localized[];
-  excludes: Localized[];
+  // Optional: tours added as a name-only "frame" (product name + basic info,
+  // full write-up to follow) omit these. TourDetail shows a friendly
+  // "being written" placeholder instead of an empty section when absent.
+  description?: Localized[];
+  highlights?: Localized[];
+  itinerary?: ItineraryDay[];
+  includes?: Localized[];
+  excludes?: Localized[];
+  // Badge shown on the card and hero (e.g. "Private and tailored tour",
+  // "SIC tour") -- independent of serviceType, which drives the /services
+  // filter dropdown.
+  tourType?: Localized;
   routeStops?: Localized[];
   gallerySegments?: GallerySegment[];
   inclusionsGrid?: InclusionItem[];
@@ -708,6 +715,348 @@ export const tours: Tour[] = [
       loc("Travel insurance", "Bảo hiểm du lịch"),
       loc("Personal expenses", "Chi tiêu cá nhân"),
     ],
+  },
+  {
+    slug: "luxury-halong-bay-1-day-tour",
+    title: loc("Luxury Halong Bay 1 Day Tour", "Du Thuyền Sang Trọng Vịnh Hạ Long 1 Ngày"),
+    location: loc("Ha Long Bay, Vietnam", "Vịnh Hạ Long, Việt Nam"),
+    category: loc("Northern Vietnam", "Miền Bắc Việt Nam"),
+    country: "vietnam",
+    serviceType: "tailor-made",
+    duration: loc("1 Day", "1 Ngày"),
+    days: 1,
+    price: "Contact for price",
+    groupSize: loc("Private group", "Nhóm riêng"),
+    gradient: "gradient-ocean",
+    tourType: loc("Private and tailored tour", "Riêng tư và thiết kế theo yêu cầu"),
+    summary: loc(
+      "Full itinerary details are being finalized -- enquire and our team will share the complete plan.",
+      "Chi tiết chương trình đang được hoàn thiện - liên hệ để được đội ngũ tư vấn gửi lịch trình đầy đủ."
+    ),
+  },
+  {
+    slug: "private-perfume-pagoda-1-day",
+    title: loc("Private Perfume Pagoda 1 Day Tour", "Chùa Hương 1 Ngày - Tour Riêng"),
+    location: loc("Hanoi, Vietnam", "Hà Nội, Việt Nam"),
+    category: loc("Northern Vietnam", "Miền Bắc Việt Nam"),
+    country: "vietnam",
+    serviceType: "tailor-made",
+    duration: loc("1 Day", "1 Ngày"),
+    days: 1,
+    price: "Contact for price",
+    groupSize: loc("Private group", "Nhóm riêng"),
+    gradient: "gradient-forest",
+    tourType: loc("Private and tailored tour", "Riêng tư và thiết kế theo yêu cầu"),
+    summary: loc(
+      "Full itinerary details are being finalized -- enquire and our team will share the complete plan.",
+      "Chi tiết chương trình đang được hoàn thiện - liên hệ để được đội ngũ tư vấn gửi lịch trình đầy đủ."
+    ),
+  },
+  {
+    slug: "private-bai-dinh-trang-an-full-day",
+    title: loc("Private Bai Dinh Pagoda and Trang An Full-Day", "Bái Đính và Tràng An Trọn Ngày - Tour Riêng"),
+    location: loc("Ninh Binh, Vietnam", "Ninh Bình, Việt Nam"),
+    category: loc("Northern Vietnam", "Miền Bắc Việt Nam"),
+    country: "vietnam",
+    serviceType: "tailor-made",
+    duration: loc("1 Day", "1 Ngày"),
+    days: 1,
+    price: "Contact for price",
+    groupSize: loc("Private group", "Nhóm riêng"),
+    gradient: "gradient-sand",
+    tourType: loc("Private and tailored tour", "Riêng tư và thiết kế theo yêu cầu"),
+    summary: loc(
+      "Full itinerary details are being finalized -- enquire and our team will share the complete plan.",
+      "Chi tiết chương trình đang được hoàn thiện - liên hệ để được đội ngũ tư vấn gửi lịch trình đầy đủ."
+    ),
+  },
+  {
+    slug: "private-hoa-lu-tam-coc-full-day",
+    title: loc("Private Hoa Lu - Tam Coc Full-Day", "Hoa Lư - Tam Cốc Trọn Ngày - Tour Riêng"),
+    location: loc("Ninh Binh, Vietnam", "Ninh Bình, Việt Nam"),
+    category: loc("Northern Vietnam", "Miền Bắc Việt Nam"),
+    country: "vietnam",
+    serviceType: "tailor-made",
+    duration: loc("1 Day", "1 Ngày"),
+    days: 1,
+    price: "Contact for price",
+    groupSize: loc("Private group", "Nhóm riêng"),
+    gradient: "gradient-sunset",
+    tourType: loc("Private and tailored tour", "Riêng tư và thiết kế theo yêu cầu"),
+    summary: loc(
+      "Full itinerary details are being finalized -- enquire and our team will share the complete plan.",
+      "Chi tiết chương trình đang được hoàn thiện - liên hệ để được đội ngũ tư vấn gửi lịch trình đầy đủ."
+    ),
+  },
+  {
+    slug: "private-hanoi-city-tour-full-day",
+    title: loc("Private Hanoi City Tour Full-Day", "Tham Quan Hà Nội Trọn Ngày - Tour Riêng"),
+    location: loc("Hanoi, Vietnam", "Hà Nội, Việt Nam"),
+    category: loc("Northern Vietnam", "Miền Bắc Việt Nam"),
+    country: "vietnam",
+    serviceType: "tailor-made",
+    duration: loc("1 Day", "1 Ngày"),
+    days: 1,
+    price: "Contact for price",
+    groupSize: loc("Private group", "Nhóm riêng"),
+    gradient: "gradient-dusk",
+    tourType: loc("Private and tailored tour", "Riêng tư và thiết kế theo yêu cầu"),
+    summary: loc(
+      "Full itinerary details are being finalized -- enquire and our team will share the complete plan.",
+      "Chi tiết chương trình đang được hoàn thiện - liên hệ để được đội ngũ tư vấn gửi lịch trình đầy đủ."
+    ),
+  },
+  {
+    slug: "hanoi-private-motorbike-tour",
+    title: loc("Hanoi Private Motorbike Tour", "Tour Xe Máy Riêng Tại Hà Nội"),
+    location: loc("Hanoi, Vietnam", "Hà Nội, Việt Nam"),
+    category: loc("Northern Vietnam", "Miền Bắc Việt Nam"),
+    country: "vietnam",
+    serviceType: "tailor-made",
+    duration: loc("1 Day", "1 Ngày"),
+    days: 1,
+    price: "Contact for price",
+    groupSize: loc("Private group", "Nhóm riêng"),
+    gradient: "gradient-snow",
+    tourType: loc("Private and tailored tour", "Riêng tư và thiết kế theo yêu cầu"),
+    summary: loc(
+      "Full itinerary details are being finalized -- enquire and our team will share the complete plan.",
+      "Chi tiết chương trình đang được hoàn thiện - liên hệ để được đội ngũ tư vấn gửi lịch trình đầy đủ."
+    ),
+  },
+  {
+    slug: "bana-hills-tour",
+    title: loc("Ba Na Hills Tour", "Tour Bà Nà Hills"),
+    location: loc("Da Nang, Vietnam", "Đà Nẵng, Việt Nam"),
+    category: loc("Middle Vietnam", "Miền Trung Việt Nam"),
+    country: "vietnam",
+    serviceType: "tailor-made",
+    duration: loc("1 Day", "1 Ngày"),
+    days: 1,
+    price: "Contact for price",
+    groupSize: loc("Private group", "Nhóm riêng"),
+    gradient: "gradient-ocean",
+    tourType: loc("Private and tailored tour", "Riêng tư và thiết kế theo yêu cầu"),
+    summary: loc(
+      "Full itinerary details are being finalized -- enquire and our team will share the complete plan.",
+      "Chi tiết chương trình đang được hoàn thiện - liên hệ để được đội ngũ tư vấn gửi lịch trình đầy đủ."
+    ),
+  },
+  {
+    slug: "danang-city-tour",
+    title: loc("Da Nang City Tour", "Tham Quan Thành Phố Đà Nẵng"),
+    location: loc("Da Nang, Vietnam", "Đà Nẵng, Việt Nam"),
+    category: loc("Middle Vietnam", "Miền Trung Việt Nam"),
+    country: "vietnam",
+    serviceType: "tailor-made",
+    duration: loc("1 Day", "1 Ngày"),
+    days: 1,
+    price: "Contact for price",
+    groupSize: loc("Private group", "Nhóm riêng"),
+    gradient: "gradient-forest",
+    tourType: loc("Private and tailored tour", "Riêng tư và thiết kế theo yêu cầu"),
+    summary: loc(
+      "Full itinerary details are being finalized -- enquire and our team will share the complete plan.",
+      "Chi tiết chương trình đang được hoàn thiện - liên hệ để được đội ngũ tư vấn gửi lịch trình đầy đủ."
+    ),
+  },
+  {
+    slug: "hoi-an-ancient-town-full-day",
+    title: loc("Hoi An Ancient Town Full-Day", "Phố Cổ Hội An Trọn Ngày"),
+    location: loc("Hoi An, Vietnam", "Hội An, Việt Nam"),
+    category: loc("Middle Vietnam", "Miền Trung Việt Nam"),
+    country: "vietnam",
+    serviceType: "tailor-made",
+    duration: loc("1 Day", "1 Ngày"),
+    days: 1,
+    price: "Contact for price",
+    groupSize: loc("Private group", "Nhóm riêng"),
+    gradient: "gradient-sand",
+    tourType: loc("Private and tailored tour", "Riêng tư và thiết kế theo yêu cầu"),
+    summary: loc(
+      "Full itinerary details are being finalized -- enquire and our team will share the complete plan.",
+      "Chi tiết chương trình đang được hoàn thiện - liên hệ để được đội ngũ tư vấn gửi lịch trình đầy đủ."
+    ),
+  },
+  {
+    slug: "hoi-an-cycling-tour",
+    title: loc("Hoi An Cycling Tour", "Tour Đạp Xe Hội An"),
+    location: loc("Hoi An, Vietnam", "Hội An, Việt Nam"),
+    category: loc("Middle Vietnam", "Miền Trung Việt Nam"),
+    country: "vietnam",
+    serviceType: "tailor-made",
+    duration: loc("1 Day", "1 Ngày"),
+    days: 1,
+    price: "Contact for price",
+    groupSize: loc("Private group", "Nhóm riêng"),
+    gradient: "gradient-sunset",
+    tourType: loc("Private and tailored tour", "Riêng tư và thiết kế theo yêu cầu"),
+    summary: loc(
+      "Full itinerary details are being finalized -- enquire and our team will share the complete plan.",
+      "Chi tiết chương trình đang được hoàn thiện - liên hệ để được đội ngũ tư vấn gửi lịch trình đầy đủ."
+    ),
+  },
+  {
+    slug: "hoi-an-cooking-class-half-day",
+    title: loc("Hoi An Cooking Class (Half Day)", "Lớp Học Nấu Ăn Hội An (Nửa Ngày)"),
+    location: loc("Hoi An, Vietnam", "Hội An, Việt Nam"),
+    category: loc("Middle Vietnam", "Miền Trung Việt Nam"),
+    country: "vietnam",
+    serviceType: "tailor-made",
+    duration: loc("Half Day", "Nửa Ngày"),
+    days: 1,
+    price: "Contact for price",
+    groupSize: loc("Private group", "Nhóm riêng"),
+    gradient: "gradient-dusk",
+    tourType: loc("Private and tailored tour", "Riêng tư và thiết kế theo yêu cầu"),
+    summary: loc(
+      "Full itinerary details are being finalized -- enquire and our team will share the complete plan.",
+      "Chi tiết chương trình đang được hoàn thiện - liên hệ để được đội ngũ tư vấn gửi lịch trình đầy đủ."
+    ),
+  },
+  {
+    slug: "mekong-delta-1-day-tour",
+    title: loc("Mekong Delta 1 Day Tour", "Đồng Bằng Sông Cửu Long 1 Ngày"),
+    location: loc("Mekong Delta, Vietnam", "Đồng Bằng Sông Cửu Long, Việt Nam"),
+    category: loc("Southern Vietnam", "Miền Nam Việt Nam"),
+    country: "vietnam",
+    serviceType: "tailor-made",
+    duration: loc("1 Day", "1 Ngày"),
+    days: 1,
+    price: "Contact for price",
+    groupSize: loc("Private or shared group", "Nhóm riêng hoặc ghép đoàn"),
+    gradient: "gradient-snow",
+    tourType: loc("Private or group tour", "Tour riêng hoặc tour ghép đoàn"),
+    summary: loc(
+      "Full itinerary details are being finalized -- enquire and our team will share the complete plan.",
+      "Chi tiết chương trình đang được hoàn thiện - liên hệ để được đội ngũ tư vấn gửi lịch trình đầy đủ."
+    ),
+  },
+  {
+    slug: "ho-chi-minh-city-tour-1-day",
+    title: loc("Ho Chi Minh City Tour (1 Day)", "Tham Quan Thành Phố Hồ Chí Minh 1 Ngày"),
+    location: loc("Ho Chi Minh City, Vietnam", "TP. Hồ Chí Minh, Việt Nam"),
+    category: loc("Southern Vietnam", "Miền Nam Việt Nam"),
+    country: "vietnam",
+    serviceType: "tailor-made",
+    duration: loc("1 Day", "1 Ngày"),
+    days: 1,
+    price: "Contact for price",
+    groupSize: loc("Private group", "Nhóm riêng"),
+    gradient: "gradient-ocean",
+    tourType: loc("Private and tailored tour", "Riêng tư và thiết kế theo yêu cầu"),
+    summary: loc(
+      "Full itinerary details are being finalized -- enquire and our team will share the complete plan.",
+      "Chi tiết chương trình đang được hoàn thiện - liên hệ để được đội ngũ tư vấn gửi lịch trình đầy đủ."
+    ),
+  },
+  {
+    slug: "ho-chi-minh-cu-chi-tunnels-full-day",
+    title: loc("Ho Chi Minh City and Cu Chi Tunnels Full-Day", "TP. Hồ Chí Minh và Địa Đạo Củ Chi Trọn Ngày"),
+    location: loc("Ho Chi Minh City, Vietnam", "TP. Hồ Chí Minh, Việt Nam"),
+    category: loc("Southern Vietnam", "Miền Nam Việt Nam"),
+    country: "vietnam",
+    serviceType: "tailor-made",
+    duration: loc("1 Day", "1 Ngày"),
+    days: 1,
+    price: "Contact for price",
+    groupSize: loc("Private group", "Nhóm riêng"),
+    gradient: "gradient-forest",
+    tourType: loc("Private and tailored tour", "Riêng tư và thiết kế theo yêu cầu"),
+    summary: loc(
+      "Full itinerary details are being finalized -- enquire and our team will share the complete plan.",
+      "Chi tiết chương trình đang được hoàn thiện - liên hệ để được đội ngũ tư vấn gửi lịch trình đầy đủ."
+    ),
+  },
+  {
+    slug: "cao-dai-temple-cu-chi-tunnels-day-tour",
+    title: loc("Cao Dai Temple and Cu Chi Tunnels Day Tour", "Tòa Thánh Cao Đài và Địa Đạo Củ Chi"),
+    location: loc("Tay Ninh, Vietnam", "Tây Ninh, Việt Nam"),
+    category: loc("Southern Vietnam", "Miền Nam Việt Nam"),
+    country: "vietnam",
+    serviceType: "tailor-made",
+    duration: loc("1 Day", "1 Ngày"),
+    days: 1,
+    price: "Contact for price",
+    groupSize: loc("Private group", "Nhóm riêng"),
+    gradient: "gradient-sand",
+    tourType: loc("Private and tailored tour", "Riêng tư và thiết kế theo yêu cầu"),
+    summary: loc(
+      "Full itinerary details are being finalized -- enquire and our team will share the complete plan.",
+      "Chi tiết chương trình đang được hoàn thiện - liên hệ để được đội ngũ tư vấn gửi lịch trình đầy đủ."
+    ),
+  },
+  {
+    slug: "can-gio-ecological-full-day-tour",
+    title: loc("Can Gio Ecological Full-Day Tour", "Rừng Ngập Mặn Cần Giờ Trọn Ngày"),
+    location: loc("Can Gio, Vietnam", "Cần Giờ, Việt Nam"),
+    category: loc("Southern Vietnam", "Miền Nam Việt Nam"),
+    country: "vietnam",
+    serviceType: "tailor-made",
+    duration: loc("1 Day", "1 Ngày"),
+    days: 1,
+    price: "Contact for price",
+    groupSize: loc("Private group", "Nhóm riêng"),
+    gradient: "gradient-sunset",
+    tourType: loc("Private and tailored tour", "Riêng tư và thiết kế theo yêu cầu"),
+    summary: loc(
+      "Full itinerary details are being finalized -- enquire and our team will share the complete plan.",
+      "Chi tiết chương trình đang được hoàn thiện - liên hệ để được đội ngũ tư vấn gửi lịch trình đầy đủ."
+    ),
+  },
+  {
+    slug: "ho-chi-minh-motorbike-tour",
+    title: loc("Ho Chi Minh City Motorbike Tour", "Tour Xe Máy TP. Hồ Chí Minh"),
+    location: loc("Ho Chi Minh City, Vietnam", "TP. Hồ Chí Minh, Việt Nam"),
+    category: loc("Southern Vietnam", "Miền Nam Việt Nam"),
+    country: "vietnam",
+    serviceType: "tailor-made",
+    duration: loc("1 Day", "1 Ngày"),
+    days: 1,
+    price: "Contact for price",
+    groupSize: loc("Private group", "Nhóm riêng"),
+    gradient: "gradient-dusk",
+    tourType: loc("Private and tailored tour", "Riêng tư và thiết kế theo yêu cầu"),
+    summary: loc(
+      "Full itinerary details are being finalized -- enquire and our team will share the complete plan.",
+      "Chi tiết chương trình đang được hoàn thiện - liên hệ để được đội ngũ tư vấn gửi lịch trình đầy đủ."
+    ),
+  },
+  {
+    slug: "nha-trang-cruise-sic-tour",
+    title: loc("Discover Nha Trang with Cruise", "Khám Phá Nha Trang Bằng Du Thuyền"),
+    location: loc("Nha Trang, Vietnam", "Nha Trang, Việt Nam"),
+    category: loc("Nha Trang", "Nha Trang"),
+    country: "vietnam",
+    serviceType: "tailor-made",
+    duration: loc("1 Day", "1 Ngày"),
+    days: 1,
+    price: "Contact for price",
+    groupSize: loc("Small shared group", "Nhóm nhỏ ghép đoàn"),
+    gradient: "gradient-snow",
+    tourType: loc("SIC tour", "Tour ghép đoàn (SIC)"),
+    summary: loc(
+      "Full itinerary details are being finalized -- enquire and our team will share the complete plan.",
+      "Chi tiết chương trình đang được hoàn thiện - liên hệ để được đội ngũ tư vấn gửi lịch trình đầy đủ."
+    ),
+  },
+  {
+    slug: "nha-trang-island-private-tailored-tour",
+    title: loc("Nha Trang Island Private and Tailored Tour", "Đảo Nha Trang - Tour Riêng Thiết Kế Theo Yêu Cầu"),
+    location: loc("Nha Trang, Vietnam", "Nha Trang, Việt Nam"),
+    category: loc("Nha Trang", "Nha Trang"),
+    country: "vietnam",
+    serviceType: "tailor-made",
+    duration: loc("1 Day", "1 Ngày"),
+    days: 1,
+    price: "Contact for price",
+    groupSize: loc("Private group", "Nhóm riêng"),
+    gradient: "gradient-ocean",
+    tourType: loc("Private and tailored tour", "Riêng tư và thiết kế theo yêu cầu"),
+    summary: loc(
+      "Full itinerary details are being finalized -- enquire and our team will share the complete plan.",
+      "Chi tiết chương trình đang được hoàn thiện - liên hệ để được đội ngũ tư vấn gửi lịch trình đầy đủ."
+    ),
   },
 ];
 

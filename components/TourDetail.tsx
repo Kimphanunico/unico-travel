@@ -17,6 +17,11 @@ export default function TourDetail({ tour }: { tour: Tour }) {
   const hasInclusionsGrid = !!tour.inclusionsGrid && tour.inclusionsGrid.length > 0;
   const hasHotels = !!tour.hotels && tour.hotels.length > 0;
   const hasFaqs = !!tour.faqs && tour.faqs.length > 0;
+  const hasDescription = !!tour.description && tour.description.length > 0;
+  const hasHighlights = !!tour.highlights && tour.highlights.length > 0;
+  const hasItinerary = !!tour.itinerary && tour.itinerary.length > 0;
+  const hasIncludesExcludes =
+    (!!tour.includes && tour.includes.length > 0) || (!!tour.excludes && tour.excludes.length > 0);
 
   const similarTours = tours
     .filter(
@@ -48,7 +53,7 @@ export default function TourDetail({ tour }: { tour: Tour }) {
   const navItems: { id: string; label: string }[] = [
     { id: "overview", label: t("tour.navOverview") },
     ...(hasJourney ? [{ id: "journey", label: t("tour.navJourney") }] : []),
-    { id: "itinerary", label: t("tour.navItinerary") },
+    ...(hasItinerary ? [{ id: "itinerary", label: t("tour.navItinerary") }] : []),
     ...(hasHotels ? [{ id: "hotels", label: t("tour.navHotels") }] : []),
     ...(hasFaqs ? [{ id: "faqs", label: t("tour.navFaqs") }] : []),
     ...(hasSimilar ? [{ id: "similar", label: t("tour.navSimilar") }] : []),
@@ -83,6 +88,11 @@ export default function TourDetail({ tour }: { tour: Tour }) {
             {pick(tour.title, locale)}
           </h1>
           <div className="mt-5 flex flex-wrap gap-2">
+            {tour.tourType && (
+              <span className="rounded-full bg-terracotta px-3 py-1 text-xs text-white">
+                {pick(tour.tourType, locale)}
+              </span>
+            )}
             {locationTags.map((loc, i) => (
               <span
                 key={i}
@@ -116,28 +126,43 @@ export default function TourDetail({ tour }: { tour: Tour }) {
           {/* Overview */}
           <div id="overview" className="scroll-mt-40">
             <p className="text-lg leading-relaxed text-ink/75">{pick(tour.summary, locale)}</p>
-            {tour.description.map((p, i) => (
+            {tour.description?.map((p, i) => (
               <p key={i} className="mt-5 leading-relaxed text-ink/65">
                 {pick(p, locale)}
               </p>
             ))}
           </div>
 
+          {/* Frame-only tour: full write-up not published yet. One clear,
+              friendly notice instead of several empty-looking sections. */}
+          {!hasDescription && !hasHighlights && !hasItinerary && (
+            <div className="mt-10 rounded-2xl border border-dashed border-terracotta/30 bg-terracotta/5 p-6 text-center">
+              <p className="font-serif text-lg text-ink">{t("tour.comingSoonHeading")}</p>
+              <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-ink/60">
+                {t("tour.comingSoonBody")}
+              </p>
+            </div>
+          )}
+
           {/* Highlights */}
-          <h2 className="font-serif mt-14 text-2xl text-ink">{t("tour.highlightsOfThisTour")}</h2>
-          <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-            {tour.highlights.map((h, i) => (
-              <li
-                key={i}
-                className="flex items-start gap-3 rounded-xl border border-ink/10 bg-white p-4 text-sm text-ink/70"
-              >
-                <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-terracotta/10 text-terracotta">
-                  &#10003;
-                </span>
-                {pick(h, locale)}
-              </li>
-            ))}
-          </ul>
+          {hasHighlights && (
+            <>
+              <h2 className="font-serif mt-14 text-2xl text-ink">{t("tour.highlightsOfThisTour")}</h2>
+              <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+                {tour.highlights!.map((h, i) => (
+                  <li
+                    key={i}
+                    className="flex items-start gap-3 rounded-xl border border-ink/10 bg-white p-4 text-sm text-ink/70"
+                  >
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-terracotta/10 text-terracotta">
+                      &#10003;
+                    </span>
+                    {pick(h, locale)}
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
 
           {/* Journey / gallery segments */}
           {hasJourney && (
@@ -235,10 +260,11 @@ export default function TourDetail({ tour }: { tour: Tour }) {
           )}
 
           {/* Itinerary accordion */}
+          {hasItinerary && (
           <div id="itinerary" className="scroll-mt-40">
             <h2 className="font-serif mt-14 text-2xl text-ink">{t("tour.itinerary")}</h2>
             <div className="mt-6 space-y-3">
-              {tour.itinerary.map((day, i) => {
+              {tour.itinerary!.map((day, i) => {
                 const isOpen = openDay === i;
                 return (
                   <div
@@ -286,6 +312,7 @@ export default function TourDetail({ tour }: { tour: Tour }) {
               })}
             </div>
           </div>
+          )}
 
           {/* Hotel list */}
           {hasHotels && (
@@ -327,11 +354,12 @@ export default function TourDetail({ tour }: { tour: Tour }) {
           )}
 
           {/* Includes / excludes */}
+          {hasIncludesExcludes && (
           <div className="mt-14 grid gap-8 sm:grid-cols-2">
             <div>
               <h3 className="font-serif text-lg text-ink">{t("tour.included")}</h3>
               <ul className="mt-3 space-y-2 text-sm text-ink/65">
-                {tour.includes.map((i, idx) => (
+                {tour.includes?.map((i, idx) => (
                   <li key={idx}>&#10003; {pick(i, locale)}</li>
                 ))}
               </ul>
@@ -339,12 +367,13 @@ export default function TourDetail({ tour }: { tour: Tour }) {
             <div>
               <h3 className="font-serif text-lg text-ink">{t("tour.notIncluded")}</h3>
               <ul className="mt-3 space-y-2 text-sm text-ink/65">
-                {tour.excludes.map((i, idx) => (
+                {tour.excludes?.map((i, idx) => (
                   <li key={idx}>&#10005; {pick(i, locale)}</li>
                 ))}
               </ul>
             </div>
           </div>
+          )}
 
           {/* FAQs */}
           {hasFaqs && (

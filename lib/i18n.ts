@@ -307,6 +307,9 @@ export const ui = {
     tour: {
       highlights: "Highlights",
       itinerary: "Itinerary",
+      comingSoonHeading: "This itinerary is being written",
+      comingSoonBody:
+        "We're finalizing the full day-by-day plan for this tour. Enquire now and our team will send you the complete details.",
       included: "What's included",
       notIncluded: "Not included",
       perPerson: "per person",
@@ -685,6 +688,9 @@ export const ui = {
     tour: {
       highlights: "Điểm nổi bật",
       itinerary: "Lịch trình",
+      comingSoonHeading: "Chương trình đang được hoàn thiện",
+      comingSoonBody:
+        "Đội ngũ Unico Travel đang xây dựng lịch trình chi tiết theo từng ngày cho tour này. Gửi yêu cầu ngay để được tư vấn đầy đủ.",
       included: "Đã bao gồm",
       notIncluded: "Không bao gồm",
       perPerson: "mỗi khách",
