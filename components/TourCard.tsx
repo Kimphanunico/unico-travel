@@ -30,7 +30,7 @@ export default function TourCard({ tour }: { tour: Tour }) {
             {pick(tour.category, locale)}
           </span>
           {tour.tourType && (
-            <span className="ml-auto rounded-full bg-terracotta px-3 py-1 text-[10px] uppercase tracking-widest text-white">
+            <span className="ml-auto rounded-full bg-terracotta px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">
               {pick(tour.tourType, locale)}
             </span>
           )}
