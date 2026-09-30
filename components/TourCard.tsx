@@ -26,7 +26,7 @@ export default function TourCard({ tour }: { tour: Tour }) {
           />
         )}
         <div className="absolute inset-x-4 top-4 flex flex-wrap items-start gap-2">
-          <span className="rounded-full border border-white/35 bg-white/20 px-3 py-1 text-[10px] uppercase tracking-widest text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.5),inset_0_-1px_1px_rgba(0,0,0,0.06),0_4px_14px_rgba(0,0,0,0.12)] backdrop-blur-md backdrop-saturate-150 [text-shadow:0_1px_3px_rgba(0,0,0,0.35)]">
+          <span className="rounded-full border border-white/35 bg-white/20 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.5),inset_0_-1px_1px_rgba(0,0,0,0.06),0_4px_14px_rgba(0,0,0,0.12)] backdrop-blur-md backdrop-saturate-150 [text-shadow:0_1px_3px_rgba(0,0,0,0.35)]">
             {pick(tour.category, locale)}
           </span>
           {tour.tourType && (
