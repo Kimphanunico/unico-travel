@@ -6,6 +6,7 @@ import type { Tour } from "@/lib/tours";
 import { useLanguage } from "@/components/LanguageProvider";
 import { pick } from "@/lib/i18n";
 import { getDurationBucket } from "@/lib/durationBuckets";
+import { getTravelStyle } from "@/lib/travelStyles";
 
 const COUNTRY_LABELS: Record<string, { en: string; vi: string }> = {
   vietnam: { en: "Vietnam", vi: "Việt Nam" },
@@ -30,11 +31,13 @@ export default function ServicesList({
   country,
   type,
   days,
+  style,
 }: {
   tours: Tour[];
   country?: string;
   type?: string;
   days?: string;
+  style?: string;
 }) {
   const { locale, t } = useLanguage();
 
@@ -47,12 +50,16 @@ export default function ServicesList({
   const durationBucket = days ? getDurationBucket(days) : undefined;
   const durationLabel = durationBucket ? pick(durationBucket.label, locale) : null;
 
+  const travelStyle = style ? getTravelStyle(style) : undefined;
+  const styleLabel = travelStyle ? pick(travelStyle.label, locale) : null;
+
   return (
     <div className="pt-32">
       <section className="mx-auto max-w-4xl px-6 text-center lg:px-10">
         <p className="text-xs uppercase tracking-[0.3em] text-terracotta">
           {activeLabel
             ? `${activeLabel} ${locale === "vi" ? "" : "Tours"}`.trim() +
+              (styleLabel ? ` · ${styleLabel}` : "") +
               (durationLabel ? ` · ${durationLabel}` : "")
             : t("services.tag")}
         </p>
@@ -64,7 +71,7 @@ export default function ServicesList({
             : t("services.heading")}
         </h1>
         <p className="mt-6 leading-relaxed text-ink/65">{t("services.body")}</p>
-        {activeLabel && (
+        {(activeLabel || styleLabel || durationLabel) && (
           <Link
             href="/services"
             className="mt-4 inline-block text-sm uppercase tracking-widest text-ink underline decoration-terracotta underline-offset-8 hover:text-terracotta"

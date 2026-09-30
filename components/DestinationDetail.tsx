@@ -7,9 +7,10 @@ import type { Destination } from "@/lib/destinations";
 import type { Tour } from "@/lib/tours";
 import TourCard from "@/components/TourCard";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import TourStyleFinder from "@/components/TourStyleFinder";
 import { useLanguage } from "@/components/LanguageProvider";
 import { pick } from "@/lib/i18n";
-import { DURATION_BUCKETS } from "@/lib/durationBuckets";
+import { toStyleKey } from "@/lib/travelStyles";
 
 export default function DestinationDetail({
   destination,
@@ -21,6 +22,9 @@ export default function DestinationDetail({
   const { locale, t } = useLanguage();
   const name = pick(destination.name, locale);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const availableStyleKeys = Array.from(
+    new Set(destinationTours.map((tour) => toStyleKey(tour.category.en)))
+  );
 
   useEffect(() => {
     const video = videoRef.current;
@@ -206,33 +210,11 @@ export default function DestinationDetail({
           </Link>
         </div>
 
-        {/* Quick links by trip length, so travelers can jump straight to a
-            fitting itinerary rather than scanning the whole list. */}
-        <div className="mt-6 flex flex-wrap gap-2.5">
-          {DURATION_BUCKETS.map((bucket) => {
-            const durationLabel = pick(bucket.label, locale);
-            const linkLabel =
-              locale === "vi" ? `Tour ${name} ${durationLabel}` : `${name} Tours ${durationLabel}`;
-            return (
-              <Link
-                key={bucket.key}
-                href={`/services?country=${destination.slug}&days=${bucket.key}`}
-                className="inline-flex items-center gap-1.5 rounded-full border border-ink/15 px-4 py-2 text-xs text-ink/70 hover:border-terracotta hover:text-terracotta"
-              >
-                {linkLabel}
-                <svg width="9" height="9" viewBox="0 0 10 10" fill="none" className="shrink-0">
-                  <path
-                    d="M2.5 7.5L7.5 2.5M7.5 2.5H3.5M7.5 2.5V6.5"
-                    stroke="currentColor"
-                    strokeWidth="1"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </Link>
-            );
-          })}
-        </div>
+        {/* Travel Style + Duration finder, so travelers can narrow the list
+            straight to a fitting itinerary rather than scanning every card. */}
+        {availableStyleKeys.length > 0 && (
+          <TourStyleFinder country={destination.slug} availableStyleKeys={availableStyleKeys} />
+        )}
 
         {destinationTours.length > 0 ? (
           <div className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">

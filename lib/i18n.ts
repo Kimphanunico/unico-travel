@@ -293,6 +293,11 @@ export const ui = {
       mapHeading: "Vietnam at a glance",
       mapBody:
         "A stretched coastline bordered by three countries, with a different landscape every few hundred kilometers.",
+      travelStyle: "Travel Style",
+      allStyles: "All Styles",
+      duration: "Duration",
+      allDurations: "All Durations",
+      findTour: "Find Tour",
     },
     blog: {
       tag: "The Journal",
@@ -674,6 +679,11 @@ export const ui = {
       mapHeading: "Việt Nam trong một cái nhìn",
       mapBody:
         "Một dải đất trải dài giáp ranh ba quốc gia, cứ vài trăm cây số lại đổi sang một vùng cảnh quan khác.",
+      travelStyle: "Loại hình tour",
+      allStyles: "Tất cả loại hình",
+      duration: "Thời lượng",
+      allDurations: "Tất cả thời lượng",
+      findTour: "Tìm tour",
     },
     blog: {
       tag: "Nhật ký hành trình",
