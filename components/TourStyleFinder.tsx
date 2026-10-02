@@ -34,17 +34,8 @@ export default function TourStyleFinder({
     router.push(`/services?${params.toString()}`);
   }
 
-  // Poppins is the site's English-only trial font (no Vietnamese glyph
-  // coverage), so it's applied here explicitly rather than relying on the
-  // font-serif utility, which is meant for serif headings, not this bar.
-  const poppinsStyle =
-    locale === "en" ? { fontFamily: "var(--font-poppins), var(--font-sans)" } : undefined;
-
   return (
-    <div
-      className="mx-auto mt-8 flex max-w-3xl flex-col gap-2 rounded-3xl border border-ink/10 bg-white p-2 shadow-sm sm:flex-row sm:items-center sm:rounded-full"
-      style={poppinsStyle}
-    >
+    <div className="mx-auto mt-8 flex max-w-3xl flex-col gap-2 rounded-3xl border border-ink/10 bg-white p-2 shadow-sm sm:flex-row sm:items-center sm:rounded-full">
       <div className="flex flex-1 items-center gap-2 rounded-full px-5 py-2.5">
         <span className="shrink-0 text-xs uppercase tracking-wide text-ink/45">
           {t("destinationDetail.travelStyle")}
