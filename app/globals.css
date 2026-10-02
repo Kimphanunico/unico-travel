@@ -34,9 +34,18 @@
 /* Poppins trial: English only, body/UI text -- headings keep the original
    serif (font-serif) in both languages. Poppins has no Vietnamese glyph
    coverage on Google Fonts, so the Vietnamese site keeps the system sans
-   stack. LanguageProvider toggles this attribute on <html>. */
+   stack. LanguageProvider toggles this attribute on <html>.
+   Note: Tailwind's `@theme inline` bakes the --font-sans value directly
+   into the generated .font-sans utility class at build time, so merely
+   overriding the --font-sans custom property here has no effect on
+   <body class="font-sans">. The rule below targets body's font-family
+   directly instead, which does take effect. */
 html[data-locale="en"] {
   --font-sans: var(--font-poppins), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+}
+html[data-locale="en"] body {
+  font-family: var(--font-poppins), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Helvetica, Arial, sans-serif;
 }
 
